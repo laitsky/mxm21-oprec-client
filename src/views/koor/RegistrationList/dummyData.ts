@@ -43,4 +43,4 @@ export const dataPendaftar: Pendaftar[] = [
     divisi: 'Perkap',
     lulus: false,
   },
-]
+];

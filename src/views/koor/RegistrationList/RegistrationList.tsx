@@ -34,9 +34,11 @@ const RegistrationList: React.FC = () => {
     setData([...newData]);
   };
 
-  const handleInterviewDateChange = (nim: string) => (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleInterviewDateChange = (nim: string) => (
+    e: React.ChangeEvent<HTMLSelectElement>,
+  ) => {
     console.log(nim, e.target.value);
-  }
+  };
 
   return (
     <>
@@ -76,21 +78,31 @@ const RegistrationList: React.FC = () => {
                   </Select>
                 </Td>
                 <Td>
-                    <Select
-                      defaultValue={'option1'}
-                      onChange={handleInterviewDateChange(d.nim)}
-                      disabled={!d.lulus}
-                    >
-                      <option value="option1" disabled>
-                        Pilih
-                      </option>
-                      <option value="15 Februari 2021">15 Februari 2021</option>
-                      <option value="16 Februari 2021">16 Februari 2021</option>
-                      <option value="17 Februari 2021">17 Februari 2021</option>
-                      <option value="18 Februari 2021">18 Februari 2021</option>
-                      <option value="19 Februari 2021">19 Februari 2021</option>
-                    </Select>
-                  </Td>
+                  <Select
+                    defaultValue="option1"
+                    onChange={handleInterviewDateChange(d.nim)}
+                    disabled={!d.lulus}
+                  >
+                    <option value="option1" disabled>
+                      Pilih
+                    </option>
+                    <option value="15 Februari 2021">
+                      15 Februari 2021
+                    </option>
+                    <option value="16 Februari 2021">
+                      16 Februari 2021
+                    </option>
+                    <option value="17 Februari 2021">
+                      17 Februari 2021
+                    </option>
+                    <option value="18 Februari 2021">
+                      18 Februari 2021
+                    </option>
+                    <option value="19 Februari 2021">
+                      19 Februari 2021
+                    </option>
+                  </Select>
+                </Td>
               </Tr>
             ))}
           </Tbody>
