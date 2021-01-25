@@ -5,6 +5,7 @@ import {
   BtnExampleWithProps,
   BasicButton,
   ExtendedBasicButton,
+  ButtonMaxima
 } from '../../../styles/buttons';
 import { MxmLogo } from '../../../assets';
 
@@ -21,6 +22,7 @@ const Playground: React.FC = () => {
         <ExtendedBasicButton>
           Extended Basic Button
         </ExtendedBasicButton>
+        <ButtonMaxima>Next</ButtonMaxima>        
       </Center>
     </>
   );

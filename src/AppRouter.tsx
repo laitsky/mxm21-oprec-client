@@ -29,6 +29,11 @@ const AppRouter: React.FC = () => {
         eaxct
         component={Oprec.FinalisasiData}
       />
+      <Route
+        path="/final-oprec"
+        eaxct
+        component={Oprec.FinalOprec}
+      />
       <Route path="/login" exact component={Auth.Login} />
       <Route path="/register" exact component={Auth.Register} />
       <Route
