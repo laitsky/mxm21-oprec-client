@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
+import { useHistory } from "react-router-dom";
 import {
   FormControl,
   FormLabel,
@@ -22,9 +23,11 @@ type EsaiSingkatInput = {
 };
 
 const EsaiSingkat: React.FC = () => {
+  const history = useHistory();
   const { handleSubmit, errors, register, formState } = useForm();
   const onSubmit: SubmitHandler<EsaiSingkatInput> = (data) => {
     alert(JSON.stringify(data));
+    history.push("/finalisasi-data");
   };
 
   return (
@@ -51,17 +54,19 @@ const EsaiSingkat: React.FC = () => {
             <FormErrorMessage fontSize={responsiveLabel}>{errors.esai3 && errors.esai3.message}</FormErrorMessage>
           </FormControl>
 
+          <Center pt="3em">
+            <Box pr={{base: "5em", sm: "10em", md: "20em"}}><Link to="data-diri"><ButtonBackForm>BACK</ButtonBackForm></Link></Box>
+            <Box><ButtonNextForm type="submit">NEXT</ButtonNextForm></Box>
+          </Center>
+{/* 
           <Button mt={4} colorScheme="teal" isLoading={formState.isSubmitting} type="submit">
             Submit
-          </Button>
+          </Button> */}
         </form>
-      </FormContainer>
+      </FormContainer>sf
     </Center>
 
-    <Center pt="3em">
-      <Box pr={{base: "5em", sm: "10em", md: "20em"}}><Link to="data-diri"><ButtonBackForm>BACK</ButtonBackForm></Link></Box>
-      <Box><Link to="finalisasi-data"><ButtonNextForm>NEXT</ButtonNextForm></Link></Box>
-    </Center>
+    
     </FormComponent>
   );
 };

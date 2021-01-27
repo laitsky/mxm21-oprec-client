@@ -1,43 +1,56 @@
 import * as React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import NumberFormat from "react-number-format";
+import { useHistory } from "react-router-dom";
 import {
   FormControl,
   FormLabel,
   FormErrorMessage,
   Input,
+  InputGroup, 
+  InputLeftAddon, 
+  InputRightAddon,
   Button,  
   Select,  
   Box,  
   Center,  
   Flex, 
   Spacer,  
-  Link
-} from '@chakra-ui/react';  
+  Link,
+  NumberInput,
+  NumberInputField,
+  NumberInputStepper,
+  NumberIncrementStepper,
+  NumberDecrementStepper,
+  InputLeftElement
+} from '@chakra-ui/react';
+import { AtSignIcon, ChatIcon, PhoneIcon } from '@chakra-ui/icons';  
 import { ButtonBackForm, ButtonNextForm } from '../../../styles/buttons';
 import { FormComponent, FormContainer, TitleContainer } from '../../../styles/containers';
 
 const responsiveLabel = { base: "0.8em", sm: "0.8em", md: "0.6em", lg: "0.8em", xl: "1em" };
+const responsiveBox = { base: "2em", sm: "2em", md: "1.5em", lg: "2em", xl: "2.5em" };
 
 type DataDiriInput = {
-  namaLengkap: number;
-  nim: string;
+  any: string;
 };
 
 const DataDiri: React.FC = () => {
+  const history = useHistory();
   const { handleSubmit, errors, register, formState } = useForm();
   const onSubmit: SubmitHandler<DataDiriInput> = (data) => {
     alert(JSON.stringify(data));
+    history.push("/esai-singkat");
   };
-
+  
   return (
     <FormComponent>
     
     <Center><TitleContainer>DATA DIRI</TitleContainer></Center>
 
     <Center>
-      <FormContainer>
+      <Box w="100%" p="1.5em">
         <form onSubmit={handleSubmit(onSubmit)}>
+          <FormContainer>
           <FormControl isInvalid={errors.namaLengkap}>
             <FormLabel fontSize={responsiveLabel}>Nama Lengkap</FormLabel>
             <Input name="namaLengkap" fontSize={responsiveLabel} height="2.5em" ref={register({ required: 'Isi nama lengkap kamu!' })}/>
@@ -46,7 +59,10 @@ const DataDiri: React.FC = () => {
 
           <FormControl py={5} isInvalid={errors.nim}>
             <FormLabel fontSize={responsiveLabel}>NIM</FormLabel>
-            <Input as={NumberFormat} name="nim" fontSize={responsiveLabel} height="2.5em" ref={register({ required: 'Isi nim kamu!' })}/>
+            <InputGroup>
+                 <InputLeftAddon children="000000" fontSize={responsiveLabel} height="2.5em"/>
+                 <Input name="nim" type="number" placeholder="XXXXX" fontSize={responsiveLabel} height="2.5em" ref={register({ required: 'Isi nim kamu!' })}/>
+            </InputGroup>
             <FormErrorMessage fontSize={responsiveLabel}>{errors.nim && errors.nim.message}</FormErrorMessage>
           </FormControl>
 
@@ -113,7 +129,16 @@ const DataDiri: React.FC = () => {
             </FormControl>
             <FormControl isInvalid={errors.ips}>
               <FormLabel fontSize={responsiveLabel}>IPS</FormLabel>
-              <Input as={NumberFormat} name="ips" fontSize={responsiveLabel} height="2.5em" ref={register({ required:'Isi ips kamu!' })}/>
+              {/* <Input  name="ips" fontSize={responsiveLabel} height="2.5em" ref={register({ required:'Isi ips kamu!' })}/> */}        
+  
+                <NumberInput defaultValue={0.00} step={0.01} min={0} max={4} name="ips" mt={{base:"0em", md:"0.55em", lg:"0em"}}>
+                  <NumberInputField fontSize={responsiveLabel} height="2.5em"/>
+                  <NumberInputStepper fontSize={responsiveLabel} >
+                    <NumberIncrementStepper fontSize={responsiveLabel} />
+                    <NumberDecrementStepper fontSize={responsiveLabel} />
+                  </NumberInputStepper>
+                </NumberInput>
+           
               <FormErrorMessage fontSize={responsiveLabel}>{errors.ips && errors.ips.message}</FormErrorMessage>
             </FormControl>
           </Flex>
@@ -121,50 +146,76 @@ const DataDiri: React.FC = () => {
           <Flex direction={{ base: "column", sm: "column", md: "row", lg: "row", xl: "row" }}>
             <FormControl pt={{base: 5, sm: 5, md: 5}} isInvalid={errors.divisi}>
               <FormLabel fontSize={responsiveLabel}>Pilihan Divisi</FormLabel>
-              <Select name="divisi" fontSize={responsiveLabel} height="2.5em" ref={ register({ required:'Isi angkatan kamu!' }) }>
+              <Select name="divisi" fontSize={responsiveLabel} height="2.5em" ref={ register({ required:'Isi pilihan divisi kamu!' }) }>
                 <option selected disabled hidden></option>
                 <option value="acara">Acara</option>
                 <option value="website">Website</option>
-                <FormErrorMessage fontSize={responsiveLabel}>{errors.divisi && errors.divisi.message}</FormErrorMessage>
               </Select>
+              <FormErrorMessage fontSize={responsiveLabel}>{errors.divisi && errors.divisi.message}</FormErrorMessage>
             </FormControl>
             <FormControl id="email-student" py={{base: 5, sm: 5, md: 5}} pl={{base: 0, sm: 0, md: 25}} isInvalid={errors.email}>
               <FormLabel fontSize={responsiveLabel}>Email Student</FormLabel>
-              <Input name="email" fontSize={responsiveLabel} height="2.5em" ref={ register({ required:'Isi email kamu!' }) }/>
+              <InputGroup>
+                <Input name="email" fontSize={responsiveLabel} height="2.5em" ref={ register({ required:'Isi email kamu!' }) }/>
+                <InputRightAddon children="@student.umn.ac.id" fontSize={responsiveLabel} height="2.5em"/>
+              </InputGroup>
               <FormErrorMessage fontSize={responsiveLabel}>{errors.email && errors.email.message}</FormErrorMessage>
             </FormControl>
           </Flex> 
 
           <Flex direction={{ base: "column", sm: "column", md: "row", lg: "row", xl: "row" }}>
             <FormControl isInvalid={errors.hp}>
-              <FormLabel fontSize={responsiveLabel}>No. HP & Whatsapap</FormLabel>
-              <Input as={NumberFormat} name="hp" fontSize={responsiveLabel} height="2.5em" ref={ register({ required:'Isi no HP kamu!' }) }/>
+              <FormLabel fontSize={responsiveLabel}>No. HP & Whatsapp</FormLabel>
+              <InputGroup>
+                <InputLeftElement
+                  pointerEvents="none"
+                  boxSize={responsiveBox}
+                  children={<PhoneIcon color="gray.300" boxSize={responsiveLabel}/>}
+                />
+                <Input type="number" name="hp" fontSize={responsiveLabel} height="2.5em" ref={ register({ required:'Isi no HP kamu!' }) }/>
+              </InputGroup>
               <FormErrorMessage fontSize={responsiveLabel}>{errors.hp && errors.hp.message}</FormErrorMessage>
             </FormControl>
             <FormControl py={{base: 5, sm: 5, md: 0}} px={{base: 0, sm: 0, md: 25}} isInvalid={errors.line}>
               <FormLabel fontSize={responsiveLabel}>ID LINE</FormLabel>
+              <InputGroup>
+                <InputLeftElement
+                  pointerEvents="none"
+                  boxSize={responsiveBox}
+                  children={<ChatIcon color="gray.400" boxSize={responsiveLabel}/>}
+                />
               <Input name="line" fontSize={responsiveLabel} height="2.5em" ref={ register({ required:'Isi ID LINE kamu!' }) }/>
+              </InputGroup>
               <FormErrorMessage fontSize={responsiveLabel}>{errors.line && errors.line.message}</FormErrorMessage>
             </FormControl>
             <FormControl isInvalid={errors.instagram}>
               <FormLabel fontSize={responsiveLabel}>Username Instagram</FormLabel>
-              <Input name="instagram" fontSize={responsiveLabel} height="2.5em" ref={ register({ required:'Isi instagram kamu!' }) }/>
+              <InputGroup>
+                <InputLeftElement
+                    pointerEvents="none"
+                    boxSize={responsiveBox}
+                    children={<AtSignIcon color="gray.400" boxSize={responsiveLabel}/>}
+                  />
+                <Input name="instagram" fontSize={responsiveLabel} height="2.5em" ref={ register({ required:'Isi instagram kamu!' }) }/>
+              </InputGroup>
             <FormErrorMessage fontSize={responsiveLabel}>{errors.instagram && errors.instagram.message}</FormErrorMessage>
             </FormControl>
           </Flex>
+          </FormContainer>
 
-          <Button mt={4} colorScheme="teal" isLoading={formState.isSubmitting} type="submit">
+          <Center pt="4em">
+            <Box pr={{base: "5em", sm: "10em", md: "20em"}}><Link to="/daftar-divisi"><ButtonBackForm>BACK</ButtonBackForm></Link></Box>
+            <Box><ButtonNextForm type="submit">NEXT</ButtonNextForm></Box>
+          </Center>
+          {/* <Button mt={4} colorScheme="teal" isLoading={formState.isSubmitting} type="submit">
             Submit
-          </Button>
+          </Button> */}
 
         </form>
-      </FormContainer>
+      </Box>
     </Center>
 
-    <Center pt="3em">
-      <Box pr={{base: "5em", sm: "10em", md: "20em"}}><Link to="/daftar-divisi"><ButtonBackForm>BACK</ButtonBackForm></Link></Box>
-      <Box><Link to="/esai-singkat"><ButtonNextForm colorScheme="teal" isLoading={formState.isSubmitting} type="submit">NEXT</ButtonNextForm></Link></Box>
-    </Center>
+    
     </FormComponent>
   );
 };
