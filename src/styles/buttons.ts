@@ -52,7 +52,7 @@ export const ButtonMaxima = styled.button`
   padding: 0.5em 2.5em 0.5em 2.5em;
   transition-duration: 0.2s;
   box-shadow: -3px 4px white;
-  margin-bottom: 4px; 
+  margin-bottom: 4px;
   border-radius: 0.4em;
   &:hover {
     background-color: white;
@@ -63,21 +63,21 @@ export const ButtonMaxima = styled.button`
     margin-bottom: 0;
     box-shadow: 0px 0px #1f2c4c;
   }
-  
+
   @media (max-width: 80em) {
     font-size: 1em;
   }
 
   @media (max-width: 62em) {
-      font-size: 0.9em;
+    font-size: 0.9em;
   }
 
   @media (max-width: 48em) {
-      font-size: 0.8em;
+    font-size: 0.8em;
   }
 
   @media (max-width: 30em) {
-      font-size: 0.7em;
+    font-size: 0.7em;
   }
 `;
 
@@ -91,7 +91,7 @@ export const ButtonBackForm = styled.button`
   padding: 0.5em 2.5em 0.5em 2.5em;
   transition-duration: 0.2s;
   box-shadow: -3px 4px #1f2c4c;
-  margin-bottom: 4px; 
+  margin-bottom: 4px;
   border-radius: 1em;
   &:hover {
     background-color: #1f2c4c;
@@ -102,21 +102,21 @@ export const ButtonBackForm = styled.button`
     margin-bottom: 0;
     box-shadow: 0px 0px #1f2c4c;
   }
-  
+
   @media (max-width: 80em) {
     font-size: 1em;
   }
 
   @media (max-width: 62em) {
-      font-size: 0.9em;
+    font-size: 0.9em;
   }
 
   @media (max-width: 48em) {
-      font-size: 0.8em;
+    font-size: 0.8em;
   }
 
   @media (max-width: 30em) {
-      font-size: 0.7em;
+    font-size: 0.7em;
   }
 `;
 
@@ -130,7 +130,7 @@ export const ButtonNextForm = styled.button`
   padding: 0.5em 2.5em 0.5em 2.5em;
   transition-duration: 0.2s;
   box-shadow: -3px 4px white;
-  margin-bottom: 4px; 
+  margin-bottom: 4px;
   border-radius: 1em;
   &:hover {
     background-color: white;
@@ -141,21 +141,21 @@ export const ButtonNextForm = styled.button`
     margin-bottom: 0;
     box-shadow: 0px 0px #1f2c4c;
   }
-  
+
   @media (max-width: 80em) {
     font-size: 1em;
   }
 
   @media (max-width: 62em) {
-      font-size: 0.9em;
+    font-size: 0.9em;
   }
 
   @media (max-width: 48em) {
-      font-size: 0.8em;
+    font-size: 0.8em;
   }
 
   @media (max-width: 30em) {
-      font-size: 0.7em;
+    font-size: 0.7em;
   }
 `;
 
@@ -169,7 +169,7 @@ export const ButtonBackFinal = styled.button`
   padding: 0.5em 2.5em 0.5em 2.5em;
   transition-duration: 0.2s;
   box-shadow: -3px 4px #f4224b;
-  margin-bottom: 4px; 
+  margin-bottom: 4px;
   border-radius: 1em;
   &:hover {
     background-color: #f4224b;
@@ -180,24 +180,23 @@ export const ButtonBackFinal = styled.button`
     margin-bottom: 0;
     box-shadow: 0px 0px #1f2c4c;
   }
-  
+
   @media (max-width: 80em) {
     font-size: 1em;
   }
 
   @media (max-width: 62em) {
-      font-size: 0.9em;
+    font-size: 0.9em;
   }
 
   @media (max-width: 48em) {
-      font-size: 0.8em;
+    font-size: 0.8em;
   }
 
   @media (max-width: 30em) {
-      font-size: 0.7em;
+    font-size: 0.7em;
   }
 `;
-
 
 export const ButtonNextFinal = styled.button`
   outline: none;
@@ -209,7 +208,7 @@ export const ButtonNextFinal = styled.button`
   padding: 0.5em 2.5em 0.5em 2.5em;
   transition-duration: 0.2s;
   box-shadow: -3px 4px #f4224b;
-  margin-bottom: 4px; 
+  margin-bottom: 4px;
   border-radius: 1em;
   &:hover {
     background-color: #f4224b;
@@ -220,20 +219,20 @@ export const ButtonNextFinal = styled.button`
     margin-bottom: 0;
     box-shadow: 0px 0px #1f2c4c;
   }
-  
+
   @media (max-width: 80em) {
     font-size: 1em;
   }
 
   @media (max-width: 62em) {
-      font-size: 0.9em;
+    font-size: 0.9em;
   }
 
   @media (max-width: 48em) {
-      font-size: 0.8em;
+    font-size: 0.8em;
   }
 
   @media (max-width: 30em) {
-      font-size: 0.7em;
+    font-size: 0.7em;
   }
 `;
