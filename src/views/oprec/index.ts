@@ -5,3 +5,4 @@ export { DaftarDivisi } from './DaftarDivisi';
 export { DataDiri } from './DataDiri';
 export { EsaiSingkat } from './EsaiSingkat';
 export { FinalisasiData } from './FinalisasiData';
+export { FinalOprec } from './FinalOprec';

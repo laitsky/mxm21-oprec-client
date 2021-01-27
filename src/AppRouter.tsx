@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import * as Oprec from './views/oprec';
 import * as Auth from './views/auth';
+import * as Koor from './views/koor';
 
 const AppRouter: React.FC = () => {
   return (
@@ -29,12 +30,22 @@ const AppRouter: React.FC = () => {
         eaxct
         component={Oprec.FinalisasiData}
       />
+      <Route
+        path="/final-oprec"
+        eaxct
+        component={Oprec.FinalOprec}
+      />
       <Route path="/login" exact component={Auth.Login} />
       <Route path="/register" exact component={Auth.Register} />
       <Route
         path="/new-password"
         exact
         component={Auth.NewPassword}
+      />
+      <Route
+        path="/registration-list"
+        exact
+        component={Koor.RegistrationList}
       />
       <Route path="/" exact component={Oprec.SelamatDatang} />
     </Switch>
