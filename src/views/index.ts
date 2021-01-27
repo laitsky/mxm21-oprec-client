@@ -10,3 +10,4 @@ export {
 } from './oprec';
 
 export { Login, Register, NewPassword } from './auth';
+export { RegistrationList } from './koor';
