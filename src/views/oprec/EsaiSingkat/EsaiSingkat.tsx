@@ -36,8 +36,10 @@ const EsaiSingkat: React.FC = () => {
     <Center><TitleContainer2>ESAI SINGKAT</TitleContainer2></Center>
 
     <Center>
-      <FormContainer>
+    <Box w="100%" p="1.5em">
         <form onSubmit={handleSubmit(onSubmit)}>
+        <Center>
+        <FormContainer>
           <FormControl isInvalid={errors.esai1}>
             <FormLabel fontSize={responsiveLabel}>Bagaimana kamu mendefinisikan Dreamland sebagai tema MAXIMA 2021?</FormLabel>
             <Input name="esai1" fontSize={responsiveLabel} height="10em" ref={ register({ required:'Isi esai1 !' }) }/>
@@ -54,6 +56,9 @@ const EsaiSingkat: React.FC = () => {
             <FormErrorMessage fontSize={responsiveLabel}>{errors.esai3 && errors.esai3.message}</FormErrorMessage>
           </FormControl>
 
+          </FormContainer>
+          </Center>
+          
           <Center pt="3em">
             <Box pr={{base: "5em", sm: "10em", md: "20em"}}><Link to="data-diri"><ButtonBackForm>BACK</ButtonBackForm></Link></Box>
             <Box><ButtonNextForm type="submit">NEXT</ButtonNextForm></Box>
@@ -63,7 +68,7 @@ const EsaiSingkat: React.FC = () => {
             Submit
           </Button> */}
         </form>
-      </FormContainer>sf
+      </Box>
     </Center>
 
     

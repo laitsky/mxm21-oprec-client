@@ -50,6 +50,7 @@ const DataDiri: React.FC = () => {
     <Center>
       <Box w="100%" p="1.5em">
         <form onSubmit={handleSubmit(onSubmit)}>
+          <Center>
           <FormContainer>
           <FormControl isInvalid={errors.namaLengkap}>
             <FormLabel fontSize={responsiveLabel}>Nama Lengkap</FormLabel>
@@ -202,6 +203,7 @@ const DataDiri: React.FC = () => {
             </FormControl>
           </Flex>
           </FormContainer>
+          </Center>
 
           <Center pt="4em">
             <Box pr={{base: "5em", sm: "10em", md: "20em"}}><Link to="/daftar-divisi"><ButtonBackForm>BACK</ButtonBackForm></Link></Box>
