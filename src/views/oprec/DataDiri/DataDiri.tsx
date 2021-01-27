@@ -15,7 +15,6 @@ import {
   Center,  
   Flex, 
   Spacer,  
-  Link,
   NumberInput,
   NumberInputField,
   NumberInputStepper,
@@ -23,6 +22,7 @@ import {
   NumberDecrementStepper,
   InputLeftElement
 } from '@chakra-ui/react';
+import { Link } from "react-router-dom";
 import { AtSignIcon, ChatIcon, PhoneIcon } from '@chakra-ui/icons';  
 import { ButtonBackForm, ButtonNextForm } from '../../../styles/buttons';
 import { FormComponent, FormContainer, TitleContainer } from '../../../styles/containers';
@@ -132,8 +132,8 @@ const DataDiri: React.FC = () => {
               <FormLabel fontSize={responsiveLabel}>IPS</FormLabel>
               {/* <Input  name="ips" fontSize={responsiveLabel} height="2.5em" ref={register({ required:'Isi ips kamu!' })}/> */}        
   
-                <NumberInput defaultValue={0.00} step={0.01} min={0} max={4} name="ips" mt={{base:"0em", md:"0.55em", lg:"0em"}}>
-                  <NumberInputField fontSize={responsiveLabel} height="2.5em"/>
+                <NumberInput step={0.01} min={0} max={4} name="ips" mt={{base:"0em", md:"0.55em", lg:"0em"}}>
+                  <NumberInputField fontSize={responsiveLabel} height="2.5em" ref={register({ required:'Isi ips kamu!' })}/>
                   <NumberInputStepper fontSize={responsiveLabel} >
                     <NumberIncrementStepper fontSize={responsiveLabel} />
                     <NumberDecrementStepper fontSize={responsiveLabel} />
@@ -205,7 +205,7 @@ const DataDiri: React.FC = () => {
           </FormContainer>
           </Center>
 
-          <Center pt="4em">
+          <Center pt="2em">
             <Box pr={{base: "5em", sm: "10em", md: "20em"}}><Link to="/daftar-divisi"><ButtonBackForm>BACK</ButtonBackForm></Link></Box>
             <Box><ButtonNextForm type="submit">NEXT</ButtonNextForm></Box>
           </Center>

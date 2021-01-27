@@ -20,10 +20,26 @@ export const FormContainer = styled.div`
     background-color: white;
     color: black;
     box-shadow: 2px 4px 16px grey;
-    width: 80%;
+    width: 70%;
     font-size: 1em;
     padding: 1.5em;
     border-radius: 0.4em;
+
+    @media (max-width: 80em) {
+        width: 70%;
+    }
+
+    @media (max-width: 62em) {
+        width: 70%;
+    }
+
+    @media (max-width: 48em) {
+        width: 95%;
+    }
+    
+    @media (max-width: 30em) {
+        width: 100%;
+    }
 `;
 
 export const TitleContainer = styled.div`
@@ -32,28 +48,27 @@ export const TitleContainer = styled.div`
     box-shadow: 2px 4px 16px grey;
     width: 6em;
     font-family: Kanit;
-    font-size: 2em;
+    font-size: 2.5em;
     font-weight: 700;
     height: 1.6em;
     text-align: center;
     margin-top: 0.5em;
-    margin-bottom: 1em;
     border-radius: 0.4em;
 
     @media (max-width: 80em) {
-        font-size: 2em;
+        font-size: 2.4em;
     }
 
     @media (max-width: 62em) {
-        font-size: 1.7em;
+        font-size: 2em;
     }
 
     @media (max-width: 48em) {
-        font-size: 1.4em;
+        font-size: 2em;
     }
     
     @media (max-width: 30em) {
-        font-size: 1.1em;
+        font-size: 2em;
     }
 `;
 
@@ -63,28 +78,27 @@ export const TitleContainer2 = styled.div`
     box-shadow: 2px 4px 16px grey;
     width: 8em;
     font-family: Kanit;
-    font-size: 2em;
+    font-size: 2.3em;
     font-weight: 700;
     height: 1.6em;
     text-align: center;
     margin-top: 0.5em;
-    margin-bottom: 1em;
     border-radius: 0.4em;
 
     @media (max-width: 80em) {
-        font-size: 2em;
+        font-size: 2.1em;
     }
 
     @media (max-width: 62em) {
-        font-size: 1.7em;
+        font-size: 1.8em;
     }
 
     @media (max-width: 48em) {
-        font-size: 1.4em;
+        font-size: 1.8em;
     }
     
     @media (max-width: 30em) {
-        font-size: 1.1em;
+        font-size: 1.5em;
     }
 `;
 
@@ -95,7 +109,7 @@ export const BadgeContainer = styled.div`
     border: 1px solid white;
     width: 8em;
     font-family: Kanit;
-    font-size: 2.3em;
+    font-size: 2em;
     height: 1.5em;
     text-align: center;
     margin-top: 0.3em;
@@ -107,14 +121,14 @@ export const BadgeContainer = styled.div`
     }
 
     @media (max-width: 62em) {
-        font-size: 1.85em;
+        font-size: 1.7em;
     }
 
     @media (max-width: 48em) {
-        font-size: 1.6em;
+        font-size: 1.4em;
     }
     
     @media (max-width: 30em) {
-        font-size: 1.45em;
+        font-size: 1.1em;
     }
 `;

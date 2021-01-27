@@ -42,24 +42,24 @@ const EsaiSingkat: React.FC = () => {
         <FormContainer>
           <FormControl isInvalid={errors.esai1}>
             <FormLabel fontSize={responsiveLabel}>Bagaimana kamu mendefinisikan Dreamland sebagai tema MAXIMA 2021?</FormLabel>
-            <Input name="esai1" fontSize={responsiveLabel} height="10em" ref={ register({ required:'Isi esai1 !' }) }/>
+            <Input name="esai1" fontSize={responsiveLabel} height="15em" ref={ register({ required:'Isi esai1 !' }) }/>
             <FormErrorMessage fontSize={responsiveLabel}>{errors.esai1 && errors.esai1.message}</FormErrorMessage>
           </FormControl>
           <FormControl isInvalid={errors.esai2}>
             <FormLabel fontSize={responsiveLabel}>Apa yang akan kamu tingkatkan di MAXIMA 2021?</FormLabel>
-            <Input name="esai2" fontSize={responsiveLabel} height="10em" ref={ register({ required:'Isi esai2 !' }) }/>
+            <Input name="esai2" fontSize={responsiveLabel} height="15em" ref={ register({ required:'Isi esai2 !' }) }/>
             <FormErrorMessage fontSize={responsiveLabel}>{errors.esai2 && errors.esai2.message}</FormErrorMessage>
           </FormControl>
           <FormControl isInvalid={errors.esai3}>
             <FormLabel fontSize={responsiveLabel}>(Pertanyaan Divisi)</FormLabel>
-            <Input name="esai3" fontSize={responsiveLabel} height="10em" ref={ register({ required:'Isi esai3 !' }) }/>
+            <Input name="esai3" fontSize={responsiveLabel} height="15em" ref={ register({ required:'Isi esai3 !' }) }/>
             <FormErrorMessage fontSize={responsiveLabel}>{errors.esai3 && errors.esai3.message}</FormErrorMessage>
           </FormControl>
 
           </FormContainer>
           </Center>
-          
-          <Center pt="3em">
+
+          <Center pt="2em">
             <Box pr={{base: "5em", sm: "10em", md: "20em"}}><Link to="data-diri"><ButtonBackForm>BACK</ButtonBackForm></Link></Box>
             <Box><ButtonNextForm type="submit">NEXT</ButtonNextForm></Box>
           </Center>
