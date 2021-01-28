@@ -1,6 +1,6 @@
 {
   "name": "maxima2021-oprec-client",
-  "version": "0.1.0",
+  "version": "1.0.0-a.2",
   "private": true,
   "dependencies": {
     "@chakra-ui/icons": "^1.0.3",
