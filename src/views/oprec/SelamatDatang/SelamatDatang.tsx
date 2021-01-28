@@ -16,9 +16,12 @@ import {
   FormControl,
 } from '@chakra-ui/react';
 import { useForm } from 'react-hook-form';
+import { useHistory } from 'react-router-dom';
 import { MxmLogoText } from '../../../assets';
+import { studentVerify } from '../../../services/oprec.service';
 
 const SelamatDatang: React.FC = () => {
+  const history = useHistory();
   const {
     register,
     handleSubmit,
@@ -29,8 +32,14 @@ const SelamatDatang: React.FC = () => {
     mode: 'onChange',
   });
 
-  const onSubmit = (data: Record<string, unknown>) => {
-    console.log(data);
+  const onSubmit = async (data: Record<string, unknown>) => {
+    try {
+      const result = await studentVerify(data.nim);
+      console.log(result);
+      history.push('/jadwal-oprec');
+    } catch (error) {
+      console.log(error.response.data);
+    }
   };
   return (
     <Flex direction="column" align="center" justify="center">

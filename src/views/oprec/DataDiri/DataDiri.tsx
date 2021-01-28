@@ -27,12 +27,13 @@ import { AtSignIcon, ChatIcon, PhoneIcon } from '@chakra-ui/icons';
 import {
   ButtonBackForm,
   ButtonNextForm,
-} from '../../../styles/buttons';
+} from '../../../shared/styles/buttons';
 import {
   FormComponent,
   FormContainer,
   TitleContainer,
-} from '../../../styles/containers';
+} from '../../../shared/styles/containers';
+import { divisionLists } from '../../../shared/constants';
 
 const responsiveLabel = {
   base: '0.8em',
@@ -57,7 +58,7 @@ const DataDiri: React.FC = () => {
   const history = useHistory();
   const { handleSubmit, errors, register, formState } = useForm();
   const onSubmit: SubmitHandler<DataDiriInput> = (data) => {
-    alert(JSON.stringify(data));
+    window.sessionStorage.setItem('dataDiri', JSON.stringify(data));
     history.push('/esai-singkat');
   };
 
@@ -72,12 +73,12 @@ const DataDiri: React.FC = () => {
           <form onSubmit={handleSubmit(onSubmit)}>
             <Center>
               <FormContainer>
-                <FormControl isInvalid={errors.namaLengkap}>
+                <FormControl isInvalid={errors.name}>
                   <FormLabel fontSize={responsiveLabel}>
                     Nama Lengkap
                   </FormLabel>
                   <Input
-                    name="namaLengkap"
+                    name="name"
                     fontSize={responsiveLabel}
                     height="2.5em"
                     ref={register({
@@ -85,7 +86,7 @@ const DataDiri: React.FC = () => {
                     })}
                   />
                   <FormErrorMessage fontSize={responsiveLabel}>
-                    {errors.namaLengkap && errors.namaLengkap.message}
+                    {errors.name && errors.name.message}
                   </FormErrorMessage>
                 </FormControl>
 
@@ -130,13 +131,13 @@ const DataDiri: React.FC = () => {
                       lg: '66%',
                       xl: '66%',
                     }}
-                    isInvalid={errors.tempatLahir}
+                    isInvalid={errors.tempat_lahir}
                   >
                     <FormLabel fontSize={responsiveLabel}>
                       Tempat Lahir
                     </FormLabel>
                     <Input
-                      name="tempatLahir"
+                      name="tempat_lahir"
                       fontSize={responsiveLabel}
                       height="2.5em"
                       ref={register({
@@ -144,8 +145,8 @@ const DataDiri: React.FC = () => {
                       })}
                     />
                     <FormErrorMessage fontSize={responsiveLabel}>
-                      {errors.tempatLahir &&
-                        errors.tempatLahir.message}
+                      {errors.tempat_lahir &&
+                        errors.tempat_lahir.message}
                     </FormErrorMessage>
                   </FormControl>
                   <Spacer />
@@ -159,13 +160,13 @@ const DataDiri: React.FC = () => {
                     }}
                     py={{ base: 5, sm: 5, md: 0 }}
                     px={{ base: 0, sm: 0, md: 25 }}
-                    isInvalid={errors.tanggalLahir}
+                    isInvalid={errors.tanggal_lahir}
                   >
                     <FormLabel fontSize={responsiveLabel}>
                       Tanggal Lahir
                     </FormLabel>
                     <Input
-                      name="tanggalLahir"
+                      name="tanggal_lahir"
                       type="date"
                       fontSize={responsiveLabel}
                       height="2.5em"
@@ -174,8 +175,8 @@ const DataDiri: React.FC = () => {
                       })}
                     />
                     <FormErrorMessage fontSize={responsiveLabel}>
-                      {errors.tanggalLahir &&
-                        errors.tanggalLahir.message}
+                      {errors.tanggal_lahir &&
+                        errors.tanggal_lahir.message}
                     </FormErrorMessage>
                   </FormControl>
                   <Spacer />
@@ -187,13 +188,13 @@ const DataDiri: React.FC = () => {
                       lg: '20%',
                       xl: '20%',
                     }}
-                    isInvalid={errors.jenisKelamin}
+                    isInvalid={errors.jenis_kelamin}
                   >
                     <FormLabel fontSize={responsiveLabel}>
                       Jenis Kelamin
                     </FormLabel>
                     <Select
-                      name="jenisKelamin"
+                      name="jenis_kelamin"
                       fontSize={responsiveLabel}
                       height="2.5em"
                       ref={register({
@@ -201,12 +202,12 @@ const DataDiri: React.FC = () => {
                       })}
                     >
                       <option selected disabled hidden />
-                      <option value="laki-laki">Laki-laki</option>
-                      <option value="perempuan">Perempuan</option>
+                      <option value="Laki-laki">Laki-laki</option>
+                      <option value="Perempuan">Perempuan</option>
                     </Select>
                     <FormErrorMessage fontSize={responsiveLabel}>
-                      {errors.jenisKelamin &&
-                        errors.jenisKelamin.message}
+                      {errors.jenis_kelamin &&
+                        errors.jenis_kelamin.message}
                     </FormErrorMessage>
                   </FormControl>
                 </Flex>
@@ -248,31 +249,31 @@ const DataDiri: React.FC = () => {
                       })}
                     >
                       <option selected disabled hidden />
-                      <option value="desain-komunikasi-visual">
+                      <option value="Desain Komunikasi Visual">
                         Desain Komunikasi Visual
                       </option>
-                      <option value="film">Film</option>
-                      <option value="arsitektur">Arsitektur</option>
-                      <option value="komunikasi-strategis">
+                      <option value="Film">Film</option>
+                      <option value="Arsitektur">Arsitektur</option>
+                      <option value="Komunikasi Strategis">
                         Komunikasi Strategis
                       </option>
-                      <option value="jurnalistik">Jurnalistik</option>
-                      <option value="informatika">Informatika</option>
-                      <option value="sistem-informasi">
+                      <option value="Jurnalistik">Jurnalistik</option>
+                      <option value="Informatika">Informatika</option>
+                      <option value="Sistem Informasi">
                         Sistem Informasi
                       </option>
-                      <option value="teknik-komputer">
+                      <option value="Teknik Komputer">
                         Teknik Komputer
                       </option>
-                      <option value="teknik-elektro">
+                      <option value="Teknik Elektro">
                         Teknik Elektro
                       </option>
-                      <option value="teknik-fisika">
+                      <option value="Teknik Fisika">
                         Teknik Fisika
                       </option>
-                      <option value="manajemen">Manajemen</option>
-                      <option value="akuntansi">Akuntansi</option>
-                      <option value="perhotelan">Perhotelan</option>
+                      <option value="Manajemen">Manajemen</option>
+                      <option value="Akuntansi">Akuntansi</option>
+                      <option value="Perhotelan">Perhotelan</option>
                     </Select>
                     <FormErrorMessage fontSize={responsiveLabel}>
                       {errors.prodi && errors.prodi.message}
@@ -348,13 +349,13 @@ const DataDiri: React.FC = () => {
                 >
                   <FormControl
                     pt={{ base: 5, sm: 5, md: 5 }}
-                    isInvalid={errors.divisi}
+                    isInvalid={errors.divisiID}
                   >
                     <FormLabel fontSize={responsiveLabel}>
                       Pilihan Divisi
                     </FormLabel>
                     <Select
-                      name="divisi"
+                      name="divisiID"
                       fontSize={responsiveLabel}
                       height="2.5em"
                       ref={register({
@@ -362,11 +363,14 @@ const DataDiri: React.FC = () => {
                       })}
                     >
                       <option selected disabled hidden />
-                      <option value="acara">Acara</option>
-                      <option value="website">Website</option>
+                      {divisionLists.slice(1).map((d) => (
+                        <option key={d.divisiID} value={d.divisiID}>
+                          {d.name}
+                        </option>
+                      ))}
                     </Select>
                     <FormErrorMessage fontSize={responsiveLabel}>
-                      {errors.divisi && errors.divisi.message}
+                      {errors.divisiID && errors.divisiID.message}
                     </FormErrorMessage>
                   </FormControl>
                   <FormControl
@@ -408,7 +412,7 @@ const DataDiri: React.FC = () => {
                     xl: 'row',
                   }}
                 >
-                  <FormControl isInvalid={errors.hp}>
+                  <FormControl isInvalid={errors.no_hp}>
                     <FormLabel fontSize={responsiveLabel}>
                       No. HP & Whatsapp
                     </FormLabel>
@@ -425,7 +429,7 @@ const DataDiri: React.FC = () => {
                       />
                       <Input
                         type="number"
-                        name="hp"
+                        name="no_hp"
                         fontSize={responsiveLabel}
                         height="2.5em"
                         ref={register({
@@ -434,13 +438,13 @@ const DataDiri: React.FC = () => {
                       />
                     </InputGroup>
                     <FormErrorMessage fontSize={responsiveLabel}>
-                      {errors.hp && errors.hp.message}
+                      {errors.no_hp && errors.no_hp.message}
                     </FormErrorMessage>
                   </FormControl>
                   <FormControl
                     py={{ base: 5, sm: 5, md: 0 }}
                     px={{ base: 0, sm: 0, md: 25 }}
-                    isInvalid={errors.line}
+                    isInvalid={errors.uLine}
                   >
                     <FormLabel fontSize={responsiveLabel}>
                       ID LINE
@@ -457,19 +461,19 @@ const DataDiri: React.FC = () => {
                         }
                       />
                       <Input
-                        name="line"
+                        name="uLine"
                         fontSize={responsiveLabel}
                         height="2.5em"
                         ref={register({
-                          required: 'Isi ID LINE kamu!',
+                          required: 'Isi ID uLine kamu!',
                         })}
                       />
                     </InputGroup>
                     <FormErrorMessage fontSize={responsiveLabel}>
-                      {errors.line && errors.line.message}
+                      {errors.uLine && errors.uLine.message}
                     </FormErrorMessage>
                   </FormControl>
-                  <FormControl isInvalid={errors.instagram}>
+                  <FormControl isInvalid={errors.uInstagram}>
                     <FormLabel fontSize={responsiveLabel}>
                       Username Instagram
                     </FormLabel>
@@ -485,7 +489,7 @@ const DataDiri: React.FC = () => {
                         }
                       />
                       <Input
-                        name="instagram"
+                        name="uInstagram"
                         fontSize={responsiveLabel}
                         height="2.5em"
                         ref={register({
@@ -494,7 +498,7 @@ const DataDiri: React.FC = () => {
                       />
                     </InputGroup>
                     <FormErrorMessage fontSize={responsiveLabel}>
-                      {errors.instagram && errors.instagram.message}
+                      {errors.uInstagram && errors.uInstagram.message}
                     </FormErrorMessage>
                   </FormControl>
                 </Flex>

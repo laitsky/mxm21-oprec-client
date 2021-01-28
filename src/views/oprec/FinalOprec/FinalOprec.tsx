@@ -3,7 +3,7 @@ import { Center, Box, Text, Image } from '@chakra-ui/react';
 import {
   FormComponent2,
   BadgeContainer,
-} from '../../../styles/containers';
+} from '../../../shared/styles/containers';
 import { MxmWhiteLogo, LastLogo } from '../../../assets';
 
 const responsiveImg = {

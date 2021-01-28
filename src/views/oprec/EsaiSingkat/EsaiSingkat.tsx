@@ -14,12 +14,13 @@ import {
 import {
   ButtonBackForm,
   ButtonNextForm,
-} from '../../../styles/buttons';
+} from '../../../shared/styles/buttons';
 import {
   FormComponent,
   FormContainer,
   TitleContainer2,
-} from '../../../styles/containers';
+} from '../../../shared/styles/containers';
+import { generateToken } from '../../../utils';
 
 const responsiveLabel = {
   base: '0.2em',
@@ -30,16 +31,30 @@ const responsiveLabel = {
 };
 
 type EsaiSingkatInput = {
-  esai1: string;
-  esai2: string;
-  esai3: string;
+  soal1: string;
+  soal2: string;
+  soal3: string;
 };
 
 const EsaiSingkat: React.FC = () => {
   const history = useHistory();
   const { handleSubmit, errors, register, formState } = useForm();
   const onSubmit: SubmitHandler<EsaiSingkatInput> = (data) => {
-    alert(JSON.stringify(data));
+    const dataDiri = JSON.parse(
+      window.sessionStorage.getItem('dataDiri')!,
+    );
+
+    const studentData = {
+      ...dataDiri,
+      ...data,
+      token: generateToken(),
+      statusID: 1,
+    };
+    window.sessionStorage.clear();
+    window.sessionStorage.setItem(
+      'studentData',
+      JSON.stringify(studentData),
+    );
     history.push('/finalisasi-data');
   };
 
@@ -54,47 +69,47 @@ const EsaiSingkat: React.FC = () => {
           <form onSubmit={handleSubmit(onSubmit)}>
             <Center>
               <FormContainer>
-                <FormControl isInvalid={errors.esai1}>
+                <FormControl isInvalid={errors.soal1}>
                   <FormLabel fontSize={responsiveLabel}>
                     Bagaimana kamu mendefinisikan Dreamland sebagai
                     tema MAXIMA 2021?
                   </FormLabel>
                   <Input
-                    name="esai1"
+                    name="soal1"
                     fontSize={responsiveLabel}
                     height="15em"
-                    ref={register({ required: 'Isi esai1 !' })}
+                    ref={register({ required: 'Isi soal1 !' })}
                   />
                   <FormErrorMessage fontSize={responsiveLabel}>
-                    {errors.esai1 && errors.esai1.message}
+                    {errors.soal1 && errors.soal1.message}
                   </FormErrorMessage>
                 </FormControl>
-                <FormControl isInvalid={errors.esai2}>
+                <FormControl isInvalid={errors.soal2}>
                   <FormLabel fontSize={responsiveLabel}>
                     Apa yang akan kamu tingkatkan di MAXIMA 2021?
                   </FormLabel>
                   <Input
-                    name="esai2"
+                    name="soal2"
                     fontSize={responsiveLabel}
                     height="15em"
-                    ref={register({ required: 'Isi esai2 !' })}
+                    ref={register({ required: 'Isi soal2 !' })}
                   />
                   <FormErrorMessage fontSize={responsiveLabel}>
-                    {errors.esai2 && errors.esai2.message}
+                    {errors.soal2 && errors.soal2.message}
                   </FormErrorMessage>
                 </FormControl>
-                <FormControl isInvalid={errors.esai3}>
+                <FormControl isInvalid={errors.soal3}>
                   <FormLabel fontSize={responsiveLabel}>
                     (Pertanyaan Divisi)
                   </FormLabel>
                   <Input
-                    name="esai3"
+                    name="soal3"
                     fontSize={responsiveLabel}
                     height="15em"
-                    ref={register({ required: 'Isi esai3 !' })}
+                    ref={register({ required: 'Isi soal3 !' })}
                   />
                   <FormErrorMessage fontSize={responsiveLabel}>
-                    {errors.esai3 && errors.esai3.message}
+                    {errors.soal3 && errors.soal3.message}
                   </FormErrorMessage>
                 </FormControl>
               </FormContainer>
