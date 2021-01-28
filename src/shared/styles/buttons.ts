@@ -210,7 +210,8 @@ export const ButtonNextFinal = styled.button`
   box-shadow: -3px 4px #f4224b;
   margin-bottom: 4px;
   border-radius: 1em;
-  &:hover {
+
+  &:hover:enabled {
     background-color: #f4224b;
     color: #ffd008;
     cursor: pointer;
@@ -218,6 +219,10 @@ export const ButtonNextFinal = styled.button`
     margin-top: 4px;
     margin-bottom: 0;
     box-shadow: 0px 0px #1f2c4c;
+  }
+
+  &:disabled {
+    background-color: #d6af0b;
   }
 
   @media (max-width: 80em) {
