@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { useForm, SubmitHandler } from 'react-hook-form';
 import {
   Center,
   FormControl,
@@ -11,47 +10,54 @@ import {
   Box,
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
-import { FormComponent2 } from '../../../styles/containers';
+import { FormComponent2 } from '../../../shared/styles/containers';
 import { FinalLogo } from '../../../assets';
 import {
   ButtonMaxima,
   ButtonBackFinal,
   ButtonNextFinal,
-} from '../../../styles/buttons';
-
-const responsiveImg = {
-  base: '12em',
-  sm: '14em',
-  md: '16em',
-  lg: '18em',
-  xl: '20em',
-};
-const responsiveTitle = {
-  base: '1.8em',
-  sm: '2.15em',
-  md: '2.35em',
-  lg: '2.8em',
-  xl: '3.1em',
-};
-const responsiveLabel = {
-  base: '0.6em',
-  sm: '0.8em',
-  md: '0.9em',
-  lg: '1.05em',
-  xl: '1.2em',
-};
+} from '../../../shared/styles/buttons';
+import { generateTempPDF } from '../../../services/oprec.service';
+import {
+  responsiveImg,
+  responsiveLabel,
+  responsiveTitle,
+} from './constants';
 
 type FinalDataCheck = {
   validasi: string;
 };
 
 const FinalisasiData: React.FC = () => {
-  const { handleSubmit, errors, register, formState } = useForm();
+  const [isDisabled, setIsDisabled] = React.useState(false);
+  const [studentData, setStudentData] = React.useState({});
+  const [docLink, setDocLink] = React.useState();
 
-  const onSubmit: SubmitHandler<FinalDataCheck> = (data) => {
-    alert(JSON.stringify(data));
-  };
+  // React.useEffect(() => {
+  //   setStudentData(JSON.parse(window.sessionStorage.getItem('studentData')!));
+  // }, []);
 
+  // React.useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const returnedData = await generateTempPDF(studentData);
+  //       setDocLink(returnedData);
+  //     } catch (error) {
+  //       console.log(error.response.data);
+  //     }
+  //   }
+  //   fetchData();
+  // }, [studentData]);
+
+  // React.useEffect(() => {
+  //   console.log(docLink);
+  // }, [docLink]);
+
+  const handleCheckboxChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    setIsDisabled(e.target.checked)
+  }
   return (
     <FormComponent2>
       <Center>
@@ -79,35 +85,15 @@ const FinalisasiData: React.FC = () => {
         </ButtonMaxima>
       </Center>
       <Center mt="3em">
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <FormControl isInvalid={errors.validasi}>
-            <Checkbox
-              name="validasi"
-              color="white"
-              ref={register({ required: 'Centang ya!' })}
-            >
-              <Text fontFamily="Varela" fontSize={responsiveLabel}>
-                Data diri yang saya masukkan di
-                <br />
-                atas telah benar dan dapat diper-
-                <br />
-                tanggungjawabkan secara hukum.
-              </Text>
-            </Checkbox>
-            <FormErrorMessage fontSize={responsiveLabel}>
-              {errors.validasi && errors.validasi.message}
-            </FormErrorMessage>
-          </FormControl>
-
-          <Button
-            mt={4}
-            colorScheme="teal"
-            isLoading={formState.isSubmitting}
-            type="submit"
-          >
-            Submit
-          </Button>
-        </form>
+        <Checkbox name="validasi" color="white" defaultChecked={isDisabled} onChange={handleCheckboxChange}>
+          <Text fontFamily="Varela" fontSize={responsiveLabel}>
+            Data diri yang saya masukkan di
+            <br />
+            atas telah benar dan dapat diper-
+            <br />
+            tanggungjawabkan secara hukum.
+          </Text>
+        </Checkbox>
       </Center>
 
       <Center pt="3em">
@@ -118,7 +104,7 @@ const FinalisasiData: React.FC = () => {
         </Box>
         <Box>
           <Link to="final-oprec">
-            <ButtonNextFinal>NEXT</ButtonNextFinal>
+            <ButtonNextFinal disabled={!isDisabled!}>NEXT</ButtonNextFinal>
           </Link>
         </Box>
       </Center>
