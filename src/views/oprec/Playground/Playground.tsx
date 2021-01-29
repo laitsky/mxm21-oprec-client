@@ -6,7 +6,7 @@ import {
   BasicButton,
   ExtendedBasicButton,
   ButtonMaxima,
-} from '../../../styles/buttons';
+} from '../../../shared/styles/buttons';
 import { MxmLogo } from '../../../assets';
 
 const Playground: React.FC = () => {
