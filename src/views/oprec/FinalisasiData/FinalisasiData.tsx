@@ -6,6 +6,7 @@ import {
   Button,
   Text,
   Image,
+  Icon,
   Checkbox,
   Box,
 } from '@chakra-ui/react';
@@ -23,6 +24,7 @@ import {
   responsiveLabel,
   responsiveTitle,
 } from './constants';
+import { DownloadIcon } from '@chakra-ui/icons';
 
 type FinalDataCheck = {
   validasi: string;
@@ -56,8 +58,8 @@ const FinalisasiData: React.FC = () => {
   const handleCheckboxChange = (
     e: React.ChangeEvent<HTMLInputElement>,
   ) => {
-    setIsDisabled(e.target.checked)
-  }
+    setIsDisabled(e.target.checked);
+  };
   return (
     <FormComponent2>
       <Center>
@@ -71,33 +73,31 @@ const FinalisasiData: React.FC = () => {
         </Text>
       </Center>
       <Center>
-        <Box width={responsiveImg} mt="2em">
+        <Box width={responsiveImg} my="3em">
           <Center>
             <Image src={FinalLogo} />
           </Center>
         </Box>
       </Center>
-      <Center mt="1em">
+      <Center my="1em">
         <ButtonMaxima>
           <Text fontFamily="Varela" fontSize={responsiveLabel}>
-            Unduh Hasil Form |{' '}
+            Unduh Hasil Form  |  <Icon as={DownloadIcon} height={responsiveLabel} verticalAlign="middle"/>
           </Text>
         </ButtonMaxima>
       </Center>
-      <Center mt="3em">
-        <Checkbox name="validasi" color="white" defaultChecked={isDisabled} onChange={handleCheckboxChange}>
-          <Text fontFamily="Varela" fontSize={responsiveLabel}>
-            Data diri yang saya masukkan di
-            <br />
-            atas telah benar dan dapat diper-
-            <br />
-            tanggungjawabkan secara hukum.
-          </Text>
-        </Checkbox>
+      <Center my="3em">
+        <Box width={{ base: '22em', sm: '24em', md: '24em', lg: '28em', xl: '32em' }}>
+          <Checkbox name="validasi" color="white" defaultChecked={isDisabled} onChange={handleCheckboxChange} verticalAlign="top">
+            <Text fontFamily="Varela" fontSize={responsiveLabel} wordBreak="break-all" verticalAlign="text-top">
+              Data diri yang saya masukkan di atas telah benar dan dapat dipertanggung-jawabkan secara hukum.
+            </Text>
+          </Checkbox>
+        </Box>
       </Center>
 
       <Center pt="3em">
-        <Box pr={{ base: '1em', sm: '3em', md: '5em' }}>
+        <Box pr={{ base: '10em', sm: '14em', md: '12em', lg: '14em', xl: '15em' }}>
           <Link to="esai-singkat">
             <ButtonBackFinal>BACK</ButtonBackFinal>
           </Link>
