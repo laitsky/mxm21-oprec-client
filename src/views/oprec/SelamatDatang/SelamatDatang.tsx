@@ -19,6 +19,7 @@ import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 import { MxmLogoText } from '../../../assets';
 import { studentVerify } from '../../../services/oprec.service';
+import { OprecHomepageHeader } from '../../../shared/styles/header';
 
 const SelamatDatang: React.FC = () => {
   const history = useHistory();
@@ -43,12 +44,8 @@ const SelamatDatang: React.FC = () => {
   };
   return (
     <Flex direction="column" align="center" justify="center">
-      <Heading>OPEN RECRUITMENT</Heading>
+      <OprecHomepageHeader>OPEN RECRUITMENT</OprecHomepageHeader>
       <Image
-        boxSize={{
-          sm: '64px',
-          md: 'auto',
-        }}
         mt={12}
         src={MxmLogoText}
         alt="Logo MAXIMA 2021"

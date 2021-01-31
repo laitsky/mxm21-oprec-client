@@ -56,8 +56,8 @@ const FinalisasiData: React.FC = () => {
   const handleCheckboxChange = (
     e: React.ChangeEvent<HTMLInputElement>,
   ) => {
-    setIsDisabled(e.target.checked)
-  }
+    setIsDisabled(e.target.checked);
+  };
   return (
     <FormComponent2>
       <Center>
@@ -85,7 +85,12 @@ const FinalisasiData: React.FC = () => {
         </ButtonMaxima>
       </Center>
       <Center mt="3em">
-        <Checkbox name="validasi" color="white" defaultChecked={isDisabled} onChange={handleCheckboxChange}>
+        <Checkbox
+          name="validasi"
+          color="white"
+          defaultChecked={isDisabled}
+          onChange={handleCheckboxChange}
+        >
           <Text fontFamily="Varela" fontSize={responsiveLabel}>
             Data diri yang saya masukkan di
             <br />
@@ -104,7 +109,9 @@ const FinalisasiData: React.FC = () => {
         </Box>
         <Box>
           <Link to="final-oprec">
-            <ButtonNextFinal disabled={!isDisabled!}>NEXT</ButtonNextFinal>
+            <ButtonNextFinal disabled={!isDisabled!}>
+              NEXT
+            </ButtonNextFinal>
           </Link>
         </Box>
       </Center>
