@@ -7,7 +7,7 @@ export const LoginFormCard = styled.div`
   transition: 0.3s;
   padding: 2.5em 3em 2.5em 3em;
   border-radius: 7px;
-  
+
   @media (max-width: 450px) {
     padding: 1.5em;
   }
@@ -16,8 +16,7 @@ export const LoginFormCard = styled.div`
     height: 100vh;
     width: 100vw;
   }
-
-`
+`;
 
 export const DivisionCard = styled.div`
   background-color: white;
@@ -50,8 +49,7 @@ export const DivisionCardImg = styled.img`
     margin-top: 1em;
     height: 65px;
   }
-
-`
+`;
 export const DivisionCardBody = styled.div`
   display: -webkit-box;
   display: -moz-box;
@@ -67,7 +65,7 @@ export const DivisionCardBody = styled.div`
   @media (max-width: 400px) {
     margin-right: 0;
   }
-`
+`;
 
 export const DivisionCardTitle = styled.div`
   flex-grow: 1;
@@ -82,12 +80,12 @@ export const DivisionCardTitle = styled.div`
     font-size: 1em;
     letter-spacing: 1.5px;
   }
-`
+`;
 
 export const DivisionCardContent = styled.div`
   flex-grow: 3;
   font-family: Varela;
   font-size: 0.95em;
   letter-spacing: -0.35px;
-  color: ${Palette.MxmNavy}
+  color: ${Palette.MxmNavy};
 `;

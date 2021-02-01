@@ -81,14 +81,13 @@ export const divisionDataList: DivisionDataList[] = [
     nikasi serta menjadi jembatan
     antara pihak eksternal dan internal
     MAXIMA 2021.`,
-
   },
   {
     img: Logo.LogoVisual,
     title: 'Public Relations - Visual',
     desc: `Merancang dan membuat visualisasi
     dari keseluruhan informasi mengenai
-    MAXIMA 2021 yang akan dipublikasikan kepada khalayak.`
+    MAXIMA 2021 yang akan dipublikasikan kepada khalayak.`,
   },
   {
     img: Logo.LogoSeccom,
@@ -117,5 +116,5 @@ export const divisionDataList: DivisionDataList[] = [
     media informasi interaktif
     selama keseluruhan acara
     MAXIMA 2021.`,
-  }
-]
+  },
+];

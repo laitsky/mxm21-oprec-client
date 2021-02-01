@@ -45,11 +45,7 @@ const SelamatDatang: React.FC = () => {
   return (
     <Flex direction="column" align="center" justify="center">
       <OprecHomepageHeader>OPEN RECRUITMENT</OprecHomepageHeader>
-      <Image
-        mt={12}
-        src={MxmLogoText}
-        alt="Logo MAXIMA 2021"
-      />
+      <Image mt={12} src={MxmLogoText} alt="Logo MAXIMA 2021" />
       <Box h="10vh" />
       <form onSubmit={handleSubmit(onSubmit)}>
         <Box>

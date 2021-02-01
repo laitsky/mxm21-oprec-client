@@ -12,6 +12,7 @@ import {
   Box,
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
+import { DownloadIcon } from '@chakra-ui/icons';
 import { FormComponent2 } from '../../../shared/styles/containers';
 import { FinalLogo } from '../../../assets';
 import {
@@ -25,7 +26,6 @@ import {
   responsiveLabel,
   responsiveTitle,
 } from './constants';
-import { DownloadIcon } from '@chakra-ui/icons';
 
 type FinalDataCheck = {
   validasi: string;
@@ -92,7 +92,7 @@ const FinalisasiData: React.FC = () => {
           </Text>
         </ButtonMaxima>
       </Center>
-      
+
       <Center my="3em">
         <Box
           width={{
@@ -117,7 +117,7 @@ const FinalisasiData: React.FC = () => {
                 xl: '2.3em',
               }}
               mr="0.5em"
-            ></Checkbox>
+            />
             <Text
               fontFamily="Varela"
               color="white"
