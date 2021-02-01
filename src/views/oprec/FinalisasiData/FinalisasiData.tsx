@@ -6,6 +6,7 @@ import {
   Button,
   Text,
   Image,
+  Flex,
   Icon,
   Checkbox,
   Box,
@@ -88,11 +89,12 @@ const FinalisasiData: React.FC = () => {
       </Center>
       <Center my="3em">
         <Box width={{ base: '22em', sm: '24em', md: '24em', lg: '28em', xl: '32em' }}>
-          <Checkbox name="validasi" color="white" defaultChecked={isDisabled} onChange={handleCheckboxChange} verticalAlign="top">
-            <Text fontFamily="Varela" fontSize={responsiveLabel} wordBreak="break-all" verticalAlign="text-top">
+          <Flex>
+            <Checkbox name="validasi" color="white" defaultChecked={isDisabled} onChange={handleCheckboxChange} height={{ base: '1.5em', sm: '1.5em', md: '1.7em', lg: '2em', xl: '2.3em' }} mr="0.5em"></Checkbox>
+            <Text fontFamily="Varela"  color="white" fontSize={responsiveLabel} wordBreak="break-all" >
               Data diri yang saya masukkan di atas telah benar dan dapat dipertanggung-jawabkan secara hukum.
             </Text>
-          </Checkbox>
+          </Flex>
         </Box>
       </Center>
 
