@@ -6,7 +6,7 @@ import {
   FormLabel,
   FormErrorMessage,
   Box,
-  Button,
+  Textarea,
   Input,
   Center,
 } from '@chakra-ui/react';
@@ -23,9 +23,9 @@ import {
 import { generateToken } from '../../../utils';
 
 const responsiveLabel = {
-  base: '0.2em',
-  sm: '0.4em',
-  md: '0.6em',
+  base: '1em',
+  sm: '1em',
+  md: '0.8em',
   lg: '0.8em',
   xl: '1em',
 };
@@ -74,7 +74,7 @@ const EsaiSingkat: React.FC = () => {
                     Bagaimana kamu mendefinisikan Dreamland sebagai
                     tema MAXIMA 2021?
                   </FormLabel>
-                  <Input
+                  <Textarea
                     name="soal1"
                     fontSize={responsiveLabel}
                     height="15em"
@@ -88,7 +88,7 @@ const EsaiSingkat: React.FC = () => {
                   <FormLabel fontSize={responsiveLabel}>
                     Apa yang akan kamu tingkatkan di MAXIMA 2021?
                   </FormLabel>
-                  <Input
+                  <Textarea
                     name="soal2"
                     fontSize={responsiveLabel}
                     height="15em"
@@ -102,7 +102,7 @@ const EsaiSingkat: React.FC = () => {
                   <FormLabel fontSize={responsiveLabel}>
                     (Pertanyaan Divisi)
                   </FormLabel>
-                  <Input
+                  <Textarea
                     name="soal3"
                     fontSize={responsiveLabel}
                     height="15em"

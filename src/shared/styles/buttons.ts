@@ -53,7 +53,7 @@ export const ButtonMaxima = styled.button`
   transition-duration: 0.2s;
   box-shadow: -3px 4px white;
   margin-bottom: 4px;
-  border-radius: 0.4em;
+  border-radius: 1.5em;
   &:hover {
     background-color: white;
     color: #1f2c4c;

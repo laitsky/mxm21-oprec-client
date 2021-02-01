@@ -6,7 +6,7 @@ export const studentVerify = async (
   nim: unknown | number | string,
 ) => {
   const request = await axios.post(`${BASE_URL}/api/mhs/verify`, {
-    nim,
+    nim_mhs: nim,
   });
   return request.data;
 };
