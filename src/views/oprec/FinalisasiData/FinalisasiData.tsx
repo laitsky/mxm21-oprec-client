@@ -92,6 +92,7 @@ const FinalisasiData: React.FC = () => {
           </Text>
         </ButtonMaxima>
       </Center>
+      
       <Center my="3em">
         <Box
           width={{
