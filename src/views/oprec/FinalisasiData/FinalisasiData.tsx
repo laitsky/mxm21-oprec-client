@@ -83,30 +83,72 @@ const FinalisasiData: React.FC = () => {
       <Center my="1em">
         <ButtonMaxima>
           <Text fontFamily="Varela" fontSize={responsiveLabel}>
-            Unduh Hasil Form  |  <Icon as={DownloadIcon} height={responsiveLabel} verticalAlign="middle"/>
+            Unduh Hasil Form |{' '}
+            <Icon
+              as={DownloadIcon}
+              height={responsiveLabel}
+              verticalAlign="middle"
+            />
           </Text>
         </ButtonMaxima>
       </Center>
       <Center my="3em">
-        <Box width={{ base: '22em', sm: '24em', md: '24em', lg: '28em', xl: '32em' }}>
+        <Box
+          width={{
+            base: '22em',
+            sm: '24em',
+            md: '24em',
+            lg: '28em',
+            xl: '32em',
+          }}
+        >
           <Flex>
-            <Checkbox name="validasi" color="white" defaultChecked={isDisabled} onChange={handleCheckboxChange} height={{ base: '1.5em', sm: '1.5em', md: '1.7em', lg: '2em', xl: '2.3em' }} mr="0.5em"></Checkbox>
-            <Text fontFamily="Varela"  color="white" fontSize={responsiveLabel} wordBreak="break-all" >
-              Data diri yang saya masukkan di atas telah benar dan dapat dipertanggung-jawabkan secara hukum.
+            <Checkbox
+              name="validasi"
+              color="white"
+              defaultChecked={isDisabled}
+              onChange={handleCheckboxChange}
+              height={{
+                base: '1.5em',
+                sm: '1.5em',
+                md: '1.7em',
+                lg: '2em',
+                xl: '2.3em',
+              }}
+              mr="0.5em"
+            ></Checkbox>
+            <Text
+              fontFamily="Varela"
+              color="white"
+              fontSize={responsiveLabel}
+              wordBreak="break-all"
+            >
+              Data diri yang saya masukkan di atas telah benar dan
+              dapat dipertanggung-jawabkan secara hukum.
             </Text>
           </Flex>
         </Box>
       </Center>
 
       <Center pt="3em">
-        <Box pr={{ base: '10em', sm: '14em', md: '12em', lg: '14em', xl: '15em' }}>
+        <Box
+          pr={{
+            base: '10em',
+            sm: '14em',
+            md: '12em',
+            lg: '14em',
+            xl: '15em',
+          }}
+        >
           <Link to="esai-singkat">
             <ButtonBackFinal>BACK</ButtonBackFinal>
           </Link>
         </Box>
         <Box>
           <Link to="final-oprec">
-            <ButtonNextFinal disabled={!isDisabled!}>NEXT</ButtonNextFinal>
+            <ButtonNextFinal disabled={!isDisabled!}>
+              NEXT
+            </ButtonNextFinal>
           </Link>
         </Box>
       </Center>
