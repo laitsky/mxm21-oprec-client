@@ -131,3 +131,25 @@ export const BadgeContainer = styled.div`
     font-size: 1.1em;
   }
 `;
+
+export const DivisionContainer = styled.div`
+  padding: 2em 3em 2em 3em;
+  border-radius: 10px;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  max-width: 75vw;
+
+  @media (max-width: 1441px) {
+    max-width: 85vw;
+  }
+
+  @media (max-width: 1160px) {
+    max-width: 90vw;
+  }
+
+  @media (max-width: 500px) {
+    max-width: 100vw;
+  }
+
+
+`;

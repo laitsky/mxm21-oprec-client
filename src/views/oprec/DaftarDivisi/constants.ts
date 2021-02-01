@@ -61,11 +61,11 @@ export const divisionDataList: DivisionDataList[] = [
     img: Logo.LogoMerch,
     title: 'Merchandise',
     desc: `Merancang, memproduksi, dan
-    menjual merchandise resmi dari
-    MAXIMA 2021`,
+    menjual merchandise resmi yang unik dan kreatif dari
+    MAXIMA 2021.`,
   },
   {
-    img: Logo.LogoPubli,
+    img: Logo.LogoPerkap,
     title: 'Perlengkapan',
     desc: `Mempersiapkan segala perleng
     kapan, peralatan dan keperluan
@@ -76,12 +76,12 @@ export const divisionDataList: DivisionDataList[] = [
   {
     img: Logo.LogoPubli,
     title: 'Public Relations - Publikasi',
-    desc: `Mempublikasikan keseluruhan in
-    formasi mengenai MAXIMA 2021
-    sebagai gerbang utama arus komu
+    desc: `Mempublikasikan keseluruhan informasi 
+    mengenai MAXIMA 2021 sebagai gerbang utama arus komu
     nikasi serta menjadi jembatan
     antara pihak eksternal dan internal
     MAXIMA 2021.`,
+
   },
   {
     img: Logo.LogoVisual,

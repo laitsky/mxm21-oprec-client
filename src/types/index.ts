@@ -38,5 +38,5 @@ export enum Palette {
   MxmNavy = '#1F2C4C',
   MxmCyan = '#41CEBA',
   MxmYellow = '#FFD008',
-  MxmPink = '#F4224B'
+  MxmPink = '#F4224B',
 }
