@@ -78,7 +78,7 @@ export const TitleContainer2 = styled.div`
   box-shadow: 2px 4px 16px grey;
   width: 8em;
   font-family: Kanit;
-  font-size: 2.3em;
+  font-size: 2.5em;
   font-weight: 700;
   height: 1.6em;
   text-align: center;
@@ -86,19 +86,19 @@ export const TitleContainer2 = styled.div`
   border-radius: 0.4em;
 
   @media (max-width: 80em) {
-    font-size: 2.1em;
+    font-size: 2.4em;
   }
 
   @media (max-width: 62em) {
-    font-size: 1.8em;
+    font-size: 2em;
   }
 
   @media (max-width: 48em) {
-    font-size: 1.8em;
+    font-size: 2em;
   }
 
   @media (max-width: 30em) {
-    font-size: 1.5em;
+    font-size: 2em;
   }
 `;
 
@@ -129,5 +129,25 @@ export const BadgeContainer = styled.div`
 
   @media (max-width: 30em) {
     font-size: 1.1em;
+  }
+`;
+
+export const DivisionContainer = styled.div`
+  padding: 2em 3em 2em 3em;
+  border-radius: 10px;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  max-width: 75vw;
+
+  @media (max-width: 1441px) {
+    max-width: 85vw;
+  }
+
+  @media (max-width: 1160px) {
+    max-width: 90vw;
+  }
+
+  @media (max-width: 500px) {
+    max-width: 100vw;
   }
 `;

@@ -7,32 +7,32 @@ import {
 import { MxmWhiteLogo, LastLogo } from '../../../assets';
 
 const responsiveImg = {
-  base: '12em',
-  sm: '14em',
-  md: '16em',
-  lg: '18em',
-  xl: '20em',
+  base: '16em',
+  sm: '18em',
+  md: '18em',
+  lg: '20em',
+  xl: '22em',
 };
 const responsiveLogo = {
-  base: '3em',
-  sm: '3.5em',
-  md: '4em',
-  lg: '4.5em',
-  xl: '5em',
+  base: '4.2em',
+  sm: '4.5em',
+  md: '4.5em',
+  lg: '5.5em',
+  xl: '6em',
 };
 const responsiveTitle = {
-  base: '2.1em',
-  sm: '2.3em',
-  md: '2.6em',
-  lg: '2.9em',
-  xl: '3.2em',
+  base: '2.6em',
+  sm: '2.8em',
+  md: '2.8em',
+  lg: '3.1em',
+  xl: '3.4em',
 };
 const responsiveLabel = {
-  base: '1.2em',
-  sm: '1.35em',
-  md: '1.5em',
-  lg: '1.65em',
-  xl: '1.8em',
+  base: '1.5em',
+  sm: '1.6em',
+  md: '1.6em',
+  lg: '1.8em',
+  xl: '2em',
 };
 
 const FinalOprec: React.FC = () => {

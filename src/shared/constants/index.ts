@@ -1,5 +1,7 @@
 import { Divisi } from '../../types/index';
 
+export { formLabelStyle } from './styles';
+
 export const divisionLists = [
   {
     divisiID: Divisi.BPH,
