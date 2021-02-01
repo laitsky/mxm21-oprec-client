@@ -465,7 +465,7 @@ const DataDiri: React.FC = () => {
                         fontSize={responsiveLabel}
                         height="2.5em"
                         ref={register({
-                          required: 'Isi ID uLine kamu!',
+                          required: 'Isi ID Line kamu!',
                         })}
                       />
                     </InputGroup>
