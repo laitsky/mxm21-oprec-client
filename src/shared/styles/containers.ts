@@ -78,7 +78,7 @@ export const TitleContainer2 = styled.div`
   box-shadow: 2px 4px 16px grey;
   width: 8em;
   font-family: Kanit;
-  font-size: 2.3em;
+  font-size: 2.5em;
   font-weight: 700;
   height: 1.6em;
   text-align: center;
@@ -86,19 +86,19 @@ export const TitleContainer2 = styled.div`
   border-radius: 0.4em;
 
   @media (max-width: 80em) {
-    font-size: 2.1em;
+    font-size: 2.4em;
   }
 
   @media (max-width: 62em) {
-    font-size: 1.8em;
+    font-size: 2em;
   }
 
   @media (max-width: 48em) {
-    font-size: 1.8em;
+    font-size: 2em;
   }
 
   @media (max-width: 30em) {
-    font-size: 1.5em;
+    font-size: 2em;
   }
 `;
 

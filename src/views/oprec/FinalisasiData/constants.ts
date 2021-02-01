@@ -1,21 +1,21 @@
 export const responsiveImg = {
-  base: '12em',
-  sm: '14em',
-  md: '16em',
-  lg: '18em',
-  xl: '20em',
+  base: '18em',
+  sm: '20em',
+  md: '20em',
+  lg: '23em',
+  xl: '24em',
 };
 export const responsiveTitle = {
-  base: '1.8em',
-  sm: '2.15em',
-  md: '2.35em',
-  lg: '2.8em',
-  xl: '3.1em',
+  base: '2.5em',
+  sm: '3em',
+  md: '3em',
+  lg: '3.5em',
+  xl: '4em',
 };
 export const responsiveLabel = {
-  base: '0.6em',
-  sm: '0.8em',
-  md: '0.9em',
-  lg: '1.05em',
-  xl: '1.2em',
+  base: '1em',
+  sm: '1.1em',
+  md: '1.1em',
+  lg: '1.3em',
+  xl: '1.5em',
 };
