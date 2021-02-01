@@ -10,6 +10,12 @@ export interface Divisions {
   name: string;
 }
 
+export interface DivisionDataList {
+  img: string;
+  title: string;
+  desc: string;
+}
+
 export enum Divisi {
   BPH = 'D01',
   Acara = 'D02',
@@ -26,4 +32,11 @@ export enum Divisi {
   Publikasi = 'D13',
   Visual = 'D14',
   Sponsor = 'D15',
+}
+
+export enum Palette {
+  MxmNavy = '#1F2C4C',
+  MxmCyan = '#41CEBA',
+  MxmYellow = '#FFD008',
+  MxmPink = '#F4224B',
 }
