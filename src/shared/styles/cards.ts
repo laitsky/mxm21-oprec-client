@@ -36,7 +36,7 @@ export const DivisionCard = styled.div`
   line-height: 1.85;
 
   @media (max-width: 490px) {
-    padding: 1em 0.5em 1em 0.5em
+    padding: 1em 0.5em 1em 0.5em;
   }
   @media (max-width: 450px) {
     flex-direction: column;
@@ -78,7 +78,11 @@ export const DivisionCardTitle = styled.div`
   text-transform: uppercase;
   letter-spacing: 2.5px;
   //color: ${Palette.MxmPink};
-  background: -webkit-linear-gradient(90deg, rgba(244,34,75,1) 0%, rgba(196,26,59,1) 100%);
+  background: -webkit-linear-gradient(
+    90deg,
+    rgba(244, 34, 75, 1) 0%,
+    rgba(196, 26, 59, 1) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   @media (max-width: 452px) {

@@ -33,7 +33,10 @@ import {
   FormContainer,
   TitleContainer,
 } from '../../../shared/styles/containers';
-import { divisionLists, formLabelStyle } from '../../../shared/constants';
+import {
+  divisionLists,
+  formLabelStyle,
+} from '../../../shared/constants';
 
 const responsiveLabel = {
   base: '0.8em',
@@ -91,9 +94,7 @@ const DataDiri: React.FC = () => {
                 </FormControl>
 
                 <FormControl py={5} isInvalid={errors.nim_mhs}>
-                  <FormLabel style={formLabelStyle}>
-                    NIM
-                  </FormLabel>
+                  <FormLabel style={formLabelStyle}>NIM</FormLabel>
                   <InputGroup>
                     <InputLeftAddon
                       children="000000"
@@ -213,9 +214,7 @@ const DataDiri: React.FC = () => {
                 </Flex>
 
                 <FormControl py={5} isInvalid={errors.alamat}>
-                  <FormLabel style={formLabelStyle}>
-                    Alamat
-                  </FormLabel>
+                  <FormLabel style={formLabelStyle}>Alamat</FormLabel>
                   <Input
                     name="alamat"
                     fontSize={responsiveLabel}
@@ -305,9 +304,7 @@ const DataDiri: React.FC = () => {
                     </FormErrorMessage>
                   </FormControl>
                   <FormControl isInvalid={errors.ips}>
-                    <FormLabel style={formLabelStyle}>
-                      IPS
-                    </FormLabel>
+                    <FormLabel style={formLabelStyle}>IPS</FormLabel>
                     {/* <Input  name="ips" fontSize={responsiveLabel} height="2.5em" ref={register({ required:'Isi ips kamu!' })}/> */}
 
                     <NumberInput

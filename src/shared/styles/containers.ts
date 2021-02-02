@@ -158,8 +158,4 @@ export const DivisionContainer = styled.div`
   @media (max-width: 663px) {
     padding: 0;
   }
-
-  
-
-
 `;
