@@ -8,7 +8,6 @@ import {
   InputLeftAddon,
   InputRightElement,
   Stack,
-  Center,
   Image,
   FormControl,
   FormLabel,

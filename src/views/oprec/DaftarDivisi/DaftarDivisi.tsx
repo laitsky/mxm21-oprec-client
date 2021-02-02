@@ -1,15 +1,13 @@
 import * as React from 'react';
 import {
-  Container,
   Box,
-  Button,
   Flex,
   Heading,
   SimpleGrid,
   Center,
-  borderParser,
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import {
   DivisionCard,
   DivisionCardBody,
@@ -20,8 +18,31 @@ import {
 import { divisionDataList } from './constants';
 import { DivisionContainer } from '../../../shared/styles/containers';
 import { Palette } from '../../../types';
+import './daftar-divisi.css';
+import { ButtonBackForm } from '../../../shared/styles/buttons';
 
 const DaftarDivisi: React.FC = () => {
+  React.useEffect(() => {
+    Swal.fire({
+      title:
+        '<h3 class="jadwal-title">Jadwal Seleksi Penerimaan Panitia MAXIMA 2021</h3>',
+      icon: 'info',
+      html: `
+        <div style="font-family: 'Kanit'">
+        <h2 class='jadwal-header'>8-11 Februari 2021</h2>
+        <h3 class='jadwal-text'>Open Recruitment</h3>
+        <h2 class='jadwal-header'>14 Februari 2021</h2>
+        <h3 class='jadwal-text'>Pengumuman Tahap Seleksi Formulir</h3>
+        </div>
+      `,
+      confirmButtonText: 'Mengerti!',
+      confirmButtonColor: '#F4224B',
+    });
+  });
+
+  React.useEffect(() => {
+    document.title = 'MAXIMA 2020: Daftar Divisi';
+  }, []);
   return (
     <Box
       style={{
@@ -29,9 +50,10 @@ const DaftarDivisi: React.FC = () => {
         background:
           'linear-gradient(90deg, rgba(31,44,76,1) 0%, rgba(44,61,103,1) 100%)',
       }}
+      pb={5}
     >
       <Flex direction="column" align="center">
-        <Box pb={6} pt={12}>
+        <Box pt={14}>
           <Heading
             fontFamily="Kanit"
             fontWeight="700"
@@ -61,7 +83,7 @@ const DaftarDivisi: React.FC = () => {
           </DivisionContainer>
         </Center>
         <Link to="/data-diri">
-          <Button colorScheme="cyan">Lanjut</Button>
+          <ButtonBackForm>NEXT</ButtonBackForm>
         </Link>
       </Flex>
     </Box>

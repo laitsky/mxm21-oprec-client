@@ -24,14 +24,14 @@ export enum Divisi {
   DokumFoto = 'D05',
   DokumVideo = 'D06',
   FreshMoney = 'D07',
-  Website = 'D08',
-  Seccom = 'D09',
-  Medrel = 'D10',
-  Merchandise = 'D11',
-  Perlengkapan = 'D12',
-  Publikasi = 'D13',
-  Visual = 'D14',
-  Sponsor = 'D15',
+  Medrel = 'D08',
+  Merchandise = 'D09',
+  Perlengkapan = 'D10',
+  Publikasi = 'D11',
+  Visual = 'D12',
+  Seccom = 'D13',
+  Sponsor = 'D14',
+  Website = 'D15',
 }
 
 export enum Palette {

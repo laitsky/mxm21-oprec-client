@@ -11,25 +11,19 @@ import {
   InputGroup,
   Input,
   InputLeftAddon,
-  Heading,
   Image,
   FormControl,
 } from '@chakra-ui/react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { MxmLogoText } from '../../../assets';
 import { studentVerify } from '../../../services/oprec.service';
 import { OprecHomepageHeader } from '../../../shared/styles/header';
 
 const SelamatDatang: React.FC = () => {
   const history = useHistory();
-  const {
-    register,
-    handleSubmit,
-    reset,
-    errors,
-    formState,
-  } = useForm({
+  const { register, handleSubmit, errors, formState } = useForm({
     mode: 'onChange',
   });
 
@@ -37,15 +31,30 @@ const SelamatDatang: React.FC = () => {
     try {
       const result = await studentVerify(data.nim);
       console.log(result);
-      history.push('/jadwal-oprec');
+      history.push('/daftar-divisi');
     } catch (error) {
-      console.log(error.response.data);
+      Swal.fire({
+        title: 'Perhatian!',
+        text: error.response.data.message,
+        icon: 'error',
+        confirmButtonText: 'Coba lagi',
+      });
     }
   };
+
+  React.useEffect(() => {
+    document.title = 'MAXIMA 2020: Open Recruitment';
+  }, []);
+
   return (
     <Flex direction="column" align="center" justify="center">
       <OprecHomepageHeader>OPEN RECRUITMENT</OprecHomepageHeader>
-      <Image mt={12} src={MxmLogoText} alt="Logo MAXIMA 2021" />
+      <Image
+        mt={12}
+        src={MxmLogoText}
+        alt="Logo MAXIMA 2021"
+        w={40}
+      />
       <Box h="10vh" />
       <form onSubmit={handleSubmit(onSubmit)}>
         <Box>

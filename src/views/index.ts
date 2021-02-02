@@ -1,7 +1,5 @@
 export {
   SelamatDatang,
-  Playground,
-  Jadwal,
   DaftarDivisi,
   DataDiri,
   EsaiSingkat,

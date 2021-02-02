@@ -9,7 +9,6 @@ import {
   InputGroup,
   InputLeftAddon,
   InputRightAddon,
-  Button,
   Select,
   Box,
   Center,
@@ -53,18 +52,21 @@ const responsiveBox = {
   xl: '2.5em',
 };
 
-type DataDiriInput = {
-  any: string;
-};
-
 const DataDiri: React.FC = () => {
   const history = useHistory();
-  const { handleSubmit, errors, register, formState } = useForm();
-  const onSubmit: SubmitHandler<DataDiriInput> = (data) => {
+  const { handleSubmit, errors, register } = useForm();
+  const onSubmit = (data: any) => {
     window.sessionStorage.setItem('dataDiri', JSON.stringify(data));
-    history.push('/esai-singkat');
+    history.push({
+      pathname: '/esai-singkat',
+      state: {
+        divisionQ: data.divisiID,
+      },
+    });
   };
-
+  React.useEffect(() => {
+    document.title = 'MAXIMA 2020: Data Diri';
+  }, []);
   return (
     <FormComponent>
       <Center>
@@ -76,7 +78,7 @@ const DataDiri: React.FC = () => {
           <form onSubmit={handleSubmit(onSubmit)}>
             <Center>
               <FormContainer>
-                <FormControl isInvalid={errors.name}>
+                <FormControl isInvalid={errors.name} name="name">
                   <FormLabel style={formLabelStyle}>
                     Nama Lengkap
                   </FormLabel>
@@ -107,7 +109,17 @@ const DataDiri: React.FC = () => {
                       placeholder="XXXXX"
                       fontSize={responsiveLabel}
                       height="2.5em"
-                      ref={register({ required: 'Isi nim kamu!' })}
+                      ref={register({
+                        required: 'Masukkan NIM kamu!',
+                        minLength: {
+                          value: 5,
+                          message: 'NIM harus berupa 5 digit',
+                        },
+                        maxLength: {
+                          value: 5,
+                          message: 'NIM harus berupa 5 digit',
+                        },
+                      })}
                     />
                   </InputGroup>
                   <FormErrorMessage fontSize={responsiveLabel}>
@@ -189,6 +201,7 @@ const DataDiri: React.FC = () => {
                       lg: '20%',
                       xl: '20%',
                     }}
+                    name="jenis_kelamin"
                     isInvalid={errors.jenis_kelamin}
                   >
                     <FormLabel style={formLabelStyle}>
@@ -317,7 +330,7 @@ const DataDiri: React.FC = () => {
                       <NumberInputField
                         fontSize={responsiveLabel}
                         height="2.5em"
-                        ref={register({ required: 'Isi ips kamu!' })}
+                        ref={register({ required: 'Isi IPS kamu!' })}
                       />
                       <NumberInputStepper fontSize={responsiveLabel}>
                         <NumberIncrementStepper
@@ -490,7 +503,7 @@ const DataDiri: React.FC = () => {
                         fontSize={responsiveLabel}
                         height="2.5em"
                         ref={register({
-                          required: 'Isi instagram kamu!',
+                          required: 'Isi Instagram kamu!',
                         })}
                       />
                     </InputGroup>

@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory, Link, useLocation } from 'react-router-dom';
 import {
   FormControl,
   FormLabel,
   FormErrorMessage,
   Box,
   Textarea,
-  Input,
   Center,
+  Stack,
 } from '@chakra-ui/react';
 
 import {
@@ -22,6 +22,7 @@ import {
 } from '../../../shared/styles/containers';
 import { generateToken } from '../../../utils';
 import { formLabelStyle } from '../../../shared/constants';
+import { pertanyaanDivisi } from './pertanyaanDivisi';
 
 const responsiveLabel = {
   base: '1em',
@@ -39,12 +40,13 @@ type EsaiSingkatInput = {
 
 const EsaiSingkat: React.FC = () => {
   const history = useHistory();
-  const { handleSubmit, errors, register, formState } = useForm();
-  const onSubmit: SubmitHandler<EsaiSingkatInput> = (data) => {
-    const dataDiri = JSON.parse(
-      window.sessionStorage.getItem('dataDiri')!,
-    );
+  const location = useLocation();
 
+  const dataDiri = JSON.parse(
+    window.sessionStorage.getItem('dataDiri')!,
+  );
+  const { handleSubmit, errors, register } = useForm();
+  const onSubmit: SubmitHandler<EsaiSingkatInput> = (data) => {
     const studentData = {
       ...dataDiri,
       ...data,
@@ -57,7 +59,9 @@ const EsaiSingkat: React.FC = () => {
     );
     history.push('/finalisasi-data');
   };
-
+  React.useEffect(() => {
+    document.title = 'MAXIMA 2020: Esai Singkat';
+  }, []);
   return (
     <FormComponent>
       <Center>
@@ -69,49 +73,49 @@ const EsaiSingkat: React.FC = () => {
           <form onSubmit={handleSubmit(onSubmit)}>
             <Center>
               <FormContainer>
-                <FormControl isInvalid={errors.soal1}>
-                  <FormLabel style={formLabelStyle}>
-                    Bagaimana kamu mendefinisikan Dreamland sebagai
-                    tema MAXIMA 2021?
-                  </FormLabel>
-                  <Textarea
-                    name="soal1"
-                    fontSize={responsiveLabel}
-                    height="15em"
-                    ref={register({ required: 'Isi soal1 !' })}
-                  />
-                  <FormErrorMessage fontSize={responsiveLabel}>
-                    {errors.soal1 && errors.soal1.message}
-                  </FormErrorMessage>
-                </FormControl>
-                <FormControl isInvalid={errors.soal2}>
-                  <FormLabel style={formLabelStyle}>
-                    Apa yang akan kamu tingkatkan di MAXIMA 2021?
-                  </FormLabel>
-                  <Textarea
-                    name="soal2"
-                    fontSize={responsiveLabel}
-                    height="15em"
-                    ref={register({ required: 'Isi soal2 !' })}
-                  />
-                  <FormErrorMessage fontSize={responsiveLabel}>
-                    {errors.soal2 && errors.soal2.message}
-                  </FormErrorMessage>
-                </FormControl>
-                <FormControl isInvalid={errors.soal3}>
-                  <FormLabel style={formLabelStyle}>
-                    (Pertanyaan Divisi)
-                  </FormLabel>
-                  <Textarea
-                    name="soal3"
-                    fontSize={responsiveLabel}
-                    height="15em"
-                    ref={register({ required: 'Isi soal3 !' })}
-                  />
-                  <FormErrorMessage fontSize={responsiveLabel}>
-                    {errors.soal3 && errors.soal3.message}
-                  </FormErrorMessage>
-                </FormControl>
+                <Stack spacing={4}>
+                  <FormControl isInvalid={errors.soal1}>
+                    <FormLabel style={formLabelStyle}>
+                      Bagaimana kamu mendefinisikan Dreamland sebagai
+                      tema MAXIMA 2021?
+                    </FormLabel>
+                    <Textarea
+                      name="soal1"
+                      fontSize={responsiveLabel}
+                      height="15em"
+                      ref={register({ required: 'Isi esai!' })}
+                    />
+                    <FormErrorMessage fontSize={responsiveLabel}>
+                      {errors.soal1 && errors.soal1.message}
+                    </FormErrorMessage>
+                  </FormControl>
+                  <FormControl isInvalid={errors.soal2}>
+                    <FormLabel style={formLabelStyle}>
+                      Apa yang akan kamu tingkatkan di MAXIMA 2021?
+                    </FormLabel>
+                    <Textarea
+                      name="soal2"
+                      fontSize={responsiveLabel}
+                      height="15em"
+                      ref={register({ required: 'Isi esai!' })}
+                    />
+                    <FormErrorMessage fontSize={responsiveLabel}>
+                      {errors.soal2 && errors.soal2.message}
+                    </FormErrorMessage>
+                  </FormControl>
+                  <FormControl isInvalid={errors.soal3}>
+                    <FormLabel style={formLabelStyle}>{pertanyaanDivisi.find(d => d.divisi === dataDiri.divisiID)?.q}</FormLabel>
+                    <Textarea
+                      name="soal3"
+                      fontSize={responsiveLabel}
+                      height="15em"
+                      ref={register({ required: 'Isi esai!' })}
+                    />
+                    <FormErrorMessage fontSize={responsiveLabel}>
+                      {errors.soal3 && errors.soal3.message}
+                    </FormErrorMessage>
+                  </FormControl>
+                </Stack>
               </FormContainer>
             </Center>
 
@@ -125,10 +129,6 @@ const EsaiSingkat: React.FC = () => {
                 <ButtonNextForm type="submit">NEXT</ButtonNextForm>
               </Box>
             </Center>
-            {/* 
-          <Button mt={4} colorScheme="teal" isLoading={formState.isSubmitting} type="submit">
-            Submit
-          </Button> */}
           </form>
         </Box>
       </Center>

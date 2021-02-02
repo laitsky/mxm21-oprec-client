@@ -1,0 +1,21 @@
+.jadwal-title {
+  color: #1F2C4C;
+}
+
+.jadwal-header {
+  font-size: 1.75rem;
+  font-family: 'Kanit';
+  font-weight: 700;
+  color: #41CEBA;
+  letter-spacing: 1.2;
+}
+
+.jadwal-text {
+  font-family: 'DM Sans';
+  color: #F4224B;
+  letter-spacing: 1;
+  text-transform: uppercase;
+  margin-top: 0.5em;
+  margin-bottom: 1.5em;
+  font-size: 1rem;
+}

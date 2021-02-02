@@ -6,9 +6,11 @@ import {
   Image,
   Divider,
   Stack,
+  HStack,
 } from '@chakra-ui/react';
 import { useLocation, useHistory } from 'react-router-dom';
 import { DownloadIcon } from '@chakra-ui/icons';
+import Swal from 'sweetalert2';
 import {
   FormComponent2,
   BadgeContainer,
@@ -39,12 +41,18 @@ const FinalOprec: React.FC = () => {
   }
 
   React.useEffect(() => {
+    document.title = 'MAXIMA 2020: Terima Kasih!';
     const fetchData = async () => {
       try {
         const returnedData = await getPDF({ nim_mhs, token });
         setDocLink(returnedData.message);
       } catch (error) {
-        console.log(error.response.data);
+        Swal.fire({
+          title: 'Perhatian!',
+          text: error.response.data.message,
+          icon: 'error',
+          confirmButtonText: 'Coba lagi',
+        });
       }
     };
     fetchData();
@@ -76,9 +84,9 @@ const FinalOprec: React.FC = () => {
 
       <BadgeContainer>14 Februari 2021</BadgeContainer>
 
-      <Stack direction={['row', 'column']} spacing="24px">
-        <Box bg="tomato" p={3} rounded={4}>
-          <Text fontSize="md" color="white" letterSpacing="-0.5px">
+      <Stack spacing={3}>
+        <Box bg="tomato" p={3} rounded={4} textAlign="center">
+          <Text fontSize="sm" color="white" letterSpacing="-0.5px">
             Token Pendaftaran:{' '}
             <span style={{ fontWeight: 'bolder' }}>{token}</span>
           </Text>
@@ -86,15 +94,16 @@ const FinalOprec: React.FC = () => {
         <Box
           bg="cyan.500"
           p={3}
+          mb={6}
           rounded={4}
           _hover={{ bg: 'cyan.600', cursor: 'pointer' }}
           onClick={() => window.open(docLink)}
         >
-          <Text fontSize="md" color="white" letterSpacing="-0.5px">
+          <Text fontSize="sm" color="white" letterSpacing="-0.5px">
             <DownloadIcon ml={2} /> Unduh formulir pendaftaran
           </Text>
         </Box>
-      </Stack>
+      </Stack >
 
       <Divider />
       <Box width={responsiveLogo} _hover={{ cursor: 'pointer' }}>
@@ -104,6 +113,7 @@ const FinalOprec: React.FC = () => {
           mt="3em"
         />
       </Box>
+        <Text fontSize="sm" color="white" mt={6}>ketuk logo untuk kembali ke halaman utama.</Text>
     </FormComponent2>
   );
 };

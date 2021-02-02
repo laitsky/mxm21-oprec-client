@@ -7,7 +7,7 @@ import AppRouter from './AppRouter';
 export const App: React.FC = () => (
   <AnimatePresence>
     <ChakraProvider theme={theme} resetCSS>
-      <ColorModeSwitcher />
+      {/* <ColorModeSwitcher /> */}
       <AppRouter />
     </ChakraProvider>
   </AnimatePresence>

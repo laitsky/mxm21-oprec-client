@@ -63,22 +63,6 @@ export const ButtonMaxima = styled.button`
     margin-bottom: 0;
     box-shadow: 0px 0px #1f2c4c;
   }
-
-  @media (max-width: 80em) {
-    font-size: 1em;
-  }
-
-  @media (max-width: 62em) {
-    font-size: 0.9em;
-  }
-
-  @media (max-width: 48em) {
-    font-size: 0.8em;
-  }
-
-  @media (max-width: 30em) {
-    font-size: 0.7em;
-  }
 `;
 
 export const ButtonBackForm = styled.button`
@@ -101,22 +85,6 @@ export const ButtonBackForm = styled.button`
     margin-top: 4px;
     margin-bottom: 0;
     box-shadow: 0px 0px #1f2c4c;
-  }
-
-  @media (max-width: 80em) {
-    font-size: 1em;
-  }
-
-  @media (max-width: 62em) {
-    font-size: 0.9em;
-  }
-
-  @media (max-width: 48em) {
-    font-size: 0.8em;
-  }
-
-  @media (max-width: 30em) {
-    font-size: 0.7em;
   }
 `;
 
@@ -141,22 +109,6 @@ export const ButtonNextForm = styled.button`
     margin-bottom: 0;
     box-shadow: 0px 0px #1f2c4c;
   }
-
-  @media (max-width: 80em) {
-    font-size: 1em;
-  }
-
-  @media (max-width: 62em) {
-    font-size: 0.9em;
-  }
-
-  @media (max-width: 48em) {
-    font-size: 0.8em;
-  }
-
-  @media (max-width: 30em) {
-    font-size: 0.7em;
-  }
 `;
 
 export const ButtonBackFinal = styled.button`
@@ -179,22 +131,6 @@ export const ButtonBackFinal = styled.button`
     margin-top: 4px;
     margin-bottom: 0;
     box-shadow: 0px 0px #1f2c4c;
-  }
-
-  @media (max-width: 80em) {
-    font-size: 1em;
-  }
-
-  @media (max-width: 62em) {
-    font-size: 0.9em;
-  }
-
-  @media (max-width: 48em) {
-    font-size: 0.8em;
-  }
-
-  @media (max-width: 30em) {
-    font-size: 0.7em;
   }
 `;
 
@@ -223,21 +159,5 @@ export const ButtonNextFinal = styled.button`
 
   &:disabled {
     background-color: #d6af0b;
-  }
-
-  @media (max-width: 80em) {
-    font-size: 1em;
-  }
-
-  @media (max-width: 62em) {
-    font-size: 0.9em;
-  }
-
-  @media (max-width: 48em) {
-    font-size: 0.8em;
-  }
-
-  @media (max-width: 30em) {
-    font-size: 0.7em;
   }
 `;

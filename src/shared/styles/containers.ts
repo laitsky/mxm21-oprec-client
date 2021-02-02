@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const FormComponent = styled.div`
+  min-height: 100vh;
   background-color: #41ceba;
   padding: 0.5em;
   padding-bottom: 5em;

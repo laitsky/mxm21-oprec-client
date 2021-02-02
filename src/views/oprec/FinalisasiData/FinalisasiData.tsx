@@ -10,6 +10,7 @@ import {
 } from '@chakra-ui/react';
 import { Link, useHistory } from 'react-router-dom';
 import { DownloadIcon } from '@chakra-ui/icons';
+import Swal from 'sweetalert2';
 import { FormComponent2 } from '../../../shared/styles/containers';
 import { FinalLogo } from '../../../assets';
 import {
@@ -38,12 +39,18 @@ const FinalisasiData: React.FC = () => {
   const [docLink, setDocLink] = React.useState();
 
   React.useEffect(() => {
+    document.title = 'MAXIMA 2020: Finalisasi Data';
     const fetchData = async () => {
       try {
         const returnedData = await generateTempPDF(studentData);
         setDocLink(returnedData.message);
       } catch (error) {
-        console.log(error.response.data);
+        Swal.fire({
+          title: 'Perhatian!',
+          text: error.response.data.message,
+          icon: 'error',
+          confirmButtonText: 'Coba lagi',
+        });
       }
     };
     fetchData();

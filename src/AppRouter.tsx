@@ -12,8 +12,6 @@ import * as Koor from './views/koor';
 const AppRouter: React.FC = () => {
   return (
     <Switch>
-      <Route path="/playground" exact component={Oprec.Playground} />
-      <Route path="/jadwal-oprec" exact component={Oprec.Jadwal} />
       <Route
         path="/daftar-divisi"
         exact
