@@ -19,7 +19,7 @@ export const LoginFormCard = styled.div`
 `;
 
 export const DivisionCard = styled.div`
-  background-color: white;
+  background-color: #eceff1;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -34,11 +34,14 @@ export const DivisionCard = styled.div`
   padding: 0.5em 2em 1em 2em;
   border-radius: 15px;
   line-height: 1.85;
+
+  @media (max-width: 490px) {
+    padding: 1em 0.5em 1em 0.5em
+  }
   @media (max-width: 450px) {
     flex-direction: column;
-    margin-left: 1.5em;
     padding-left: 0;
-    padding-right: 0.5em;
+    padding-right: 1em;
   }
 `;
 
@@ -74,8 +77,10 @@ export const DivisionCardTitle = styled.div`
   font-size: 1.85em;
   text-transform: uppercase;
   letter-spacing: 2.5px;
-  color: ${Palette.MxmPink};
-
+  //color: ${Palette.MxmPink};
+  background: -webkit-linear-gradient(90deg, rgba(244,34,75,1) 0%, rgba(196,26,59,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   @media (max-width: 452px) {
     font-size: 1em;
     letter-spacing: 1.5px;

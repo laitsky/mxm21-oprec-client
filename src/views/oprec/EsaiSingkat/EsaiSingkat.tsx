@@ -21,6 +21,7 @@ import {
   TitleContainer2,
 } from '../../../shared/styles/containers';
 import { generateToken } from '../../../utils';
+import { formLabelStyle } from '../../../shared/constants';
 
 const responsiveLabel = {
   base: '1em',
@@ -50,7 +51,6 @@ const EsaiSingkat: React.FC = () => {
       token: generateToken(),
       statusID: 1,
     };
-    window.sessionStorage.clear();
     window.sessionStorage.setItem(
       'studentData',
       JSON.stringify(studentData),
@@ -70,7 +70,7 @@ const EsaiSingkat: React.FC = () => {
             <Center>
               <FormContainer>
                 <FormControl isInvalid={errors.soal1}>
-                  <FormLabel fontSize={responsiveLabel}>
+                  <FormLabel style={formLabelStyle}>
                     Bagaimana kamu mendefinisikan Dreamland sebagai
                     tema MAXIMA 2021?
                   </FormLabel>
@@ -85,7 +85,7 @@ const EsaiSingkat: React.FC = () => {
                   </FormErrorMessage>
                 </FormControl>
                 <FormControl isInvalid={errors.soal2}>
-                  <FormLabel fontSize={responsiveLabel}>
+                  <FormLabel style={formLabelStyle}>
                     Apa yang akan kamu tingkatkan di MAXIMA 2021?
                   </FormLabel>
                   <Textarea
@@ -99,7 +99,7 @@ const EsaiSingkat: React.FC = () => {
                   </FormErrorMessage>
                 </FormControl>
                 <FormControl isInvalid={errors.soal3}>
-                  <FormLabel fontSize={responsiveLabel}>
+                  <FormLabel style={formLabelStyle}>
                     (Pertanyaan Divisi)
                   </FormLabel>
                   <Textarea

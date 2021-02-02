@@ -15,7 +15,5 @@ export const responsiveTitle = {
 export const responsiveLabel = {
   base: '1em',
   sm: '1.1em',
-  md: '1.1em',
-  lg: '1.3em',
-  xl: '1.5em',
+  lg: '1.2em',
 };

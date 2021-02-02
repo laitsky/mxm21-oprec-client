@@ -8,12 +8,20 @@ export const FormComponent = styled.div`
 `;
 
 export const FormComponent2 = styled.div`
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  height: 100vh;
   background-color: #1f2c4c;
   padding-top: 3em;
   padding-left: 0.5em;
   padding-right: 0.5em;
   padding-bottom: 3em;
   font-family: Varela;
+
+  @media (max-width: 360px) {
+    height: 100%;
+  }
 `;
 
 export const FormContainer = styled.div`
@@ -147,7 +155,11 @@ export const DivisionContainer = styled.div`
     max-width: 90vw;
   }
 
-  @media (max-width: 500px) {
-    max-width: 100vw;
+  @media (max-width: 663px) {
+    padding: 0;
   }
+
+  
+
+
 `;

@@ -1,85 +1,109 @@
 import * as React from 'react';
-import { Center, Box, Text, Image } from '@chakra-ui/react';
+import {
+  Center,
+  Box,
+  Text,
+  Image,
+  Divider,
+  Stack,
+} from '@chakra-ui/react';
+import { useLocation, useHistory } from 'react-router-dom';
+import { DownloadIcon } from '@chakra-ui/icons';
 import {
   FormComponent2,
   BadgeContainer,
 } from '../../../shared/styles/containers';
 import { MxmWhiteLogo, LastLogo } from '../../../assets';
+import {
+  responsiveLogo,
+  responsiveTitle,
+  responsiveLabel,
+} from './constants';
+import { getPDF } from '../../../services/oprec.service';
 
-const responsiveImg = {
-  base: '16em',
-  sm: '18em',
-  md: '18em',
-  lg: '20em',
-  xl: '22em',
+type LocationState = {
+  nim_mhs: string;
+  token: string;
 };
-const responsiveLogo = {
-  base: '4.2em',
-  sm: '4.5em',
-  md: '4.5em',
-  lg: '5.5em',
-  xl: '6em',
-};
-const responsiveTitle = {
-  base: '2.6em',
-  sm: '2.8em',
-  md: '2.8em',
-  lg: '3.1em',
-  xl: '3.4em',
-};
-const responsiveLabel = {
-  base: '1.5em',
-  sm: '1.6em',
-  md: '1.6em',
-  lg: '1.8em',
-  xl: '2em',
-};
-
 const FinalOprec: React.FC = () => {
+  const location = useLocation();
+  const history = useHistory();
+  const [docLink, setDocLink] = React.useState('');
+  try {
+    var {
+      nim_mhs,
+      token,
+    }: LocationState = location.state as LocationState;
+  } catch (error) {
+    console.log(error);
+  }
+
+  React.useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const returnedData = await getPDF({ nim_mhs, token });
+        setDocLink(returnedData.message);
+      } catch (error) {
+        console.log(error.response.data);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
     <FormComponent2>
-      <Center>
-        <Box width={responsiveImg}>
-          <Center>
-            <Image src={LastLogo} />
-          </Center>
+      <Image src={LastLogo} width={220} />
+
+      <Text
+        color="#ffd008"
+        fontSize={responsiveTitle}
+        mt="0.5em"
+        fontFamily="Kanit"
+        fontWeight="700"
+      >
+        TERIMA KASIH!
+      </Text>
+      <Text
+        color="white"
+        fontSize={responsiveLabel}
+        mt="1em"
+        fontFamily="Kanit"
+        textAlign="center"
+        lineHeight="1.8em"
+      >
+        Hasil seleksi formulir akan diumumkan pada tanggal
+      </Text>
+
+      <BadgeContainer>14 Februari 2021</BadgeContainer>
+
+      <Stack direction={['row', 'column']} spacing="24px">
+        <Box bg="tomato" p={3} rounded={4}>
+          <Text fontSize="md" color="white" letterSpacing="-0.5px">
+            Token Pendaftaran:{' '}
+            <span style={{ fontWeight: 'bolder' }}>{token}</span>
+          </Text>
         </Box>
-      </Center>
-      <Center>
-        <Text
-          color="#ffd008"
-          fontSize={responsiveTitle}
-          mt="0.5em"
-          fontFamily="Kanit"
-          fontWeight="700"
+        <Box
+          bg="cyan.500"
+          p={3}
+          rounded={4}
+          _hover={{ bg: 'cyan.600', cursor: 'pointer' }}
+          onClick={() => window.open(docLink)}
         >
-          TERIMA KASIH!
-        </Text>
-      </Center>
-      <Center>
-        <Text
-          color="white"
-          fontSize={responsiveLabel}
-          mt="1em"
-          fontFamily="Kanit"
-          textAlign="center"
-          lineHeight="1.8em"
-        >
-          Hasil seleksi formulir akan
-          <br />
-          diumumkan pada tanggal
-        </Text>
-      </Center>
-      <Center>
-        <BadgeContainer>14 Februari 2021</BadgeContainer>
-      </Center>
-      <Center>
-        <Box width={responsiveLogo}>
-          <Center>
-            <Image src={MxmWhiteLogo} mt="3em" />
-          </Center>
+          <Text fontSize="md" color="white" letterSpacing="-0.5px">
+            <DownloadIcon ml={2} /> Unduh formulir pendaftaran
+          </Text>
         </Box>
-      </Center>
+      </Stack>
+
+      <Divider />
+      <Box width={responsiveLogo} _hover={{ cursor: 'pointer' }}>
+        <Image
+          onClick={() => history.push('/')}
+          src={MxmWhiteLogo}
+          mt="3em"
+        />
+      </Box>
     </FormComponent2>
   );
 };
