@@ -7,6 +7,7 @@ import {
   Checkbox,
   Box,
   Spinner,
+  HStack,
 } from '@chakra-ui/react';
 import { Link, useHistory } from 'react-router-dom';
 import { DownloadIcon } from '@chakra-ui/icons';
@@ -157,29 +158,18 @@ const FinalisasiData: React.FC = () => {
         </Flex>
       )}
 
-      <Flex direction="row" pt="3em">
-        <Box
-          pr={{
-            base: '10em',
-            sm: '14em',
-            md: '12em',
-            lg: '14em',
-            xl: '15em',
-          }}
+      <HStack spacing={32} mt={12}>
+        <Link to="esai-singkat">
+          <ButtonBackFinal>BACK</ButtonBackFinal>
+        </Link>
+
+        <ButtonNextFinal
+          disabled={!isDisabled!}
+          onClick={handleNextBtn}
         >
-          <Link to="esai-singkat">
-            <ButtonBackFinal>BACK</ButtonBackFinal>
-          </Link>
-        </Box>
-        <Box>
-          <ButtonNextFinal
-            disabled={!isDisabled!}
-            onClick={handleNextBtn}
-          >
-            NEXT
-          </ButtonNextFinal>
-        </Box>
-      </Flex>
+          NEXT
+        </ButtonNextFinal>
+      </HStack>
     </FormComponent2>
   );
 };

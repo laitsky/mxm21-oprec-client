@@ -86,6 +86,10 @@ export const ButtonBackForm = styled.button`
     margin-bottom: 0;
     box-shadow: 0px 0px #1f2c4c;
   }
+
+  @media (max-width: 340px) {
+    font-size: 0.8em;
+  })
 `;
 
 export const ButtonNextForm = styled.button`
@@ -109,6 +113,10 @@ export const ButtonNextForm = styled.button`
     margin-bottom: 0;
     box-shadow: 0px 0px #1f2c4c;
   }
+
+  @media (max-width: 340px) {
+    font-size: 0.8em;
+  })
 `;
 
 export const ButtonBackFinal = styled.button`
@@ -132,6 +140,10 @@ export const ButtonBackFinal = styled.button`
     margin-bottom: 0;
     box-shadow: 0px 0px #1f2c4c;
   }
+
+  @media (max-width: 340px) {
+    font-size: 0.8em;
+  })
 `;
 
 export const ButtonNextFinal = styled.button`
@@ -160,4 +172,8 @@ export const ButtonNextFinal = styled.button`
   &:disabled {
     background-color: #d6af0b;
   }
+
+  @media (max-width: 340px) {
+    font-size: 0.8em;
+  })0.8
 `;

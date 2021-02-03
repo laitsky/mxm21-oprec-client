@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Palette } from '../../types';
+import { blink } from './keyframes';
 
 export const LoginFormCard = styled.div`
   background-color: #fafafa;
@@ -16,6 +17,35 @@ export const LoginFormCard = styled.div`
     height: 100vh;
     width: 100vw;
   }
+`;
+
+export const HomepageCheckCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  background-color: #fafafa;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  -webkit-animation: ${blink} 1.2s infinite alternate;
+  animation: ${blink} 1.2s infinite alternate;
+  transition: 0.3s;
+  padding: 2.5em 3em 2.5em 3em;
+  margin-top: 2em;
+  border-radius: 7px;
+  
+  @media (max-height: 667px) {
+    height: 100vh;
+    width: 100vw;
+  }
+  
+  @media (max-width: 450px) {
+    padding: 1.5em;
+  }
+  
+  @media (max-width: 402px) {
+    padding: 2.5em 0.35em 0.5em 0.35em;
+    height: auto;
+  }
+
 `;
 
 export const DivisionCard = styled.div`

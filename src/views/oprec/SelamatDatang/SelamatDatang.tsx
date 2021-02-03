@@ -2,17 +2,15 @@ import * as React from 'react';
 import {
   Alert,
   AlertIcon,
-  AlertTitle,
   AlertDescription,
-  Button,
   Box,
-  Flex,
   Center,
   InputGroup,
   Input,
   InputLeftAddon,
   Image,
   FormControl,
+  FormLabel,
 } from '@chakra-ui/react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
@@ -20,17 +18,27 @@ import Swal from 'sweetalert2';
 import { MxmLogoText } from '../../../assets';
 import { studentVerify } from '../../../services/oprec.service';
 import { OprecHomepageHeader } from '../../../shared/styles/header';
+import { OprecHomepageContainer } from '../../../shared/styles/containers';
+import { HomepageCheckCard } from '../../../shared/styles/cards';
+import { MxmLoading } from '../../../shared/motions/MxmLoading';
+import './selamat-datang.css';
+import { formLabelStyle } from '../../../shared/constants';
 
 const SelamatDatang: React.FC = () => {
   const history = useHistory();
-  const { register, handleSubmit, errors, formState } = useForm({
+  const {
+    register,
+    handleSubmit,
+    errors,
+    formState,
+    reset,
+  } = useForm({
     mode: 'onChange',
   });
 
   const onSubmit = async (data: Record<string, unknown>) => {
     try {
-      const result = await studentVerify(data.nim);
-      console.log(result);
+      await studentVerify(data.nim);
       history.push('/daftar-divisi');
     } catch (error) {
       Swal.fire({
@@ -39,6 +47,8 @@ const SelamatDatang: React.FC = () => {
         icon: 'error',
         confirmButtonText: 'Coba lagi',
       });
+    } finally {
+      reset();
     }
   };
 
@@ -47,70 +57,69 @@ const SelamatDatang: React.FC = () => {
   }, []);
 
   return (
-    <Flex direction="column" align="center" justify="center">
-      <OprecHomepageHeader>OPEN RECRUITMENT</OprecHomepageHeader>
-      <Image
-        mt={12}
-        src={MxmLogoText}
-        alt="Logo MAXIMA 2021"
-        w={40}
-      />
-      <Box h="10vh" />
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <Box>
-          <FormControl isInvalid={errors.nim}>
-            <InputGroup
-              mb={8}
-              w={{
-                base: '90vw',
-                sm: '70vw',
-                md: '45vw',
-                lg: '30vw',
-                xl: '18vw',
-              }}
-            >
-              <InputLeftAddon children="000000" />
-              <Input
-                type="number"
-                placeholder="Masukkan NIM"
-                name="nim"
-                ref={register({
-                  required: 'Masukkan NIM kamu!',
-                  minLength: {
-                    value: 5,
-                    message: 'NIM harus berupa 5 digit',
-                  },
-                  maxLength: {
-                    value: 5,
-                    message: 'NIM harus berupa 5 digit',
-                  },
-                })}
-              />
-            </InputGroup>
-            <Center mt={-6}>
-              {errors.nim && (
-                <Alert status="error">
-                  <AlertIcon />
-                  <AlertTitle mr={2}>Error!</AlertTitle>
-                  <AlertDescription>
-                    {errors.nim.message}
-                  </AlertDescription>
-                </Alert>
-              )}
-            </Center>
-          </FormControl>
-        </Box>
-        <Center mt={6}>
-          <Button
-            colorScheme="purple"
-            isLoading={formState.isSubmitting}
-            type="submit"
-          >
-            Mulai
-          </Button>
-        </Center>
-      </form>
-    </Flex>
+    <OprecHomepageContainer>
+      <OprecHomepageHeader>
+        OPEN <br /> RECRUITMENT <br /> MAXIMA 2021
+      </OprecHomepageHeader>
+      <HomepageCheckCard>
+        <Image
+          src={MxmLogoText}
+          alt="Logo MAXIMA 2021"
+          className="img-responsive"
+        />
+        <Box h="5vh" />
+        <form id="nim-form" onSubmit={handleSubmit(onSubmit)}>
+          <Box>
+            <FormControl isInvalid={errors.nim}>
+              <FormLabel style={formLabelStyle}>
+                Masukkan NIM kamu:
+              </FormLabel>
+              <InputGroup mb={8}>
+                <InputLeftAddon
+                  children="000000"
+                  fontFamily="Varela"
+                  fontSize="sm"
+                />
+                <Input
+                  fontFamily="Kanit"
+                  type="number"
+                  name="nim"
+                  ref={register({
+                    required: 'Masukkan NIM kamu!',
+                    minLength: {
+                      value: 5,
+                      message: 'NIM harus berupa 5 digit',
+                    },
+                    maxLength: {
+                      value: 5,
+                      message: 'NIM harus berupa 5 digit',
+                    },
+                  })}
+                  onChange={(e) => {
+                    e.target.value.length === 5
+                      ? handleSubmit(onSubmit)()
+                      : null;
+                  }}
+                />
+              </InputGroup>
+              <Center mt={-6}>
+                {errors.nim && (
+                  <Alert status="warning" variant="left-accent">
+                    <AlertIcon />
+                    <AlertDescription>
+                      {errors.nim.message}
+                    </AlertDescription>
+                  </Alert>
+                )}
+              </Center>
+            </FormControl>
+          </Box>
+          <Center mt={6}>
+            {formState.isSubmitting && <MxmLoading />}
+          </Center>
+        </form>
+      </HomepageCheckCard>
+    </OprecHomepageContainer>
   );
 };
 

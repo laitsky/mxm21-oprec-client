@@ -69,7 +69,7 @@ const EsaiSingkat: React.FC = () => {
       </Center>
 
       <Center>
-        <Box w="100%" p="1.5em">
+        <Box w="100%" p="1.5em 0.75em 1.5em 0.75em">
           <form onSubmit={handleSubmit(onSubmit)}>
             <Center>
               <FormContainer>
@@ -104,7 +104,13 @@ const EsaiSingkat: React.FC = () => {
                     </FormErrorMessage>
                   </FormControl>
                   <FormControl isInvalid={errors.soal3}>
-                    <FormLabel style={formLabelStyle}>{pertanyaanDivisi.find(d => d.divisi === dataDiri.divisiID)?.q}</FormLabel>
+                    <FormLabel style={formLabelStyle}>
+                      {
+                        pertanyaanDivisi.find(
+                          (d) => d.divisi === dataDiri.divisiID,
+                        )?.q
+                      }
+                    </FormLabel>
                     <Textarea
                       name="soal3"
                       fontSize={responsiveLabel}

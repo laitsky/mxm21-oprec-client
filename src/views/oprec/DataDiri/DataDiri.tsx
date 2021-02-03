@@ -84,13 +84,12 @@ const DataDiri: React.FC = () => {
                   </FormLabel>
                   <Input
                     name="name"
-                    fontSize={responsiveLabel}
                     height="2.5em"
                     ref={register({
                       required: 'Isi nama lengkap kamu!',
                     })}
                   />
-                  <FormErrorMessage fontSize={responsiveLabel}>
+                  <FormErrorMessage>
                     {errors.name && errors.name.message}
                   </FormErrorMessage>
                 </FormControl>
@@ -100,14 +99,11 @@ const DataDiri: React.FC = () => {
                   <InputGroup>
                     <InputLeftAddon
                       children="000000"
-                      fontSize={responsiveLabel}
                       height="2.5em"
                     />
                     <Input
                       name="nim_mhs"
                       type="number"
-                      placeholder="XXXXX"
-                      fontSize={responsiveLabel}
                       height="2.5em"
                       ref={register({
                         required: 'Masukkan NIM kamu!',
@@ -122,7 +118,7 @@ const DataDiri: React.FC = () => {
                       })}
                     />
                   </InputGroup>
-                  <FormErrorMessage fontSize={responsiveLabel}>
+                  <FormErrorMessage>
                     {errors.nim_mhs && errors.nim_mhs.message}
                   </FormErrorMessage>
                 </FormControl>
@@ -151,13 +147,12 @@ const DataDiri: React.FC = () => {
                     </FormLabel>
                     <Input
                       name="tempat_lahir"
-                      fontSize={responsiveLabel}
                       height="2.5em"
                       ref={register({
                         required: 'Isi tempat lahir kamu!',
                       })}
                     />
-                    <FormErrorMessage fontSize={responsiveLabel}>
+                    <FormErrorMessage>
                       {errors.tempat_lahir &&
                         errors.tempat_lahir.message}
                     </FormErrorMessage>
@@ -181,13 +176,12 @@ const DataDiri: React.FC = () => {
                     <Input
                       name="tanggal_lahir"
                       type="date"
-                      fontSize={responsiveLabel}
                       height="2.5em"
                       ref={register({
                         required: 'Isi tanggal lahir kamu!',
                       })}
                     />
-                    <FormErrorMessage fontSize={responsiveLabel}>
+                    <FormErrorMessage>
                       {errors.tanggal_lahir &&
                         errors.tanggal_lahir.message}
                     </FormErrorMessage>
@@ -209,7 +203,6 @@ const DataDiri: React.FC = () => {
                     </FormLabel>
                     <Select
                       name="jenis_kelamin"
-                      fontSize={responsiveLabel}
                       height="2.5em"
                       ref={register({
                         required: 'Isi jenis kelamin kamu!',
@@ -219,7 +212,7 @@ const DataDiri: React.FC = () => {
                       <option value="Laki-laki">Laki-laki</option>
                       <option value="Perempuan">Perempuan</option>
                     </Select>
-                    <FormErrorMessage fontSize={responsiveLabel}>
+                    <FormErrorMessage>
                       {errors.jenis_kelamin &&
                         errors.jenis_kelamin.message}
                     </FormErrorMessage>
@@ -230,11 +223,10 @@ const DataDiri: React.FC = () => {
                   <FormLabel style={formLabelStyle}>Alamat</FormLabel>
                   <Input
                     name="alamat"
-                    fontSize={responsiveLabel}
                     height="2.5em"
                     ref={register({ required: 'Isi alamat kamu!' })}
                   />
-                  <FormErrorMessage fontSize={responsiveLabel}>
+                  <FormErrorMessage>
                     {errors.alamat && errors.alamat.message}
                   </FormErrorMessage>
                 </FormControl>
@@ -254,7 +246,6 @@ const DataDiri: React.FC = () => {
                     </FormLabel>
                     <Select
                       name="prodi"
-                      fontSize={responsiveLabel}
                       height="2.5em"
                       ref={register({
                         required: 'Isi program studi kamu!',
@@ -287,7 +278,7 @@ const DataDiri: React.FC = () => {
                       <option value="Akuntansi">Akuntansi</option>
                       <option value="Perhotelan">Perhotelan</option>
                     </Select>
-                    <FormErrorMessage fontSize={responsiveLabel}>
+                    <FormErrorMessage>
                       {errors.prodi && errors.prodi.message}
                     </FormErrorMessage>
                   </FormControl>
@@ -301,7 +292,6 @@ const DataDiri: React.FC = () => {
                     </FormLabel>
                     <Select
                       name="angkatan"
-                      fontSize={responsiveLabel}
                       height="2.5em"
                       ref={register({
                         required: 'Isi angkatan kamu!',
@@ -312,13 +302,12 @@ const DataDiri: React.FC = () => {
                       <option value="2019">2019</option>
                       <option value="2020">2020</option>
                     </Select>
-                    <FormErrorMessage fontSize={responsiveLabel}>
+                    <FormErrorMessage>
                       {errors.angkatan && errors.angkatan.message}
                     </FormErrorMessage>
                   </FormControl>
                   <FormControl isInvalid={errors.ips}>
                     <FormLabel style={formLabelStyle}>IPS</FormLabel>
-                    {/* <Input  name="ips" fontSize={responsiveLabel} height="2.5em" ref={register({ required:'Isi ips kamu!' })}/> */}
 
                     <NumberInput
                       step={0.01}
@@ -328,21 +317,16 @@ const DataDiri: React.FC = () => {
                       mt={{ base: '0em', md: '0.55em', lg: '0em' }}
                     >
                       <NumberInputField
-                        fontSize={responsiveLabel}
                         height="2.5em"
                         ref={register({ required: 'Isi IPS kamu!' })}
                       />
-                      <NumberInputStepper fontSize={responsiveLabel}>
-                        <NumberIncrementStepper
-                          fontSize={responsiveLabel}
-                        />
-                        <NumberDecrementStepper
-                          fontSize={responsiveLabel}
-                        />
+                      <NumberInputStepper>
+                        <NumberIncrementStepper />
+                        <NumberDecrementStepper />
                       </NumberInputStepper>
                     </NumberInput>
 
-                    <FormErrorMessage fontSize={responsiveLabel}>
+                    <FormErrorMessage>
                       {errors.ips && errors.ips.message}
                     </FormErrorMessage>
                   </FormControl>
@@ -366,7 +350,6 @@ const DataDiri: React.FC = () => {
                     </FormLabel>
                     <Select
                       name="divisiID"
-                      fontSize={responsiveLabel}
                       height="2.5em"
                       ref={register({
                         required: 'Isi pilihan divisi kamu!',
@@ -379,7 +362,7 @@ const DataDiri: React.FC = () => {
                         </option>
                       ))}
                     </Select>
-                    <FormErrorMessage fontSize={responsiveLabel}>
+                    <FormErrorMessage>
                       {errors.divisiID && errors.divisiID.message}
                     </FormErrorMessage>
                   </FormControl>
@@ -395,19 +378,16 @@ const DataDiri: React.FC = () => {
                     <InputGroup>
                       <Input
                         name="email"
-                        fontSize={responsiveLabel}
-                        height="2.5em"
                         ref={register({
                           required: 'Isi email kamu!',
                         })}
                       />
                       <InputRightAddon
+                        style={{ fontSize: '0.75rem' }}
                         children="@student.umn.ac.id"
-                        fontSize={responsiveLabel}
-                        height="2.5em"
                       />
                     </InputGroup>
-                    <FormErrorMessage fontSize={responsiveLabel}>
+                    <FormErrorMessage>
                       {errors.email && errors.email.message}
                     </FormErrorMessage>
                   </FormControl>
@@ -440,14 +420,13 @@ const DataDiri: React.FC = () => {
                       <Input
                         type="number"
                         name="no_hp"
-                        fontSize={responsiveLabel}
                         height="2.5em"
                         ref={register({
                           required: 'Isi no HP kamu!',
                         })}
                       />
                     </InputGroup>
-                    <FormErrorMessage fontSize={responsiveLabel}>
+                    <FormErrorMessage>
                       {errors.no_hp && errors.no_hp.message}
                     </FormErrorMessage>
                   </FormControl>
@@ -472,14 +451,13 @@ const DataDiri: React.FC = () => {
                       />
                       <Input
                         name="uLine"
-                        fontSize={responsiveLabel}
                         height="2.5em"
                         ref={register({
                           required: 'Isi ID Line kamu!',
                         })}
                       />
                     </InputGroup>
-                    <FormErrorMessage fontSize={responsiveLabel}>
+                    <FormErrorMessage>
                       {errors.uLine && errors.uLine.message}
                     </FormErrorMessage>
                   </FormControl>
@@ -500,14 +478,13 @@ const DataDiri: React.FC = () => {
                       />
                       <Input
                         name="uInstagram"
-                        fontSize={responsiveLabel}
                         height="2.5em"
                         ref={register({
                           required: 'Isi Instagram kamu!',
                         })}
                       />
                     </InputGroup>
-                    <FormErrorMessage fontSize={responsiveLabel}>
+                    <FormErrorMessage>
                       {errors.uInstagram && errors.uInstagram.message}
                     </FormErrorMessage>
                   </FormControl>

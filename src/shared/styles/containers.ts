@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Palette } from '../../types';
 
 export const FormComponent = styled.div`
   min-height: 100vh;
@@ -9,6 +10,7 @@ export const FormComponent = styled.div`
 `;
 
 export const FormComponent2 = styled.div`
+  min-width: 100vw;
   display: flex;
   flex-direction: column;
   place-items: center;
@@ -29,25 +31,37 @@ export const FormContainer = styled.div`
   background-color: white;
   color: black;
   box-shadow: 2px 4px 16px grey;
-  width: 70%;
+  width: 45vw;
   font-size: 1em;
   padding: 1.5em;
   border-radius: 0.4em;
 
-  @media (max-width: 80em) {
-    width: 70%;
+  @media (max-width: 1865px) {
+    width: 52vw;
   }
 
-  @media (max-width: 62em) {
-    width: 70%;
+  @media (max-width: 1630px) {
+    width: 55vw;
   }
 
-  @media (max-width: 48em) {
-    width: 95%;
+  @media (max-width: 1530px) {
+    width: 58vw;
   }
 
-  @media (max-width: 30em) {
-    width: 100%;
+  @media (max-width: 1448px) {
+    width: 63vw;
+  }
+
+  @media (max-width: 1334px) {
+    width: 70vw;
+  }
+
+  @media (max-width: 1160px) {
+    width: 75vw;
+  }
+
+  @media (max-width: 1083px) {
+    width: 100vw;
   }
 `;
 
@@ -63,22 +77,6 @@ export const TitleContainer = styled.div`
   text-align: center;
   margin-top: 0.5em;
   border-radius: 0.4em;
-
-  @media (max-width: 80em) {
-    font-size: 2.4em;
-  }
-
-  @media (max-width: 62em) {
-    font-size: 2em;
-  }
-
-  @media (max-width: 48em) {
-    font-size: 2em;
-  }
-
-  @media (max-width: 30em) {
-    font-size: 2em;
-  }
 `;
 
 export const TitleContainer2 = styled.div`
@@ -93,22 +91,6 @@ export const TitleContainer2 = styled.div`
   text-align: center;
   margin-top: 0.5em;
   border-radius: 0.4em;
-
-  @media (max-width: 80em) {
-    font-size: 2.4em;
-  }
-
-  @media (max-width: 62em) {
-    font-size: 2em;
-  }
-
-  @media (max-width: 48em) {
-    font-size: 2em;
-  }
-
-  @media (max-width: 30em) {
-    font-size: 2em;
-  }
 `;
 
 export const BadgeContainer = styled.div`
@@ -159,4 +141,15 @@ export const DivisionContainer = styled.div`
   @media (max-width: 663px) {
     padding: 0;
   }
+`;
+
+export const OprecHomepageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  background-color: #1F2C4C;
+  opacity: 1;
+  background-image: radial-gradient(circle at center center, #466087, #1F2C4C), repeating-radial-gradient(circle at center center, #466087, #466087, 17px, transparent 34px, transparent 17px);
+  background-blend-mode: multiply;
+  height: 100vh;
 `;

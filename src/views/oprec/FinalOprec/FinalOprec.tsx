@@ -103,7 +103,7 @@ const FinalOprec: React.FC = () => {
             <DownloadIcon ml={2} /> Unduh formulir pendaftaran
           </Text>
         </Box>
-      </Stack >
+      </Stack>
 
       <Divider />
       <Box width={responsiveLogo} _hover={{ cursor: 'pointer' }}>
@@ -113,7 +113,9 @@ const FinalOprec: React.FC = () => {
           mt="3em"
         />
       </Box>
-        <Text fontSize="sm" color="white" mt={6}>ketuk logo untuk kembali ke halaman utama.</Text>
+      <Text fontSize="sm" color="white" mt={6}>
+        ketuk logo untuk kembali ke halaman utama.
+      </Text>
     </FormComponent2>
   );
 };
