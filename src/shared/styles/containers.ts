@@ -163,5 +163,5 @@ export const OprecHomepageContainer = styled.div`
       transparent 17px
     );
   background-blend-mode: multiply;
-  height: 100vh;
+  min-height: 100vh;
 `;
