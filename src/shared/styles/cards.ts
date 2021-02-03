@@ -35,8 +35,8 @@ export const HomepageCheckCard = styled.div`
   transition: 0.3s;
   padding: 2.5em 3em 2.5em 3em;
   margin-top: 2em;
+  margin-bottom: 2em;
   border-radius: 7px;
-
   @media (max-width: 450px) {
     padding: 1.5em;
   }

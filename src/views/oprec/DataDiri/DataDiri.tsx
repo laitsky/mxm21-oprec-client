@@ -56,7 +56,11 @@ const DataDiri: React.FC = () => {
   const history = useHistory();
   const { handleSubmit, errors, register } = useForm();
   const onSubmit = (data: any) => {
-    window.sessionStorage.setItem('dataDiri', JSON.stringify(data));
+    const newData = {
+      ...data,
+      email: `${data.email}@student.umn.ac.id`,
+    };
+    window.sessionStorage.setItem('dataDiri', JSON.stringify(newData));
     history.push({
       pathname: '/esai-singkat',
       state: {
@@ -300,7 +304,7 @@ const DataDiri: React.FC = () => {
                       <option selected disabled hidden />
                       <option value="2018">2018</option>
                       <option value="2019">2019</option>
-                      <option value="2021">2021</option>
+                      <option value="2020">2020</option>
                     </Select>
                     <FormErrorMessage>
                       {errors.angkatan && errors.angkatan.message}
