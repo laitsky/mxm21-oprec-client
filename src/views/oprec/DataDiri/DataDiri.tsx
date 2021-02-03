@@ -65,7 +65,7 @@ const DataDiri: React.FC = () => {
     });
   };
   React.useEffect(() => {
-    document.title = 'MAXIMA 2020: Data Diri';
+    document.title = 'MAXIMA 2021: Data Diri';
   }, []);
   return (
     <FormComponent>
@@ -300,7 +300,7 @@ const DataDiri: React.FC = () => {
                       <option selected disabled hidden />
                       <option value="2018">2018</option>
                       <option value="2019">2019</option>
-                      <option value="2020">2020</option>
+                      <option value="2021">2021</option>
                     </Select>
                     <FormErrorMessage>
                       {errors.angkatan && errors.angkatan.message}

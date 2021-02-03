@@ -53,7 +53,7 @@ const SelamatDatang: React.FC = () => {
   };
 
   React.useEffect(() => {
-    document.title = 'MAXIMA 2020: Open Recruitment';
+    document.title = 'MAXIMA 2021: Open Recruitment';
   }, []);
 
   return (

@@ -34,7 +34,7 @@ const bgStyle: React.CSSProperties = {
 
 const Register: React.FC = () => {
   React.useEffect(() => {
-    document.title = 'MAXIMA 2020: Request Token';
+    document.title = 'MAXIMA 2021: Request Token';
   }, []);
 
   return (

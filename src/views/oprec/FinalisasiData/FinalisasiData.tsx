@@ -40,7 +40,7 @@ const FinalisasiData: React.FC = () => {
   const [docLink, setDocLink] = React.useState();
 
   React.useEffect(() => {
-    document.title = 'MAXIMA 2020: Finalisasi Data';
+    document.title = 'MAXIMA 2021: Finalisasi Data';
     const fetchData = async () => {
       try {
         const returnedData = await generateTempPDF(studentData);

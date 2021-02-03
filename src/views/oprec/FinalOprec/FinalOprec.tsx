@@ -1,13 +1,5 @@
 import * as React from 'react';
-import {
-  Center,
-  Box,
-  Text,
-  Image,
-  Divider,
-  Stack,
-  HStack,
-} from '@chakra-ui/react';
+import { Box, Text, Image, Divider, Stack } from '@chakra-ui/react';
 import { useLocation, useHistory } from 'react-router-dom';
 import { DownloadIcon } from '@chakra-ui/icons';
 import Swal from 'sweetalert2';
@@ -41,7 +33,7 @@ const FinalOprec: React.FC = () => {
   }
 
   React.useEffect(() => {
-    document.title = 'MAXIMA 2020: Terima Kasih!';
+    document.title = 'MAXIMA 2021: Terima Kasih!';
     const fetchData = async () => {
       try {
         const returnedData = await getPDF({ nim_mhs, token });

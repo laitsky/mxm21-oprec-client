@@ -60,7 +60,7 @@ const EsaiSingkat: React.FC = () => {
     history.push('/finalisasi-data');
   };
   React.useEffect(() => {
-    document.title = 'MAXIMA 2020: Esai Singkat';
+    document.title = 'MAXIMA 2021: Esai Singkat';
   }, []);
   return (
     <FormComponent>

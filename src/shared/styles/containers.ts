@@ -14,7 +14,7 @@ export const FormComponent2 = styled.div`
   display: flex;
   flex-direction: column;
   place-items: center;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #1f2c4c;
   padding-top: 3em;
   padding-left: 0.5em;
@@ -147,9 +147,21 @@ export const OprecHomepageContainer = styled.div`
   display: flex;
   flex-direction: column;
   place-items: center;
-  background-color: #1F2C4C;
+  background-color: #1f2c4c;
   opacity: 1;
-  background-image: radial-gradient(circle at center center, #466087, #1F2C4C), repeating-radial-gradient(circle at center center, #466087, #466087, 17px, transparent 34px, transparent 17px);
+  background-image: radial-gradient(
+      circle at center center,
+      #466087,
+      #1f2c4c
+    ),
+    repeating-radial-gradient(
+      circle at center center,
+      #466087,
+      #466087,
+      17px,
+      transparent 34px,
+      transparent 17px
+    );
   background-blend-mode: multiply;
   height: 100vh;
 `;

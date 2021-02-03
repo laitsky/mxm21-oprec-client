@@ -32,7 +32,7 @@ const Login: React.FC = () => {
   const handleClick = () => setShow(!show);
 
   React.useEffect(() => {
-    document.title = 'MAXIMA 2020: Masuk';
+    document.title = 'MAXIMA 2021: Masuk';
   }, []);
   return (
     <Flex style={bgStyle} justify="center" align="center">

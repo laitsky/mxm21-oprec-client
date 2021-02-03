@@ -3,7 +3,7 @@ import { Divisi } from '../../../types';
 export const pertanyaanDivisi = [
   {
     divisi: Divisi.Acara,
-    q: `Bagaimana pengalamanmu selama mengikuti rangkaian kegiatan MAXIMA 2020 (HoME/STATE/Malam Puncak) kemarin? Jika kamu terpilih nanti, apa yang ingin kamu tingkatkan dari MAXIMA 2020 kemarin?`,
+    q: `Bagaimana pengalamanmu selama mengikuti rangkaian kegiatan MAXIMA 2021 (HoME/STATE/Malam Puncak) kemarin? Jika kamu terpilih nanti, apa yang ingin kamu tingkatkan dari MAXIMA 2021 kemarin?`,
   },
   {
     divisi: Divisi.Bazaar,
@@ -34,7 +34,7 @@ export const pertanyaanDivisi = [
 
     - 1 Video Highlight berdurasi maks 1 Menit (mp4)
     - 1 Video kumpulan Portofoliomu berdurasi 3-5 Menit (mp4)
-    - Bedah secara GARIS BESAR Videografi maupun Editing dalam Video Highlight (Instagram @MaximaUMN) dan Aftermovie Maxima 2020 (Youtube MaximaUMN) tanpa minimal kata (Word/PDF)
+    - Bedah secara GARIS BESAR Videografi maupun Editing dalam Video Highlight (Instagram @MaximaUMN) dan Aftermovie Maxima 2021 (Youtube MaximaUMN) tanpa minimal kata (Word/PDF)
 
     Kumpulkan ketiga file tersebut dalam 1 Folder Google Drive masing masing dengan Judul "VIDEO_NAMA_ANGKATAN" dan share link kalian secara publik untuk di kirimkan ke maxima@umn.ac.id 
     `,

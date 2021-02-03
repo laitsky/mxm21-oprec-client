@@ -41,7 +41,7 @@ const DaftarDivisi: React.FC = () => {
   });
 
   React.useEffect(() => {
-    document.title = 'MAXIMA 2020: Daftar Divisi';
+    document.title = 'MAXIMA 2021: Daftar Divisi';
   }, []);
   return (
     <Box

@@ -32,7 +32,7 @@ const NewPassword: React.FC = () => {
   const handleClick = () => setShow(!show);
 
   React.useEffect(() => {
-    document.title = 'MAXIMA 2020: Aktivasi Akun';
+    document.title = 'MAXIMA 2021: Aktivasi Akun';
   }, []);
   return (
     <Flex style={bgStyle} justify="center" align="center">
