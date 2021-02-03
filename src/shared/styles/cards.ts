@@ -42,7 +42,7 @@ export const HomepageCheckCard = styled.div`
   }
 
   @media (max-width: 402px) {
-    padding: 2.5em 0.35em 0.5em 0.35em;
+    padding: 2.5em 1.2em 0.5em 1.2em;
     height: auto;
   }
 `;
