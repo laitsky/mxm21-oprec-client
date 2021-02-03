@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useForm, SubmitHandler } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { useHistory, Link } from 'react-router-dom';
 import {
   FormControl,

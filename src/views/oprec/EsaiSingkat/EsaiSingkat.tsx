@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { useHistory, Link, useLocation } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import {
   FormControl,
   FormLabel,
@@ -40,7 +40,6 @@ type EsaiSingkatInput = {
 
 const EsaiSingkat: React.FC = () => {
   const history = useHistory();
-  const location = useLocation();
 
   const dataDiri = JSON.parse(
     window.sessionStorage.getItem('dataDiri')!,

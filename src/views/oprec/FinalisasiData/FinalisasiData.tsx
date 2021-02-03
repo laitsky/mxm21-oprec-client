@@ -32,7 +32,6 @@ import {
 const FinalisasiData: React.FC = () => {
   const history = useHistory();
   const [isDisabled, setIsDisabled] = React.useState(false);
-  const [isLoading, setLoading] = React.useState(false);
   const studentData = JSON.parse(
     window.sessionStorage.getItem('studentData')!,
   );
@@ -75,7 +74,12 @@ const FinalisasiData: React.FC = () => {
       });
       window.sessionStorage.clear();
     } catch (error) {
-      console.log(error.response.data);
+      Swal.fire({
+        title: 'Perhatian!',
+        text: error.response.data.message,
+        icon: 'error',
+        confirmButtonText: 'Coba lagi',
+      });
     }
   };
   return (
