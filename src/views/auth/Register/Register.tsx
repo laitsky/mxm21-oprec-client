@@ -12,15 +12,20 @@ import {
   Select,
   Stack,
   Text,
+  FormErrorMessage,
 } from '@chakra-ui/react';
+import { useForm } from 'react-hook-form';
+import Swal from 'sweetalert2';
 import { BellIcon } from '@chakra-ui/icons';
 import { MxmLogo } from '../../../assets';
-import { divisions } from '../../helper';
 import { LoginFormCard } from '../../../shared/styles/cards';
 import {
   formLabelStyle,
   formHeaderStyle,
 } from '../../../shared/constants/styles';
+import { divisionLists } from '../../../shared/constants';
+import { RequestTokenData } from '../../../types';
+import { requestToken } from '../../../services/koor.service';
 
 const bgStyle: React.CSSProperties = {
   height: '100vh',
@@ -33,44 +38,107 @@ const bgStyle: React.CSSProperties = {
 };
 
 const Register: React.FC = () => {
+  const {
+    register,
+    handleSubmit,
+    errors,
+    formState,
+    reset,
+  } = useForm();
+
   React.useEffect(() => {
     document.title = 'MAXIMA 2021: Request Token';
   }, []);
+
+  const onSubmit = async (data: RequestTokenData) => {
+    try {
+      const result = await requestToken(data);
+      console.log(result);
+    } catch (error) {
+      Swal.fire({
+        title: 'Perhatian!',
+        text: error.response.data.message,
+        icon: 'error',
+        confirmButtonText: 'Coba lagi',
+      });
+    } finally {
+      reset();
+    }
+  };
 
   return (
     <Flex style={bgStyle} justify="center" align="center">
       <Box>
         <LoginFormCard>
           <Image src={MxmLogo} width={50} height="auto" />
-          <Text style={formHeaderStyle}>Request Token</Text>
-          <Stack spacing={4}>
-            <FormControl id="name">
-              <FormLabel style={formLabelStyle}>
-                Nama Lengkap
-              </FormLabel>
-              <Input type="text" autoFocus />
-            </FormControl>
-            <FormControl id="nim">
-              <FormLabel style={formLabelStyle}>NIM</FormLabel>
-              <InputGroup>
-                <InputLeftAddon children="000000" />
-                <Input />
-              </InputGroup>
-            </FormControl>
-            <FormControl id="division">
-              <FormLabel style={formLabelStyle}>Divisi</FormLabel>
-              <Select placeholder="Pilih divisi">
-                {divisions.map((d) => (
-                  <option key={d.id} value={d.name}>
-                    {d.name}
-                  </option>
-                ))}
-              </Select>
-            </FormControl>
-            <Button leftIcon={<BellIcon />} colorScheme="teal">
-              Request Token
-            </Button>
-          </Stack>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <Text style={formHeaderStyle}>Request Token</Text>
+            <Stack spacing={4}>
+              <FormControl id="name" isInvalid={errors.name}>
+                <FormLabel style={formLabelStyle}>
+                  Nama Lengkap
+                </FormLabel>
+                <Input
+                  name="name"
+                  type="text"
+                  autoFocus
+                  ref={register({ required: 'Isi nama kamu!' })}
+                />
+                <FormErrorMessage>
+                  {errors.name && errors.name.message}
+                </FormErrorMessage>
+              </FormControl>
+              <FormControl id="nim_koor" isInvalid={errors.nim_koor}>
+                <FormLabel style={formLabelStyle}>NIM</FormLabel>
+                <InputGroup>
+                  <InputLeftAddon children="000000" />
+                  <Input
+                    type="number"
+                    name="nim_koor"
+                    ref={register({
+                      required: 'Masukkan NIM kamu!',
+                      minLength: {
+                        value: 5,
+                        message: 'NIM harus berupa 5 digit',
+                      },
+                      maxLength: {
+                        value: 5,
+                        message: 'NIM harus berupa 5 digit',
+                      },
+                    })}
+                  />
+                </InputGroup>
+                <FormErrorMessage>
+                  {errors.nim_koor && errors.nim_koor.message}
+                </FormErrorMessage>
+              </FormControl>
+              <FormControl id="divisiID" isInvalid={errors.divisiID}>
+                <FormLabel style={formLabelStyle}>Divisi</FormLabel>
+                <Select
+                  name="divisiID"
+                  placeholder="Pilih divisi"
+                  ref={register({ required: 'Pilih divisi kamu!' })}
+                >
+                  {divisionLists.map((d) => (
+                    <option key={d.divisiID} value={d.divisiID}>
+                      {d.name}
+                    </option>
+                  ))}
+                </Select>
+                <FormErrorMessage>
+                  {errors.divisiID && errors.divisiID.message}
+                </FormErrorMessage>
+              </FormControl>
+              <Button
+                type="submit"
+                isLoading={formState.isSubmitting}
+                leftIcon={<BellIcon />}
+                colorScheme="teal"
+              >
+                Request Token
+              </Button>
+            </Stack>
+          </form>
         </LoginFormCard>
       </Box>
     </Flex>

@@ -1,8 +1,8 @@
-import { Divisi } from '../../types/index';
+import { Divisi, DivisionLists } from '../../types/index';
 
 export { formLabelStyle } from './styles';
 
-export const divisionLists = [
+export const divisionLists: DivisionLists[] = [
   {
     divisiID: Divisi.BPH,
     name: 'Badan Pengurus Harian',

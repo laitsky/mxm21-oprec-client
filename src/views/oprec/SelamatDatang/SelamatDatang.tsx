@@ -23,6 +23,7 @@ import { HomepageCheckCard } from '../../../shared/styles/cards';
 import { MxmLoading } from '../../../shared/motions/MxmLoading';
 import './selamat-datang.css';
 import { formLabelStyle } from '../../../shared/constants';
+import { motion } from 'framer-motion';
 
 const SelamatDatang: React.FC = () => {
   const history = useHistory();
@@ -57,69 +58,92 @@ const SelamatDatang: React.FC = () => {
   }, []);
 
   return (
-    <OprecHomepageContainer>
-      <OprecHomepageHeader>
-        OPEN <br /> RECRUITMENT <br /> MAXIMA 2021
-      </OprecHomepageHeader>
-      <HomepageCheckCard>
-        <Image
-          src={MxmLogoText}
-          alt="Logo MAXIMA 2021"
-          className="img-responsive"
-        />
-        <Box h="5vh" />
-        <form id="nim-form" onSubmit={handleSubmit(onSubmit)}>
-          <Box>
-            <FormControl isInvalid={errors.nim}>
-              <FormLabel style={formLabelStyle}>
-                Masukkan NIM kamu:
-              </FormLabel>
-              <InputGroup mb={8}>
-                <InputLeftAddon
-                  children="000000"
-                  fontFamily="Varela"
-                  fontSize="sm"
-                />
-                <Input
-                  fontFamily="Kanit"
-                  type="number"
-                  name="nim"
-                  ref={register({
-                    required: 'Masukkan NIM kamu!',
-                    minLength: {
-                      value: 5,
-                      message: 'NIM harus berupa 5 digit',
-                    },
-                    maxLength: {
-                      value: 5,
-                      message: 'NIM harus berupa 5 digit',
-                    },
-                  })}
-                  onChange={(e) => {
-                    e.target.value.length === 5
-                      ? handleSubmit(onSubmit)()
-                      : null;
-                  }}
-                />
-              </InputGroup>
-              <Center mt={-6}>
-                {errors.nim && (
-                  <Alert status="warning" variant="left-accent">
-                    <AlertIcon />
-                    <AlertDescription>
-                      {errors.nim.message}
-                    </AlertDescription>
-                  </Alert>
-                )}
-              </Center>
-            </FormControl>
-          </Box>
-          <Center mt={6}>
-            {formState.isSubmitting && <MxmLoading />}
-          </Center>
-        </form>
-      </HomepageCheckCard>
-    </OprecHomepageContainer>
+    <motion.div
+    initial={{ y: 999, opacity: 0 }}
+    animate={{ y: 0, opacity: 1 }}
+    transition={{
+      type: 'spring',
+      stiffness: 70,
+      damping: 20,
+    }}
+    style={{ minHeight: '100vh' }}
+    >
+      <OprecHomepageContainer>
+        <OprecHomepageHeader>
+          OPEN <br /> RECRUITMENT <br /> MAXIMA 2021
+        </OprecHomepageHeader>
+        <motion.div
+              initial={{ y: -500, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{
+                type: 'spring',
+                stiffness: 50,
+                damping: 20,
+                delay: 0.5,
+              }}
+            >
+                      <HomepageCheckCard>
+          <Image
+            src={MxmLogoText}
+            alt="Logo MAXIMA 2021"
+            className="img-responsive"
+          />
+          <Box h="5vh" />
+          <form id="nim-form" onSubmit={handleSubmit(onSubmit)}>
+            <Box>
+              <FormControl isInvalid={errors.nim}>
+                <FormLabel style={formLabelStyle}>
+                  Masukkan NIM kamu:
+                </FormLabel>
+                <InputGroup mb={8}>
+                  <InputLeftAddon
+                    children="000000"
+                    fontFamily="Varela"
+                    fontSize="sm"
+                  />
+                  <Input
+                    fontFamily="Kanit"
+                    type="number"
+                    name="nim"
+                    ref={register({
+                      required: 'Masukkan NIM kamu!',
+                      minLength: {
+                        value: 5,
+                        message: 'NIM harus berupa 5 digit',
+                      },
+                      maxLength: {
+                        value: 5,
+                        message: 'NIM harus berupa 5 digit',
+                      },
+                    })}
+                    onChange={(e) => {
+                      e.target.value.length === 5
+                        ? handleSubmit(onSubmit)()
+                        : null;
+                    }}
+                  />
+                </InputGroup>
+                <Center mt={-6}>
+                  {errors.nim && (
+                    <Alert status="warning" variant="left-accent">
+                      <AlertIcon />
+                      <AlertDescription>
+                        {errors.nim.message}
+                      </AlertDescription>
+                    </Alert>
+                  )}
+                </Center>
+              </FormControl>
+            </Box>
+            <Center mt={6}>
+              {formState.isSubmitting && <MxmLoading />}
+            </Center>
+          </form>
+        </HomepageCheckCard>
+              </motion.div>
+
+      </OprecHomepageContainer>
+    </motion.div>
   );
 };
 

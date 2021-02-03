@@ -30,12 +30,8 @@ const AppRouter: React.FC = () => {
       />
       <Route path="/final-oprec" eaxct component={Oprec.FinalOprec} />
       <Route path="/login" exact component={Auth.Login} />
-      <Route path="/register" exact component={Auth.Register} />
-      <Route
-        path="/new-password"
-        exact
-        component={Auth.NewPassword}
-      />
+      <Route path="/request-token" exact component={Auth.Register} />
+      <Route path="/register" exact component={Auth.NewPassword} />
       <Route
         path="/registration-list"
         exact

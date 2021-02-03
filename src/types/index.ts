@@ -40,3 +40,25 @@ export enum Palette {
   MxmYellow = '#FFD008',
   MxmPink = '#F4224B',
 }
+
+export interface DivisionLists {
+  divisiID: Divisi;
+  name: string;
+}
+
+export interface RequestTokenData {
+  nim_koor: string;
+  name: string;
+  divisiID: Divisi;
+}
+
+export interface SignUpData {
+  nim_koor: string;
+  password: string;
+  otp: string;
+}
+
+export interface KoorLogin {
+  nim_koor: string;
+  password: string;
+}
