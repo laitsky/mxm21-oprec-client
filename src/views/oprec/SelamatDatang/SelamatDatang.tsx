@@ -15,6 +15,7 @@ import {
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { motion } from 'framer-motion';
 import { MxmLogoText } from '../../../assets';
 import { studentVerify } from '../../../services/oprec.service';
 import { OprecHomepageHeader } from '../../../shared/styles/header';
@@ -23,7 +24,6 @@ import { HomepageCheckCard } from '../../../shared/styles/cards';
 import { MxmLoading } from '../../../shared/motions/MxmLoading';
 import './selamat-datang.css';
 import { formLabelStyle } from '../../../shared/constants';
-import { motion } from 'framer-motion';
 
 interface Data {
   nim: string;

@@ -1,6 +1,6 @@
 import { Pendaftar } from '../../../types';
 
-export const dataPendaftar: Pendaftar[] = [
+export const dataPendaftar = [
   {
     nim_mhs: '27047',
     name: 'Vincent Diamond',

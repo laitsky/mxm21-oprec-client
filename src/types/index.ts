@@ -1,8 +1,10 @@
 export interface Pendaftar {
-  nim_mhs: string;
+  divisi: { name: string };
+  lulusInterview: boolean | number;
+  lulusSeleksiForm: boolean | number;
   name: string;
-  divisi: string;
-  lulus: number;
+  nim_mhs: number;
+  tanggal_wawancara: Date | string | null;
 }
 
 export interface Divisions {

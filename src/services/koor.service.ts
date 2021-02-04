@@ -1,5 +1,6 @@
 import axios from 'axios';
 import {
+  Divisi,
   InterviewDateProps,
   KoorLogin,
   LulusInterviewProps,
@@ -41,14 +42,16 @@ export const koorLogin = async (koorLogin: KoorLogin) => {
   return request.data;
 };
 
-export const getAllStudent = async () => {
-  const request = await axios.get(
-    `${BASE_URL}/mahasiswa_all`, config
+export const getAllStudent = async (nim_koor: number) => {
+  const request = await axios.post(
+    `${BASE_URL}/mahasiswa_all`,
+    { nim_koor },
+    config,
   );
   return request.data;
 };
 
-export const getStudentByDivision = async (divisiID: string) => {
+export const getStudentByDivision = async (divisiID: Divisi) => {
   const request = await axios.post(
     `${BASE_URL}/mahasiswa_divisi`,
     {

@@ -224,7 +224,7 @@ const DataDiri: React.FC = () => {
                       ref={register({
                         required: 'Isi jenis kelamin kamu!',
                       })}
-                      defaultValue={'DEFAULT'}
+                      defaultValue="DEFAULT"
                     >
                       <option value="DEFAULT" disabled>
                         {' '}
@@ -272,7 +272,7 @@ const DataDiri: React.FC = () => {
                       ref={register({
                         required: 'Isi program studi kamu!',
                       })}
-                      defaultValue={'DEFAULT'}
+                      defaultValue="DEFAULT"
                     >
                       <option value="DEFAULT" disabled>
                         {' '}
@@ -322,7 +322,7 @@ const DataDiri: React.FC = () => {
                       ref={register({
                         required: 'Isi angkatan kamu!',
                       })}
-                      defaultValue={'DEFAULT'}
+                      defaultValue="DEFAULT"
                     >
                       <option value="DEFAULT" disabled>
                         {' '}
@@ -385,7 +385,7 @@ const DataDiri: React.FC = () => {
                       ref={register({
                         required: 'Isi pilihan divisi kamu!',
                       })}
-                      defaultValue={'DEFAULT'}
+                      defaultValue="DEFAULT"
                     >
                       <option value="DEFAULT" disabled>
                         {' '}
