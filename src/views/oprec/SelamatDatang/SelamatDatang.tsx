@@ -25,6 +25,9 @@ import './selamat-datang.css';
 import { formLabelStyle } from '../../../shared/constants';
 import { motion } from 'framer-motion';
 
+interface Data {
+  nim: string;
+}
 const SelamatDatang: React.FC = () => {
   const history = useHistory();
   const {
@@ -37,9 +40,10 @@ const SelamatDatang: React.FC = () => {
     mode: 'onChange',
   });
 
-  const onSubmit = async (data: Record<string, unknown>) => {
+  const onSubmit = async (data: Data) => {
     try {
       await studentVerify(data.nim);
+      window.sessionStorage.setItem('stuNim', data.nim);
       history.push('/daftar-divisi');
     } catch (error) {
       Swal.fire({

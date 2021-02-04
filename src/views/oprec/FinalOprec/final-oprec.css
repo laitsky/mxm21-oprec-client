@@ -1,0 +1,30 @@
+.token-title {
+    font-size: 1.75rem;
+    font-family: 'Kanit';
+    font-weight: 700;
+    color: #41CEBA;
+    letter-spacing: 1.2;
+  }
+  
+.token-text {
+    font-family: 'DM Sans';
+    font-weight: 700;
+    color: #F4224B;
+    letter-spacing: 1;
+    text-transform: uppercase;
+    margin-top: 0.25em;
+    font-size: 2.5rem;
+}
+
+.reminder {
+    font-family: 'DM Sans';
+    font-weight: 400;
+    color: #1F2C4C;
+    padding-bottom: 0.5em;
+}
+
+.small-text {
+    padding-top: 0.75em;
+    font-family: 'DM Sans';
+    font-size: 0.85rem;
+}

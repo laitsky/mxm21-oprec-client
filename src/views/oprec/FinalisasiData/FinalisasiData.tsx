@@ -10,7 +10,7 @@ import {
   HStack,
 } from '@chakra-ui/react';
 import { Link, useHistory } from 'react-router-dom';
-import { DownloadIcon } from '@chakra-ui/icons';
+import { DownloadIcon, LockIcon } from '@chakra-ui/icons';
 import Swal from 'sweetalert2';
 import { FormComponent2 } from '../../../shared/styles/containers';
 import { FinalLogo } from '../../../assets';
@@ -101,7 +101,7 @@ const FinalisasiData: React.FC = () => {
         <>
           <ButtonMaxima onClick={() => window.open(docLink)}>
             <Text fontFamily="Varela" fontSize={responsiveLabel}>
-              Unduh Hasil Form |
+              Cek data kamu di sini |
               <Icon
                 ml={2}
                 as={DownloadIcon}
@@ -171,7 +171,8 @@ const FinalisasiData: React.FC = () => {
           disabled={!isDisabled!}
           onClick={handleNextBtn}
         >
-          NEXT
+          <LockIcon h={3} />
+          KIRIM
         </ButtonNextFinal>
       </HStack>
     </FormComponent2>

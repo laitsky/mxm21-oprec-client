@@ -124,7 +124,7 @@ export const BadgeContainer = styled.div`
 `;
 
 export const DivisionContainer = styled.div`
-  padding: 2em 3em 2em 3em;
+  padding: 2em 3em 0em 3em;
   border-radius: 10px;
   margin-top: 2em;
   margin-bottom: 2em;

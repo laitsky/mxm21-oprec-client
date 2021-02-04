@@ -6,6 +6,7 @@ import {
   SimpleGrid,
   Center,
 } from '@chakra-ui/react';
+import { ArrowRightIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import {
@@ -19,17 +20,16 @@ import { divisionDataList } from './constants';
 import { DivisionContainer } from '../../../shared/styles/containers';
 import { Palette } from '../../../types';
 import './daftar-divisi.css';
-import { ButtonBackForm } from '../../../shared/styles/buttons';
+import { DivisiNextButton } from '../../../shared/styles/buttons';
 
 const DaftarDivisi: React.FC = () => {
   React.useEffect(() => {
     Swal.fire({
-      title:
-        '<h3 class="jadwal-title">Jadwal Seleksi Penerimaan Panitia MAXIMA 2021</h3>',
+      title: 'Jadwal Seleksi Penerimaan Panitia MAXIMA 2021',
       icon: 'info',
       html: `
         <div style="font-family: 'Kanit'">
-        <h2 class='jadwal-header'>8-11 Februari 2021</h2>
+        <h2 class='jadwal-header'>8-12 Februari 2021</h2>
         <h3 class='jadwal-text'>Open Recruitment</h3>
         <h2 class='jadwal-header'>14 Februari 2021</h2>
         <h3 class='jadwal-text'>Pengumuman Tahap Seleksi Formulir</h3>
@@ -83,7 +83,10 @@ const DaftarDivisi: React.FC = () => {
           </DivisionContainer>
         </Center>
         <Link to="/data-diri">
-          <ButtonBackForm>NEXT</ButtonBackForm>
+          <DivisiNextButton>
+            <ArrowRightIcon h={3} mr={2} />
+            NEXT
+          </DivisiNextButton>
         </Link>
       </Flex>
     </Box>

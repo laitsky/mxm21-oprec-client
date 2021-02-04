@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Palette } from '../../types';
 
 export const ButtonExample = styled.button`
   outline: none;
@@ -85,6 +86,33 @@ export const ButtonBackForm = styled.button`
     margin-top: 4px;
     margin-bottom: 0;
     box-shadow: 0px 0px #1f2c4c;
+  }
+
+  @media (max-width: 340px) {
+    font-size: 0.8em;
+  })
+`;
+
+export const DivisiNextButton = styled.button`
+  outline: none;
+  font-family: Kanit;
+  font-size: 1em;
+  color: white;
+  border-radius: 1em;
+  background-color: ${Palette.MxmCyan};
+  padding: 0.5em 2.5em 0.5em 2.5em;
+  transition-duration: 0.2s;
+  box-shadow: -3px 4px ${Palette.MxmYellow};
+  margin-bottom: 4px;
+  border-radius: 1em;
+  &:hover {
+    background-color: ${Palette.MxmYellow};
+    color: white;
+    cursor: pointer;
+    margin-right: 1px;
+    margin-top: 4px;
+    margin-bottom: 0;
+    box-shadow: 0px 0px ${Palette.MxmYellow};
   }
 
   @media (max-width: 340px) {
