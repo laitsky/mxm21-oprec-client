@@ -12,32 +12,83 @@ import {
   Td,
 } from '@chakra-ui/react';
 import { DownloadIcon } from '@chakra-ui/icons';
+import jwtDecode from 'jwt-decode';
+import Swal from 'sweetalert2';
 import { dataPendaftar } from './dummyData';
-import { Pendaftar } from '../../../types';
+import { AccessTokenProps, Divisi, Pendaftar } from '../../../types';
+import {
+  getAllStudent,
+  getStudentByDivision,
+} from '../../../services/koor.service';
+
+const getStudentData = async (divisiID: Divisi) => {
+  if (divisiID === Divisi.SuperAdmin || divisiID === Divisi.BPH) {
+    try {
+      const result = await getAllStudent();
+      console.log(result);
+    } catch (error) {
+      Swal.fire({
+        title: 'Perhatian!',
+        text: error.response.data.message,
+        icon: 'error',
+        confirmButtonText: 'Coba lagi',
+      });
+    }
+  } else {
+    try {
+      const result = await getStudentByDivision(divisiID);
+      console.log(result);
+    } catch (error) {
+      Swal.fire({
+        title: 'Perhatian!',
+        text: error.response.data.message,
+        icon: 'error',
+        confirmButtonText: 'Coba lagi',
+      });
+    }
+  }
+};
 
 const RegistrationList: React.FC = () => {
-  const [data, setData] = React.useState<Pendaftar[]>([]);
+  const [data, setData] = React.useState([]);
+
   React.useEffect(() => {
-    setData(dataPendaftar);
+    document.title = 'MAXIMA 2021: Laman BPH / Koor - Seleksi Form';
+    const accessToken: AccessTokenProps = jwtDecode(
+      window.sessionStorage.getItem('accessToken')!,
+    );
+    const { divisiID } = accessToken;
+    const fetchData = async () => {
+      try {
+        const result = await getAllStudent();
+        console.log(result);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
   }, []);
 
   React.useEffect(() => {
     console.log(data);
   }, [data]);
 
-  const handleSelectLulusChange = (nim: string, i: number) => (
-    e: React.ChangeEvent<HTMLSelectElement>,
-  ) => {
-    console.log(nim, i, e.target.value);
-    const newData = [...data];
-    newData[i] = { ...newData[i], lulus: e.target.value === 'true' };
-    setData([...newData]);
-  };
+  // const handleSelectLulusChange = (nim_mhs: string, i: number) => (
+  //   e: React.ChangeEvent<HTMLSelectElement>,
+  // ) => {
+  //   console.log(nim_mhs, +(e.target.value === 'true'));
+  //   const newData = [...data];
+  //   newData[i] = {
+  //     ...newData[i],
+  //     lulus: +(e.target.value === 'true'),
+  //   };
+  //   setData([...newData]);
+  // };
 
-  const handleInterviewDateChange = (nim: string) => (
+  const handleInterviewDateChange = (nim_mhs: string) => (
     e: React.ChangeEvent<HTMLSelectElement>,
   ) => {
-    console.log(nim, e.target.value);
+    console.log(nim_mhs, e.target.value);
   };
 
   return (
@@ -54,10 +105,10 @@ const RegistrationList: React.FC = () => {
             </Tr>
           </Thead>
           <Tbody>
-            {data.map((d, i) => (
-              <Tr key={d.nim}>
+            {/* {data.map((d, i) => (
+              <Tr key={d.nim_mhs}>
                 <Td>
-                  {d.name} ({d.nim})
+                  {d.name} ({d.nim_mhs})
                 </Td>
                 <Td>{d.divisi}</Td>
                 <Td>
@@ -71,16 +122,16 @@ const RegistrationList: React.FC = () => {
                 <Td>
                   <Select
                     defaultValue={d.lulus.toString()}
-                    onChange={handleSelectLulusChange(d.nim, i)}
+                    onChange={handleSelectLulusChange(d.nim_mhs, i)}
                   >
-                    <option value="true">Ya</option>
                     <option value="false">Tidak</option>
+                    <option value="true">Ya</option>
                   </Select>
                 </Td>
                 <Td>
                   <Select
                     defaultValue="option1"
-                    onChange={handleInterviewDateChange(d.nim)}
+                    onChange={handleInterviewDateChange(d.nim_mhs)}
                     disabled={!d.lulus}
                   >
                     <option value="option1" disabled>
@@ -104,7 +155,7 @@ const RegistrationList: React.FC = () => {
                   </Select>
                 </Td>
               </Tr>
-            ))}
+            ))} */}
           </Tbody>
         </Table>
       </Container>

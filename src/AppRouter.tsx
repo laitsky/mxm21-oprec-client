@@ -8,7 +8,6 @@ import {
 import * as Oprec from './views/oprec';
 import * as Auth from './views/auth';
 import * as Koor from './views/koor';
-
 const AppRouter: React.FC = () => {
   return (
     <Switch>
@@ -33,7 +32,7 @@ const AppRouter: React.FC = () => {
       <Route path="/request-token" exact component={Auth.Register} />
       <Route path="/register" exact component={Auth.NewPassword} />
       <Route
-        path="/registration-list"
+        path="/seleksi-form"
         exact
         component={Koor.RegistrationList}
       />
