@@ -47,6 +47,7 @@ const Login: React.FC = () => {
 
   React.useEffect(() => {
     document.title = 'MAXIMA 2021: Masuk';
+    window.sessionStorage.clear();
   }, []);
 
   const onSubmit = async (data: KoorLogin) => {
@@ -59,7 +60,7 @@ const Login: React.FC = () => {
       const { divisiID }: AccessTokenProps = jwtDecode(
         result.accessToken,
       );
-      history.push('/seleksi-form');
+      window.location.replace('/seleksi-form');
     } catch (error) {
       Swal.fire({
         title: 'Perhatian!',

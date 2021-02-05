@@ -3,13 +3,13 @@ import { Palette } from '../../types';
 import { headerStripes } from './keyframes';
 
 export const OprecHomepageHeader = styled.h1`
-  font-family: "Kanit";
+  font-family: 'Kanit';
   font-weight: 700;
   text-align: left;
   font-size: 3.5em;
   padding-top: 0.5em;
   color: ${Palette.MxmYellow};
-  text-shadow: 5px 3px #F4224B;
+  text-shadow: 5px 3px #f4224b;
   @media (max-width: 850px) {
     font-size: 2.8em;
   }
@@ -38,4 +38,4 @@ export const OprecHomepageHeader = styled.h1`
 // );
 // -webkit-background-clip: text;
 // -webkit-text-fill-color: transparent;
-//animation: ${headerStripes} 1s linear infinite;
+// animation: ${headerStripes} 1s linear infinite;

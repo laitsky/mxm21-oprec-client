@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {
+  Box,
   Button,
   Text,
   Container,
@@ -14,22 +15,27 @@ import {
 import { DownloadIcon } from '@chakra-ui/icons';
 import jwtDecode from 'jwt-decode';
 import Swal from 'sweetalert2';
-import { AccessTokenProps, Divisi, Pendaftar } from '../../../types';
 import {
-  getAllStudent,
-  getStudentByDivision,
-} from '../../../services/koor.service';
+  AccessTokenProps,
+  Divisi,
+  Pendaftar,
+  SeleksiFormProps,
+} from '../../../types';
 import { getStudentData } from '../../../utils/getStudentData';
+import { updateLulusForm } from '../../../services/koor.service';
+import { KoorNavbar } from '../../../shared/components';
 
 const RegistrationList: React.FC = () => {
   const [data, setData] = React.useState<Pendaftar[]>([]);
 
+  const accessToken: AccessTokenProps = jwtDecode(
+    window.sessionStorage.getItem('accessToken')!,
+  );
+  const { divisiID, nim_koor } = accessToken;
+
   React.useEffect(() => {
     document.title = 'MAXIMA 2021: Laman BPH / Koor - Seleksi Form';
-    const accessToken: AccessTokenProps = jwtDecode(
-      window.sessionStorage.getItem('accessToken')!,
-    );
-    const { divisiID, nim_koor } = accessToken;
+
     const fetchData = async () => {
       setData(await getStudentData(nim_koor, divisiID));
     };
@@ -40,10 +46,25 @@ const RegistrationList: React.FC = () => {
     console.log('test', data);
   }, [data]);
 
-  const handleSelectLulusChange = (nim_mhs: string, i: number) => (
-    e: React.ChangeEvent<HTMLSelectElement>,
-  ) => {
-    console.log(nim_mhs, +(e.target.value === 'true'));
+  const handleSelectLulusChange = (
+    nim_mhs: string,
+    i: number,
+  ) => async (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const seleksiForm: SeleksiFormProps = {
+      nim_koor: nim_koor.toString(),
+      nim_mhs,
+      lulusSeleksiForm: +(e.target.value === 'true'),
+    };
+    try {
+      await updateLulusForm(seleksiForm);
+    } catch (error) {
+      Swal.fire({
+        title: 'Perhatian!',
+        text: error.response.data.message,
+        icon: 'error',
+        confirmButtonText: 'Coba lagi',
+      });
+    }
     const newData = [...data];
     newData[i] = {
       ...newData[i],
@@ -59,8 +80,9 @@ const RegistrationList: React.FC = () => {
   };
 
   return (
-    <>
-      <Container maxW="4xl">
+    <Box>
+      <KoorNavbar />
+      <Container maxW="6xl" mt={12}>
         <Table variant="simple">
           <Thead>
             <Tr>
@@ -132,7 +154,7 @@ const RegistrationList: React.FC = () => {
           </Tbody>
         </Table>
       </Container>
-    </>
+    </Box>
   );
 };
 

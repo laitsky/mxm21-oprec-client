@@ -30,7 +30,7 @@ const FinalOprec: React.FC = () => {
       token,
     }: LocationState = location.state as LocationState;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 
   React.useEffect(() => {
