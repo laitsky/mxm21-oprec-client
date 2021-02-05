@@ -62,7 +62,7 @@ const EsaiSingkat: React.FC = () => {
     document.title = 'MAXIMA 2021: Esai Singkat';
   }, []);
   return (
-    <FormComponent>
+    <FormComponent yellow>
       <Center>
         <TitleContainer2>ESAI SINGKAT</TitleContainer2>
       </Center>

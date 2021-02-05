@@ -85,7 +85,7 @@ const FinalisasiData: React.FC = () => {
   return (
     <FormComponent2>
       <Text
-        color="white"
+        color="tomato"
         fontSize={responsiveTitle}
         fontFamily="Kanit"
         fontWeight="700"
@@ -123,7 +123,6 @@ const FinalisasiData: React.FC = () => {
             <Flex>
               <Checkbox
                 name="validasi"
-                color="white"
                 defaultChecked={isDisabled}
                 onChange={handleCheckboxChange}
                 height={{
@@ -137,7 +136,6 @@ const FinalisasiData: React.FC = () => {
               />
               <Text
                 fontFamily="Varela"
-                color="white"
                 fontSize={responsiveLabel}
                 wordBreak="break-all"
               >
@@ -149,7 +147,7 @@ const FinalisasiData: React.FC = () => {
         </>
       ) : (
         <Flex direction="column" placeItems="center">
-          <Text color="white" mb={4}>
+          <Text mb={4}>
             Mohon menunggu, formulir Anda sedang dibuat.
           </Text>
           <Spinner

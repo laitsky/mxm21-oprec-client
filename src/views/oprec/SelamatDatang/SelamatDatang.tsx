@@ -24,6 +24,7 @@ import { HomepageCheckCard } from '../../../shared/styles/cards';
 import { MxmLoading } from '../../../shared/motions/MxmLoading';
 import './selamat-datang.css';
 import { formLabelStyle } from '../../../shared/constants';
+import { OprecButton } from '../../../shared/styles/buttons';
 
 interface Data {
   nim: string;
@@ -120,11 +121,11 @@ const SelamatDatang: React.FC = () => {
                           message: 'NIM harus berupa 5 digit',
                         },
                       })}
-                      onChange={(e) => {
-                        e.target.value.length === 5
-                          ? handleSubmit(onSubmit)()
-                          : null;
-                      }}
+                      // onChange={(e) => {
+                      //   e.target.value.length === 5
+                      //     ? handleSubmit(onSubmit)()
+                      //     : null;
+                      // }}
                     />
                   </InputGroup>
                   <Center mt={-6}>
@@ -140,7 +141,11 @@ const SelamatDatang: React.FC = () => {
                 </FormControl>
               </Box>
               <Center mt={6}>
-                {formState.isSubmitting && <MxmLoading />}
+                {formState.isSubmitting ? (
+                  <MxmLoading />
+                ) : (
+                  <OprecButton type="submit">SUBMIT</OprecButton>
+                )}
               </Center>
             </form>
           </HomepageCheckCard>

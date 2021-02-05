@@ -48,7 +48,7 @@ export const HomepageCheckCard = styled.div`
 `;
 
 export const DivisionCard = styled.div`
-  background-color: #eceff1;
+  background-color: white;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;

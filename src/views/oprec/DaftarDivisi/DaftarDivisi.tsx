@@ -47,8 +47,7 @@ const DaftarDivisi: React.FC = () => {
     <Box
       style={{
         minWidth: '100%',
-        background:
-          'linear-gradient(90deg, rgba(31,44,76,1) 0%, rgba(44,61,103,1) 100%)',
+        backgroundColor: Palette.MxmCyan,
       }}
       pb={5}
     >
@@ -57,7 +56,7 @@ const DaftarDivisi: React.FC = () => {
           <Heading
             fontFamily="Kanit"
             fontWeight="700"
-            color={Palette.MxmYellow}
+            color={Palette.MxmNavy}
             letterSpacing={1.5}
             size="2xl"
             textAlign="center"

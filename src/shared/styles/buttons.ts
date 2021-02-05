@@ -99,7 +99,7 @@ export const DivisiNextButton = styled.button`
   font-size: 1em;
   color: white;
   border-radius: 1em;
-  background-color: ${Palette.MxmCyan};
+  background-color: ${Palette.MxmNavy};
   padding: 0.5em 2.5em 0.5em 2.5em;
   transition-duration: 0.2s;
   box-shadow: -3px 4px ${Palette.MxmYellow};
@@ -147,13 +147,40 @@ export const ButtonNextForm = styled.button`
   })
 `;
 
+export const OprecButton = styled.button`
+outline: none;
+font-family: Kanit;
+font-size: 1em;
+color: white;
+border-radius: 1em;
+background-color: #1f2c4c;
+padding: 0.5em 2.5em 0.5em 2.5em;
+transition-duration: 0.2s;
+box-shadow: -3px 4px ${Palette.MxmCyan};
+margin-bottom: 4px;
+border-radius: 1em;
+&:hover {
+  background-color: white;
+  color: #1f2c4c;
+  cursor: pointer;
+  margin-right: 1px;
+  margin-top: 4px;
+  margin-bottom: 0;
+  box-shadow: 0px 0px #1f2c4c;
+}
+
+@media (max-width: 340px) {
+  font-size: 0.8em;
+})
+`;
+
 export const ButtonBackFinal = styled.button`
   outline: none;
   font-family: Kanit;
   font-size: 1em;
-  color: #f4224b;
+  color: white;
   border-radius: 1em;
-  background-color: white;
+  background-color: ${Palette.MxmNavy};
   padding: 0.5em 2.5em 0.5em 2.5em;
   transition-duration: 0.2s;
   box-shadow: -3px 4px #f4224b;
@@ -161,7 +188,7 @@ export const ButtonBackFinal = styled.button`
   border-radius: 1em;
   &:hover {
     background-color: #f4224b;
-    color: white;
+    color: ${Palette.MxmNavy};
     cursor: pointer;
     margin-right: 1px;
     margin-top: 4px;
