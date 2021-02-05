@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import { Palette } from '../../types';
 
-export const FormComponent = styled.div`
+export const FormComponent = styled.div<{ yellow?: boolean }>`
   min-height: 100vh;
-  background-color: #41ceba;
+  background-color: ${(props) =>
+    props.yellow ? Palette.MxmYellow : Palette.MxmCyan};
   padding: 0.5em;
   padding-bottom: 5em;
   font-family: Varela;
@@ -15,7 +16,7 @@ export const FormComponent2 = styled.div`
   flex-direction: column;
   place-items: center;
   min-height: 100vh;
-  background-color: #1f2c4c;
+  background-color: white;
   padding-top: 3em;
   padding-left: 0.5em;
   padding-right: 0.5em;
@@ -80,7 +81,7 @@ export const TitleContainer = styled.div`
 `;
 
 export const TitleContainer2 = styled.div`
-  background-color: #1f2c4c;
+  background-color: ${Palette.MxmCyan};
   color: white;
   box-shadow: 2px 4px 16px grey;
   width: 8em;
@@ -124,7 +125,7 @@ export const BadgeContainer = styled.div`
 `;
 
 export const DivisionContainer = styled.div`
-  padding: 2em 3em 2em 3em;
+  padding: 2em 3em 0em 3em;
   border-radius: 10px;
   margin-top: 2em;
   margin-bottom: 2em;
@@ -149,19 +150,6 @@ export const OprecHomepageContainer = styled.div`
   place-items: center;
   background-color: #1f2c4c;
   opacity: 1;
-  background-image: radial-gradient(
-      circle at center center,
-      #466087,
-      #1f2c4c
-    ),
-    repeating-radial-gradient(
-      circle at center center,
-      #466087,
-      #466087,
-      17px,
-      transparent 34px,
-      transparent 17px
-    );
   background-blend-mode: multiply;
   min-height: 100vh;
 `;

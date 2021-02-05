@@ -15,13 +15,15 @@ import {
   FormErrorMessage,
 } from '@chakra-ui/react';
 import { useForm } from 'react-hook-form';
+import { useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import jwtDecode from 'jwt-decode';
 import { UnlockIcon } from '@chakra-ui/icons';
 import { MxmLogo } from '../../../assets';
 import { LoginFormCard } from '../../../shared/styles/cards';
 import { formLabelStyle } from '../../../shared/constants';
 import { formHeaderStyle } from '../../../shared/constants/styles';
-import { KoorLogin } from '../../../types';
+import { AccessTokenProps, KoorLogin } from '../../../types';
 import { koorLogin } from '../../../services/koor.service';
 
 const bgStyle: React.CSSProperties = {
@@ -31,8 +33,8 @@ const bgStyle: React.CSSProperties = {
   backgroundImage: `linear-gradient(#c6c9fc 2px, transparent 2px), linear-gradient(to right, #c6c9fc 2px, #E5E5F7 2px)`,
   backgroundSize: '40px 40px',
 };
-
 const Login: React.FC = () => {
+  const history = useHistory();
   const {
     register,
     handleSubmit,
@@ -45,12 +47,20 @@ const Login: React.FC = () => {
 
   React.useEffect(() => {
     document.title = 'MAXIMA 2021: Masuk';
+    window.sessionStorage.clear();
   }, []);
 
   const onSubmit = async (data: KoorLogin) => {
     try {
       const result = await koorLogin(data);
-      console.log(result);
+      window.sessionStorage.setItem(
+        'accessToken',
+        result.accessToken,
+      );
+      const { divisiID }: AccessTokenProps = jwtDecode(
+        result.accessToken,
+      );
+      window.location.replace('/seleksi-form');
     } catch (error) {
       Swal.fire({
         title: 'Perhatian!',

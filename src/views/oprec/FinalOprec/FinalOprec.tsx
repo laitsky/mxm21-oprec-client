@@ -14,6 +14,7 @@ import {
   responsiveLabel,
 } from './constants';
 import { getPDF } from '../../../services/oprec.service';
+import './final-oprec.css';
 
 type LocationState = {
   nim_mhs: string;
@@ -29,11 +30,28 @@ const FinalOprec: React.FC = () => {
       token,
     }: LocationState = location.state as LocationState;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 
   React.useEffect(() => {
     document.title = 'MAXIMA 2021: Terima Kasih!';
+
+    Swal.fire({
+      icon: 'info',
+      html: `
+        <div style="font-famiy: 'Kanit'">
+        <h2 class="token-title">Token kamu:</h2>
+        <h3 class="token-text">${token}</h3>
+        <br />
+        <h3 class="reminder">Disimpan ya, tokennya! Karena nantinya akan berguna untuk tahapan selanjutnya.</h3>
+        <hr />
+        <h4 class="small-text">Kamu juga bisa melihat token kamu pada formulir pendaftaran yang dapat kamu unduh di halaman ini.</h4>
+        </div>
+      `,
+      confirmButtonText: 'Mengerti!',
+      confirmButtonColor: '#F4224B',
+    });
+
     const fetchData = async () => {
       try {
         const returnedData = await getPDF({ nim_mhs, token });
@@ -76,26 +94,18 @@ const FinalOprec: React.FC = () => {
 
       <BadgeContainer>14 Februari 2021</BadgeContainer>
 
-      <Stack spacing={3}>
-        <Box bg="tomato" p={3} rounded={4} textAlign="center">
-          <Text fontSize="sm" color="white" letterSpacing="-0.5px">
-            Token Pendaftaran:{' '}
-            <span style={{ fontWeight: 'bolder' }}>{token}</span>
-          </Text>
-        </Box>
-        <Box
-          bg="cyan.500"
-          p={3}
-          mb={6}
-          rounded={4}
-          _hover={{ bg: 'cyan.600', cursor: 'pointer' }}
-          onClick={() => window.open(docLink)}
-        >
-          <Text fontSize="sm" color="white" letterSpacing="-0.5px">
-            <DownloadIcon ml={2} /> Unduh formulir pendaftaran
-          </Text>
-        </Box>
-      </Stack>
+      <Box
+        bg="cyan.500"
+        p={3}
+        mb={6}
+        rounded={4}
+        _hover={{ bg: 'cyan.600', cursor: 'pointer' }}
+        onClick={() => window.open(docLink)}
+      >
+        <Text fontSize="sm" color="white" letterSpacing="-0.5px">
+          <DownloadIcon ml={2} /> Unduh formulir pendaftaran
+        </Text>
+      </Box>
 
       <Divider />
       <Box width={responsiveLogo} _hover={{ cursor: 'pointer' }}>

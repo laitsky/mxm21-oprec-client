@@ -1,46 +1,46 @@
 import { Pendaftar } from '../../../types';
 
-export const dataPendaftar: Pendaftar[] = [
+export const dataPendaftar = [
   {
-    nim: '27047',
+    nim_mhs: '27047',
     name: 'Vincent Diamond',
     divisi: 'Web',
-    lulus: false,
+    lulus: 0,
   },
   {
-    nim: '35212',
+    nim_mhs: '35212',
     name: 'Albert',
     divisi: 'Acara',
-    lulus: false,
+    lulus: 0,
   },
   {
-    nim: '29142',
+    nim_mhs: '29142',
     name: 'Ryan',
     divisi: 'Web',
-    lulus: false,
+    lulus: 0,
   },
   {
-    nim: '12435',
+    nim_mhs: '12435',
     name: 'Kito',
     divisi: 'Web',
-    lulus: false,
+    lulus: 0,
   },
   {
-    nim: '55555',
+    nim_mhs: '55555',
     name: 'Stephen',
     divisi: 'Acara',
-    lulus: false,
+    lulus: 0,
   },
   {
-    nim: '29123',
+    nim_mhs: '29123',
     name: 'Olwen',
     divisi: 'Perkap',
-    lulus: false,
+    lulus: 0,
   },
   {
-    nim: '99999',
+    nim_mhs: '99999',
     name: 'Siapa aja',
     divisi: 'Perkap',
-    lulus: false,
+    lulus: 0,
   },
 ];

@@ -33,7 +33,7 @@ const AppRouter: React.FC = () => {
       <Route path="/request-token" exact component={Auth.Register} />
       <Route path="/register" exact component={Auth.NewPassword} />
       <Route
-        path="/registration-list"
+        path="/seleksi-form"
         exact
         component={Koor.RegistrationList}
       />

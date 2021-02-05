@@ -10,7 +10,7 @@ import {
   HStack,
 } from '@chakra-ui/react';
 import { Link, useHistory } from 'react-router-dom';
-import { DownloadIcon } from '@chakra-ui/icons';
+import { DownloadIcon, LockIcon } from '@chakra-ui/icons';
 import Swal from 'sweetalert2';
 import { FormComponent2 } from '../../../shared/styles/containers';
 import { FinalLogo } from '../../../assets';
@@ -85,7 +85,7 @@ const FinalisasiData: React.FC = () => {
   return (
     <FormComponent2>
       <Text
-        color="white"
+        color="tomato"
         fontSize={responsiveTitle}
         fontFamily="Kanit"
         fontWeight="700"
@@ -101,7 +101,7 @@ const FinalisasiData: React.FC = () => {
         <>
           <ButtonMaxima onClick={() => window.open(docLink)}>
             <Text fontFamily="Varela" fontSize={responsiveLabel}>
-              Unduh Hasil Form |
+              Cek data kamu di sini |
               <Icon
                 ml={2}
                 as={DownloadIcon}
@@ -123,7 +123,6 @@ const FinalisasiData: React.FC = () => {
             <Flex>
               <Checkbox
                 name="validasi"
-                color="white"
                 defaultChecked={isDisabled}
                 onChange={handleCheckboxChange}
                 height={{
@@ -137,7 +136,6 @@ const FinalisasiData: React.FC = () => {
               />
               <Text
                 fontFamily="Varela"
-                color="white"
                 fontSize={responsiveLabel}
                 wordBreak="break-all"
               >
@@ -149,7 +147,7 @@ const FinalisasiData: React.FC = () => {
         </>
       ) : (
         <Flex direction="column" placeItems="center">
-          <Text color="white" mb={4}>
+          <Text mb={4}>
             Mohon menunggu, formulir Anda sedang dibuat.
           </Text>
           <Spinner
@@ -171,7 +169,8 @@ const FinalisasiData: React.FC = () => {
           disabled={!isDisabled!}
           onClick={handleNextBtn}
         >
-          NEXT
+          <LockIcon h={3} />
+          KIRIM
         </ButtonNextFinal>
       </HStack>
     </FormComponent2>

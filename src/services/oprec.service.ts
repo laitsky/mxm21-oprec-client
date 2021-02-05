@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://lumiere.my.id';
+const BASE_URL = 'https://secure.lumiere.my.id';
 
 export const studentVerify = async (
   nim_mhs: unknown | number | string,

@@ -55,12 +55,17 @@ const responsiveBox = {
 const DataDiri: React.FC = () => {
   const history = useHistory();
   const { handleSubmit, errors, register } = useForm();
+
   const onSubmit = (data: any) => {
     const newData = {
       ...data,
+      nim_mhs: window.sessionStorage.getItem('stuNim'),
       email: `${data.email}@student.umn.ac.id`,
     };
-    window.sessionStorage.setItem('dataDiri', JSON.stringify(newData));
+    window.sessionStorage.setItem(
+      'dataDiri',
+      JSON.stringify(newData),
+    );
     history.push({
       pathname: '/esai-singkat',
       state: {
@@ -68,8 +73,12 @@ const DataDiri: React.FC = () => {
       },
     });
   };
+
   React.useEffect(() => {
     document.title = 'MAXIMA 2021: Data Diri';
+    if (window.sessionStorage.getItem('stuNim') === null) {
+      history.push('/');
+    }
   }, []);
   return (
     <FormComponent>
@@ -120,6 +129,10 @@ const DataDiri: React.FC = () => {
                           message: 'NIM harus berupa 5 digit',
                         },
                       })}
+                      value={
+                        window.sessionStorage.getItem('stuNim') || ''
+                      }
+                      disabled
                     />
                   </InputGroup>
                   <FormErrorMessage>
@@ -211,8 +224,13 @@ const DataDiri: React.FC = () => {
                       ref={register({
                         required: 'Isi jenis kelamin kamu!',
                       })}
+                      defaultValue="DEFAULT"
                     >
-                      <option selected disabled hidden />
+                      <option value="DEFAULT" disabled>
+                        {' '}
+                        L/P{' '}
+                      </option>
+
                       <option value="Laki-laki">Laki-laki</option>
                       <option value="Perempuan">Perempuan</option>
                     </Select>
@@ -254,8 +272,12 @@ const DataDiri: React.FC = () => {
                       ref={register({
                         required: 'Isi program studi kamu!',
                       })}
+                      defaultValue="DEFAULT"
                     >
-                      <option selected disabled hidden />
+                      <option value="DEFAULT" disabled>
+                        {' '}
+                        Pilih prodi{' '}
+                      </option>
                       <option value="Desain Komunikasi Visual">
                         Desain Komunikasi Visual
                       </option>
@@ -300,8 +322,13 @@ const DataDiri: React.FC = () => {
                       ref={register({
                         required: 'Isi angkatan kamu!',
                       })}
+                      defaultValue="DEFAULT"
                     >
-                      <option selected disabled hidden />
+                      <option value="DEFAULT" disabled>
+                        {' '}
+                        Pilih angkatan{' '}
+                      </option>
+
                       <option value="2018">2018</option>
                       <option value="2019">2019</option>
                       <option value="2020">2020</option>
@@ -358,8 +385,13 @@ const DataDiri: React.FC = () => {
                       ref={register({
                         required: 'Isi pilihan divisi kamu!',
                       })}
+                      defaultValue="DEFAULT"
                     >
-                      <option selected disabled hidden />
+                      <option value="DEFAULT" disabled>
+                        {' '}
+                        Pilih divisi{' '}
+                      </option>
+
                       {divisionLists.slice(1).map((d) => (
                         <option key={d.divisiID} value={d.divisiID}>
                           {d.name}

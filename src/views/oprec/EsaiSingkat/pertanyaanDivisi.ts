@@ -14,7 +14,7 @@ export const pertanyaanDivisi = [
   },
   {
     divisi: Divisi.Dekorasi,
-    q: `Lampirkan portofolio dekorasi yang dikumpulkan dalam format zip (misal konsep atau desain dekorasi yang pernah dibuat. jika memiliki karya showcase 3D, akan menjadi nilai tambah).`,
+    q: `Lampirkan portofolio dekorasi yang dikumpulkan dalam format zip (misal konsep atau desain dekorasi yang pernah dibuat. jika memiliki karya showcase 3D, akan menjadi nilai tambah) ke maxima@umn.ac.id. Isi kolom di bawah ini dengan '-'`,
   },
   {
     divisi: Divisi.DokumFoto,
@@ -26,6 +26,7 @@ export const pertanyaanDivisi = [
     - 1 Foto paling kreatif atau konseptual fotografi (Boleh photoshop/ virtual photography/ conceptual photography / creative photography / etc)
     
     Kirim foto-foto tersebut ke maxima@umn.ac.id dengan subject: FOTO_NAMA_ANGKATAN
+    Isi kolom di bawah ini dengan '-'
     `,
   },
   {
@@ -36,7 +37,8 @@ export const pertanyaanDivisi = [
     - 1 Video kumpulan Portofoliomu berdurasi 3-5 Menit (mp4)
     - Bedah secara GARIS BESAR Videografi maupun Editing dalam Video Highlight (Instagram @MaximaUMN) dan Aftermovie Maxima 2021 (Youtube MaximaUMN) tanpa minimal kata (Word/PDF)
 
-    Kumpulkan ketiga file tersebut dalam 1 Folder Google Drive masing masing dengan Judul "VIDEO_NAMA_ANGKATAN" dan share link kalian secara publik untuk di kirimkan ke maxima@umn.ac.id 
+    Kumpulkan ketiga file tersebut dalam 1 Folder Google Drive masing masing dengan Judul "VIDEO_NAMA_ANGKATAN" dan share link kalian secara publik untuk di kirimkan ke maxima@umn.ac.id
+    Isi kolom di bawah ini dengan '-'
     `,
   },
   {
@@ -51,6 +53,7 @@ export const pertanyaanDivisi = [
     divisi: Divisi.Merchandise,
     q: `Lampirkan portofolio terbaik kalian (dalam bentuk pdf atau link google drive kumpulan karya) terkait produksi design merchandise, jika ada! 
     Kumpulkan lampiran tersebut ke email maxima@umn.ac.id dengan subject MERCH_NAMALENGKAP_ANGKATAN. Ubah aksesibilitas folder Google drive menjadi publik jika melalui Google drive!
+    Isi kolom di bawah ini dengan '-'
     `,
   },
   {
@@ -63,7 +66,7 @@ export const pertanyaanDivisi = [
   },
   {
     divisi: Divisi.Visual,
-    q: `Kirimkan portofolio desain grafis terbaikmu dengan basis vector dan desain dengan style kamu (jumlahnya bebas, semakin banyak semakin bagus) ke maxima@umn.ac.id dengan subject: VISUAL-NAMA-ANGKATAN paling lambat Jumat, 12 Februari 2021 pukul 21.00 WIB `,
+    q: `Kirimkan portofolio desain grafis terbaikmu dengan basis vector dan desain dengan style kamu (jumlahnya bebas, semakin banyak semakin bagus) ke maxima@umn.ac.id dengan subject: VISUAL-NAMA-ANGKATAN paling lambat Jumat, 12 Februari 2021 pukul 21.00 WIB.  Isi kolom di bawah ini dengan '-' `,
   },
   {
     divisi: Divisi.Seccom,
@@ -75,6 +78,6 @@ export const pertanyaanDivisi = [
   },
   {
     divisi: Divisi.Website,
-    q: `Kirimkan portofolio/hasil kerja yang terbaikmu yang berkaitan dengan pemrograman/website (jika ada) ke maxima@umn.ac.id dengan subject: WEBSITE/NAMA/ANGKATAN paling lambat 11 Februari 2021 pukul 21.00 WIB.`,
+    q: `Kirimkan portofolio/hasil kerja yang terbaikmu yang berkaitan dengan pemrograman/website (jika ada) ke maxima@umn.ac.id dengan subject: WEBSITE/NAMA/ANGKATAN paling lambat 11 Februari 2021 pukul 21.00 WIB.  Isi kolom di bawah ini dengan '-'`,
   },
 ];

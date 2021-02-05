@@ -1,8 +1,10 @@
 export interface Pendaftar {
-  nim: string;
+  divisi: { name: string };
+  lulusInterview: boolean | number;
+  lulusSeleksiForm: boolean | number;
   name: string;
-  divisi: string;
-  lulus: boolean;
+  nim_mhs: number;
+  tanggal_wawancara: Date | string | null;
 }
 
 export interface Divisions {
@@ -17,6 +19,7 @@ export interface DivisionDataList {
 }
 
 export enum Divisi {
+  SuperAdmin = 'D00',
   BPH = 'D01',
   Acara = 'D02',
   Bazaar = 'D03',
@@ -61,4 +64,27 @@ export interface SignUpData {
 export interface KoorLogin {
   nim_koor: string;
   password: string;
+}
+
+interface NIMProps {
+  nim_koor: string;
+  nim_mhs: string;
+}
+export interface InterviewDateProps extends NIMProps {
+  tanggal_wawancara: Date;
+}
+
+export interface SeleksiFormProps extends NIMProps {
+  lulusSeleksiForm: number;
+}
+
+export interface LulusInterviewProps extends NIMProps {
+  lulusInterview: number;
+}
+
+export interface AccessTokenProps {
+  nim_koor: number;
+  divisiID: Divisi;
+  iat: Date;
+  exp: Date;
 }
