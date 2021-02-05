@@ -37,6 +37,15 @@ const AppRouter: React.FC = () => {
         exact
         component={Koor.RegistrationList}
       />
+      {/* <Route
+        path="/logout"
+        exact
+        strict
+        render={() => {
+          window.sessionStorage.clear();
+          window.location.replace('/');
+        }}
+      /> */}
       <Route path="/" exact component={Oprec.SelamatDatang} />
     </Switch>
   );

@@ -71,7 +71,7 @@ interface NIMProps {
   nim_mhs: string;
 }
 export interface InterviewDateProps extends NIMProps {
-  tanggal_wawancara: Date;
+  tanggal_wawancara: string;
 }
 
 export interface SeleksiFormProps extends NIMProps {

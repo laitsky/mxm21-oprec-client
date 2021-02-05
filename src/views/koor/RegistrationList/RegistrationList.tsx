@@ -18,11 +18,16 @@ import Swal from 'sweetalert2';
 import {
   AccessTokenProps,
   Divisi,
+  InterviewDateProps,
+  LulusInterviewProps,
   Pendaftar,
   SeleksiFormProps,
 } from '../../../types';
 import { getStudentData } from '../../../utils/getStudentData';
-import { updateLulusForm } from '../../../services/koor.service';
+import {
+  updateInterviewDate,
+  updateLulusForm,
+} from '../../../services/koor.service';
 import { KoorNavbar } from '../../../shared/components';
 
 const RegistrationList: React.FC = () => {
@@ -73,10 +78,26 @@ const RegistrationList: React.FC = () => {
     setData([...newData]);
   };
 
-  const handleInterviewDateChange = (nim_mhs: string) => (
+  const handleInterviewDateChange = (nim_mhs: string) => async (
     e: React.ChangeEvent<HTMLSelectElement>,
   ) => {
-    console.log(nim_mhs, e.target.value);
+    const interviewDate: InterviewDateProps = {
+      nim_koor: nim_koor.toString(),
+      nim_mhs,
+      tanggal_wawancara: e.target.value,
+    };
+    console.log(nim_koor.toString(), nim_mhs, e.target.value);
+    try {
+      const result = await updateInterviewDate(interviewDate);
+      console.log(result);
+    } catch (error) {
+      Swal.fire({
+        title: 'Perhatian!',
+        text: error.response.data.message,
+        icon: 'error',
+        confirmButtonText: 'Coba lagi',
+      });
+    }
   };
 
   return (
