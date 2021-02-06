@@ -12,6 +12,7 @@ import {
 } from '@chakra-ui/react';
 import { ArrowRightIcon, ArrowLeftIcon } from '@chakra-ui/icons';
 
+import { motion } from 'framer-motion';
 import {
   ButtonBackForm,
   ButtonNextForm,
@@ -24,7 +25,6 @@ import {
 import { generateToken } from '../../../utils';
 import { formLabelStyle } from '../../../shared/constants';
 import { pertanyaanDivisi } from './pertanyaanDivisi';
-import { motion } from 'framer-motion';
 
 const responsiveLabel = {
   base: '1em',

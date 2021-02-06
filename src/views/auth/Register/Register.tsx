@@ -13,10 +13,12 @@ import {
   Stack,
   Text,
   FormErrorMessage,
+  Center,
 } from '@chakra-ui/react';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 import { BellIcon } from '@chakra-ui/icons';
+import { Link } from 'react-router-dom';
 import { MxmLogo } from '../../../assets';
 import { LoginFormCard } from '../../../shared/styles/cards';
 import {
@@ -139,6 +141,28 @@ const Register: React.FC = () => {
               </Button>
             </Stack>
           </form>
+          <Center mt={8}>
+            <Stack spacing={1}>
+              <Link to="/login">
+                <Text
+                  fontSize="xs"
+                  textAlign="center"
+                  color="blue.500"
+                >
+                  Sudah memiliki akun? Masuk di sini.
+                </Text>
+              </Link>
+              <Link to="/register">
+                <Text
+                  fontSize="xs"
+                  textAlign="center"
+                  color="blue.500"
+                >
+                  Aktivasi akun kamu di sini.
+                </Text>
+              </Link>
+            </Stack>
+          </Center>
         </LoginFormCard>
       </Box>
     </Flex>

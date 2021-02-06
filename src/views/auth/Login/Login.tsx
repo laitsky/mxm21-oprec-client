@@ -13,9 +13,10 @@ import {
   FormLabel,
   Text,
   FormErrorMessage,
+  Center,
 } from '@chakra-ui/react';
 import { useForm } from 'react-hook-form';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import jwtDecode from 'jwt-decode';
 import { UnlockIcon } from '@chakra-ui/icons';
@@ -141,6 +142,28 @@ const Login: React.FC = () => {
               </Button>
             </Stack>
           </form>
+          <Center mt={8}>
+            <Stack spacing={1}>
+              <Link to="/register">
+                <Text
+                  fontSize="xs"
+                  textAlign="center"
+                  color="blue.500"
+                >
+                  Aktivasi Akun BPH/Koor
+                </Text>
+              </Link>
+              <Link to="/request-token">
+                <Text
+                  fontSize="xs"
+                  textAlign="center"
+                  color="blue.500"
+                >
+                  Request Token Akun BPH/Koor
+                </Text>
+              </Link>
+            </Stack>
+          </Center>
         </LoginFormCard>
       </Box>
     </Flex>

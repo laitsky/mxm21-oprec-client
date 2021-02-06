@@ -13,10 +13,12 @@ import {
   FormLabel,
   Text,
   FormErrorMessage,
+  Center,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 import { MxmLogo } from '../../../assets';
 import { LoginFormCard } from '../../../shared/styles/cards';
 import {
@@ -138,6 +140,28 @@ const NewPassword: React.FC = () => {
               </Button>
             </Stack>
           </form>
+          <Center mt={8}>
+            <Stack spacing={1}>
+              <Link to="/login">
+                <Text
+                  fontSize="xs"
+                  textAlign="center"
+                  color="blue.500"
+                >
+                  Sudah memiliki akun? Masuk di sini.
+                </Text>
+              </Link>
+              <Link to="/request-token">
+                <Text
+                  fontSize="xs"
+                  textAlign="center"
+                  color="blue.500"
+                >
+                  Request Token Akun BPH/Koor
+                </Text>
+              </Link>
+            </Stack>
+          </Center>
         </LoginFormCard>
       </Box>
     </Flex>

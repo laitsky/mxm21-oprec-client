@@ -22,20 +22,43 @@ import {
   AddIcon,
   SettingsIcon,
 } from '@chakra-ui/icons';
+import { Link as RouterLink } from 'react-router-dom';
 import { MxmLogo } from '../../../assets';
 
-const Links = ['Seleksi Formulir'];
+const Links = [
+  {
+    name: 'Seleksi Formulir',
+    route: '/seleksi-form',
+  },
+  {
+    name: 'Seleksi Terbuka',
+    route: '/seleksi-terbuka',
+  },
+  {
+    name: 'Lulus Interview',
+    route: '/lulus-interview',
+  },
+];
 
-const NavLink = ({ children }: { children: React.ReactNode }) => (
-  <Link
-    px={2}
-    py={1}
-    rounded="md"
-    _hover={{ textDecoration: 'none', bg: 'gray.200' }}
-    href="#"
-  >
-    {children}
-  </Link>
+interface NavLinkProps {
+  children: React.ReactNode;
+  route?: string;
+}
+
+const NavLink: React.FC<NavLinkProps> = ({
+  children,
+  route,
+}: NavLinkProps) => (
+  <RouterLink to={route as string}>
+    <Link
+      px={2}
+      py={1}
+      rounded="md"
+      _hover={{ textDecoration: 'none', bg: 'gray.200' }}
+    >
+      {children}
+    </Link>
+  </RouterLink>
 );
 
 const KoorNavbar: React.FC = () => {
@@ -66,7 +89,9 @@ const KoorNavbar: React.FC = () => {
               display={{ base: 'none', md: 'flex' }}
             >
               {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
+                <NavLink key={link.route} route={link.route}>
+                  {link.name}
+                </NavLink>
               ))}
             </HStack>
           </HStack>
@@ -100,7 +125,7 @@ const KoorNavbar: React.FC = () => {
           <Box pb={4}>
             <Stack as="nav" spacing={4}>
               {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
+                <NavLink key={link.route}>{link.name}</NavLink>
               ))}
             </Stack>
           </Box>

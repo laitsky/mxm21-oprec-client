@@ -4,3 +4,4 @@ export { DataDiri } from './DataDiri';
 export { EsaiSingkat } from './EsaiSingkat';
 export { FinalisasiData } from './FinalisasiData';
 export { FinalOprec } from './FinalOprec';
+export { AbsenSeleksi } from './AbsenSeleksi';

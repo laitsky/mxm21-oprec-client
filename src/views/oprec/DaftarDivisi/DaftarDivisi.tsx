@@ -9,6 +9,7 @@ import {
 import { ArrowRightIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { motion } from 'framer-motion';
 import {
   DivisionCard,
   DivisionCardBody,
@@ -21,7 +22,6 @@ import { DivisionContainer } from '../../../shared/styles/containers';
 import { Palette } from '../../../types';
 import './daftar-divisi.css';
 import { DivisiNextButton } from '../../../shared/styles/buttons';
-import { motion } from 'framer-motion';
 
 const DaftarDivisi: React.FC = () => {
   React.useEffect(() => {

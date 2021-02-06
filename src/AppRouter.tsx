@@ -28,7 +28,13 @@ const AppRouter: React.FC = () => {
         eaxct
         component={Oprec.FinalisasiData}
       />
-      <Route path="/final-oprec" eaxct component={Oprec.FinalOprec} />
+      <Route path="/final-oprec" exact component={Oprec.FinalOprec} />
+      <Route
+        path="/absen-seleksi"
+        exact
+        component={Oprec.AbsenSeleksi}
+      />
+
       <Route path="/login" exact component={Auth.Login} />
       <Route path="/request-token" exact component={Auth.Register} />
       <Route path="/register" exact component={Auth.NewPassword} />
@@ -36,6 +42,12 @@ const AppRouter: React.FC = () => {
         path="/seleksi-form"
         exact
         component={Koor.RegistrationList}
+      />
+      <Route path="/god-mode" exact component={Koor.GodMode} />
+      <Route
+        path="/lulus-interview"
+        exact
+        component={Koor.LulusInterview}
       />
       {/* <Route
         path="/logout"

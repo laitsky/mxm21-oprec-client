@@ -3,6 +3,7 @@ import { Box, Text, Image, Divider, Stack } from '@chakra-ui/react';
 import { useLocation, useHistory } from 'react-router-dom';
 import { DownloadIcon } from '@chakra-ui/icons';
 import Swal from 'sweetalert2';
+import { motion } from 'framer-motion';
 import {
   FormComponent2,
   BadgeContainer,
@@ -17,7 +18,6 @@ import { ButtonMaxima } from '../../../shared/styles/buttons';
 import { getPDF } from '../../../services/oprec.service';
 import './final-oprec.css';
 import { Palette } from '../../../types';
-import { motion } from 'framer-motion';
 
 type LocationState = {
   nim_mhs: string;

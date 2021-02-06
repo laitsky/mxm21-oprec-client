@@ -21,9 +21,15 @@ import {
   NumberDecrementStepper,
   InputLeftElement,
 } from '@chakra-ui/react';
-import { ArrowRightIcon, ArrowLeftIcon } from '@chakra-ui/icons';
+import {
+  ArrowRightIcon,
+  ArrowLeftIcon,
+  AtSignIcon,
+  ChatIcon,
+  PhoneIcon,
+} from '@chakra-ui/icons';
 
-import { AtSignIcon, ChatIcon, PhoneIcon } from '@chakra-ui/icons';
+import { motion } from 'framer-motion';
 import {
   ButtonBackForm,
   ButtonNextForm,
@@ -37,7 +43,6 @@ import {
   divisionLists,
   formLabelStyle,
 } from '../../../shared/constants';
-import { motion } from 'framer-motion';
 
 const DataDiri: React.FC = () => {
   const history = useHistory();

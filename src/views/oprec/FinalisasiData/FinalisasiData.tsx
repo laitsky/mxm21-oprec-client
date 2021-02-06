@@ -10,8 +10,13 @@ import {
   HStack,
 } from '@chakra-ui/react';
 import { Link, useHistory } from 'react-router-dom';
-import { DownloadIcon, LockIcon } from '@chakra-ui/icons';
+import {
+  DownloadIcon,
+  LockIcon,
+  ArrowLeftIcon,
+} from '@chakra-ui/icons';
 import Swal from 'sweetalert2';
+import { motion } from 'framer-motion';
 import { FormComponent2 } from '../../../shared/styles/containers';
 import { FinalLogo } from '../../../assets';
 import {
@@ -28,8 +33,6 @@ import {
   responsiveLabel,
   responsiveTitle,
 } from './constants';
-import { motion } from 'framer-motion';
-import { ArrowLeftIcon } from '@chakra-ui/icons';
 
 const FinalisasiData: React.FC = () => {
   const history = useHistory();
