@@ -94,3 +94,12 @@ export const updateLulusInterview = async (
   );
   return request.data;
 };
+
+export const downloadStudentPDF = async (nim_mhs: number) => {
+  const request = await axios.post(
+    `${BASE_URL}/download_pdf_mhs`,
+    { nim_mhs },
+    config,
+  );
+  return request.data;
+};

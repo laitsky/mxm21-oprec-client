@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {
+  useToast,
   Box,
   Button,
   Text,
@@ -11,23 +12,29 @@ import {
   Tr,
   Th,
   Td,
+  Input,
 } from '@chakra-ui/react';
 import { DownloadIcon } from '@chakra-ui/icons';
 import jwtDecode from 'jwt-decode';
-import Swal from 'sweetalert2';
 import {
   AccessTokenProps,
   Divisi,
+  InterviewDateProps,
   Pendaftar,
   SeleksiFormProps,
 } from '../../../types';
 import { getStudentData } from '../../../utils/getStudentData';
-import { updateLulusForm } from '../../../services/koor.service';
+import {
+  downloadStudentPDF,
+  updateInterviewDate,
+  updateLulusForm,
+} from '../../../services/koor.service';
 import { KoorNavbar } from '../../../shared/components';
 
 const RegistrationList: React.FC = () => {
   const [data, setData] = React.useState<Pendaftar[]>([]);
-
+  const [keyword, setKeyword] = React.useState('');
+  const toast = useToast();
   const accessToken: AccessTokenProps = jwtDecode(
     window.sessionStorage.getItem('accessToken')!,
   );
@@ -42,10 +49,6 @@ const RegistrationList: React.FC = () => {
     fetchData();
   }, []);
 
-  React.useEffect(() => {
-    console.log('test', data);
-  }, [data]);
-
   const handleSelectLulusChange = (
     nim_mhs: string,
     i: number,
@@ -55,16 +58,28 @@ const RegistrationList: React.FC = () => {
       nim_mhs,
       lulusSeleksiForm: +(e.target.value === 'true'),
     };
+
     try {
       await updateLulusForm(seleksiForm);
+      toast({
+        position: 'bottom-right',
+        title: 'Perubahan berhasil.',
+        description: `Berhasil mengganti status kelulusan seleksi form milik ${nim_mhs}`,
+        status: 'success',
+        duration: 2000,
+        isClosable: true,
+      });
     } catch (error) {
-      Swal.fire({
-        title: 'Perhatian!',
-        text: error.response.data.message,
-        icon: 'error',
-        confirmButtonText: 'Coba lagi',
+      toast({
+        position: 'bottom-right',
+        title: 'Ada masalah!',
+        description: `${error.response.data.message} (NIM: ${nim_mhs})`,
+        status: 'error',
+        duration: 2000,
+        isClosable: true,
       });
     }
+
     const newData = [...data];
     newData[i] = {
       ...newData[i],
@@ -73,17 +88,70 @@ const RegistrationList: React.FC = () => {
     setData([...newData]);
   };
 
-  const handleInterviewDateChange = (nim_mhs: string) => (
+  const handleInterviewDateChange = (nim_mhs: string) => async (
     e: React.ChangeEvent<HTMLSelectElement>,
   ) => {
-    console.log(nim_mhs, e.target.value);
+    const interviewDate: InterviewDateProps = {
+      nim_koor: nim_koor.toString(),
+      nim_mhs,
+      tanggal_wawancara: e.target.value,
+    };
+
+    try {
+      await updateInterviewDate(interviewDate);
+      toast({
+        position: 'bottom-right',
+        title: 'Perubahan berhasil.',
+        description: `Berhasil mengganti tanggal interview milik ${nim_mhs}`,
+        status: 'success',
+        duration: 2000,
+        isClosable: true,
+      });
+    } catch (error) {
+      toast({
+        position: 'bottom-right',
+        title: 'Ada masalah!',
+        description: `${error.response.data.message} (NIM: ${nim_mhs})`,
+        status: 'error',
+        duration: 2000,
+        isClosable: true,
+      });
+    }
+  };
+
+  const divisionsFilter = keyword
+    ? data.filter((d) =>
+        d.divisi.name
+          .toLowerCase()
+          .includes(keyword.trim().toLowerCase()),
+      )
+    : data;
+
+  const showDivisionSearch = () => {
+    if (divisiID === Divisi.SuperAdmin || divisiID === Divisi.BPH) {
+      return (
+        <Input
+          mb={4}
+          placeholder="Cari divisi"
+          value={keyword}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setKeyword(e.target.value)
+          }
+        />
+      );
+    }
   };
 
   return (
-    <Box>
+    <Box mb={6}>
       <KoorNavbar />
       <Container maxW="6xl" mt={12}>
-        <Table variant="simple">
+        {showDivisionSearch()}
+        <Table
+          variant="simple"
+          fontFamily="DM Sans"
+          letterSpacing={-0.4}
+        >
           <Thead>
             <Tr>
               <Th>nama</Th>
@@ -95,16 +163,24 @@ const RegistrationList: React.FC = () => {
           </Thead>
           <Tbody>
             {data &&
-              data.map((d, i) => (
+              divisionsFilter.map((d, i) => (
                 <Tr key={d.nim_mhs}>
                   <Td>
-                    {d.name} ({d.nim_mhs})
+                    <strong>
+                      {d.name} ({d.nim_mhs})
+                    </strong>
                   </Td>
                   <Td>{d.divisi.name}</Td>
                   <Td>
                     <Button
                       leftIcon={<DownloadIcon />}
                       colorScheme="teal"
+                      onClick={async () => {
+                        const result = await downloadStudentPDF(
+                          d.nim_mhs,
+                        );
+                        window.open(result.message);
+                      }}
                     >
                       <Text fontSize="xs">Lihat Formulir</Text>
                     </Button>
@@ -123,7 +199,7 @@ const RegistrationList: React.FC = () => {
                   </Td>
                   <Td>
                     <Select
-                      defaultValue="option1"
+                      defaultValue={d.tanggal_wawancara || 'option1'}
                       onChange={handleInterviewDateChange(
                         d.nim_mhs.toString(),
                       )}

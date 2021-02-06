@@ -42,6 +42,7 @@ const SelamatDatang: React.FC = () => {
   });
 
   const onSubmit = async (data: Data) => {
+    window.sessionStorage.clear();
     try {
       await studentVerify(data.nim);
       window.sessionStorage.setItem('stuNim', data.nim);
@@ -107,6 +108,7 @@ const SelamatDatang: React.FC = () => {
                       fontSize="sm"
                     />
                     <Input
+                      autoFocus
                       fontFamily="Kanit"
                       type="number"
                       name="nim"
