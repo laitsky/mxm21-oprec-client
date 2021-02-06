@@ -44,12 +44,12 @@ export const ExtendedBasicButton = styled(BasicButton)`
   border-color: tomato;
 `;
 
-export const ButtonMaxima = styled.button`
+export const ButtonMaxima = styled.button<{ bgColor?: string }>`
   outline: none;
   font-size: 1em;
   color: white;
   border-radius: 1em;
-  background-color: #41ceba;
+  background-color: ${(props) => props.bgColor || '#41ceba'};
   padding: 0.5em 2.5em 0.5em 2.5em;
   transition-duration: 0.2s;
   box-shadow: -3px 4px white;
@@ -99,20 +99,20 @@ export const DivisiNextButton = styled.button`
   font-size: 1em;
   color: white;
   border-radius: 1em;
-  background-color: ${Palette.MxmNavy};
+  background-color: ${Palette.MxmCyan};
   padding: 0.5em 2.5em 0.5em 2.5em;
   transition-duration: 0.2s;
-  box-shadow: -3px 4px ${Palette.MxmYellow};
+  box-shadow: -3px 4px white;
   margin-bottom: 4px;
   border-radius: 1em;
   &:hover {
-    background-color: ${Palette.MxmYellow};
-    color: white;
+    background-color: white;
+    color: ${Palette.MxmNavy};
     cursor: pointer;
     margin-right: 1px;
     margin-top: 4px;
     margin-bottom: 0;
-    box-shadow: 0px 0px ${Palette.MxmYellow};
+    box-shadow: 0px 0px white;
   }
 
   @media (max-width: 340px) {
@@ -160,8 +160,8 @@ box-shadow: -3px 4px ${Palette.MxmCyan};
 margin-bottom: 4px;
 border-radius: 1em;
 &:hover {
-  background-color: white;
-  color: #1f2c4c;
+  background-color: ${Palette.MxmCyan};
+  color: white;
   cursor: pointer;
   margin-right: 1px;
   margin-top: 4px;
@@ -178,9 +178,9 @@ export const ButtonBackFinal = styled.button`
   outline: none;
   font-family: Kanit;
   font-size: 1em;
-  color: white;
+  color: ${Palette.MxmNavy};
   border-radius: 1em;
-  background-color: ${Palette.MxmNavy};
+  background-color: white;
   padding: 0.5em 2.5em 0.5em 2.5em;
   transition-duration: 0.2s;
   box-shadow: -3px 4px #f4224b;
@@ -188,7 +188,7 @@ export const ButtonBackFinal = styled.button`
   border-radius: 1em;
   &:hover {
     background-color: #f4224b;
-    color: ${Palette.MxmNavy};
+    color: white;
     cursor: pointer;
     margin-right: 1px;
     margin-top: 4px;

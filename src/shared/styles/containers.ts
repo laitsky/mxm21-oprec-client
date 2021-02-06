@@ -6,7 +6,6 @@ export const FormComponent = styled.div<{ yellow?: boolean }>`
   background-color: ${(props) =>
     props.yellow ? Palette.MxmYellow : Palette.MxmCyan};
   padding: 0.5em;
-  padding-bottom: 5em;
   font-family: Varela;
 `;
 
@@ -16,7 +15,7 @@ export const FormComponent2 = styled.div`
   flex-direction: column;
   place-items: center;
   min-height: 100vh;
-  background-color: white;
+  background-color: ${Palette.MxmNavy};
   padding-top: 3em;
   padding-left: 0.5em;
   padding-right: 0.5em;
@@ -67,7 +66,7 @@ export const FormContainer = styled.div`
 `;
 
 export const TitleContainer = styled.div`
-  background-color: #1f2c4c;
+  background-color: ${Palette.MxmNavy};
   color: white;
   box-shadow: 2px 4px 16px grey;
   width: 6em;
@@ -81,7 +80,7 @@ export const TitleContainer = styled.div`
 `;
 
 export const TitleContainer2 = styled.div`
-  background-color: ${Palette.MxmCyan};
+  background-color: ${Palette.MxmNavy};
   color: white;
   box-shadow: 2px 4px 16px grey;
   width: 8em;

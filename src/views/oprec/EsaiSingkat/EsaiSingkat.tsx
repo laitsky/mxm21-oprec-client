@@ -10,6 +10,7 @@ import {
   Center,
   Stack,
 } from '@chakra-ui/react';
+import { ArrowRightIcon, ArrowLeftIcon } from '@chakra-ui/icons';
 
 import {
   ButtonBackForm,
@@ -23,6 +24,7 @@ import {
 import { generateToken } from '../../../utils';
 import { formLabelStyle } from '../../../shared/constants';
 import { pertanyaanDivisi } from './pertanyaanDivisi';
+import { motion } from 'framer-motion';
 
 const responsiveLabel = {
   base: '1em',
@@ -70,82 +72,99 @@ const EsaiSingkat: React.FC = () => {
     }
   }, []);
   return (
-    <FormComponent yellow>
-      <Center>
-        <TitleContainer2>ESAI SINGKAT</TitleContainer2>
-      </Center>
+    <motion.div
+      initial={{ x: 400, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{
+        type: 'spring',
+        stiffness: 70,
+        damping: 20,
+      }}
+      style={{ minHeight: '100vh' }}
+    >
+      <FormComponent>
+        <Center>
+          <TitleContainer2>ESAI SINGKAT</TitleContainer2>
+        </Center>
 
-      <Center>
-        <Box w="100%" p="1.5em 0.75em 1.5em 0.75em">
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <Center>
-              <FormContainer>
-                <Stack spacing={4}>
-                  <FormControl isInvalid={errors.soal1}>
-                    <FormLabel style={formLabelStyle}>
-                      Bagaimana kamu mendefinisikan Dreamland sebagai
-                      tema MAXIMA 2021?
-                    </FormLabel>
-                    <Textarea
-                      name="soal1"
-                      fontSize={responsiveLabel}
-                      height="15em"
-                      ref={register({ required: 'Isi esai!' })}
-                    />
-                    <FormErrorMessage fontSize={responsiveLabel}>
-                      {errors.soal1 && errors.soal1.message}
-                    </FormErrorMessage>
-                  </FormControl>
-                  <FormControl isInvalid={errors.soal2}>
-                    <FormLabel style={formLabelStyle}>
-                      Apa yang akan kamu tingkatkan di MAXIMA 2021?
-                    </FormLabel>
-                    <Textarea
-                      name="soal2"
-                      fontSize={responsiveLabel}
-                      height="15em"
-                      ref={register({ required: 'Isi esai!' })}
-                    />
-                    <FormErrorMessage fontSize={responsiveLabel}>
-                      {errors.soal2 && errors.soal2.message}
-                    </FormErrorMessage>
-                  </FormControl>
-                  <FormControl isInvalid={errors.soal3}>
-                    <FormLabel style={formLabelStyle}>
-                      {
-                        pertanyaanDivisi.find(
-                          (d) => d.divisi === dataDiri.divisiID,
-                        )?.q
-                      }
-                    </FormLabel>
-                    <Textarea
-                      name="soal3"
-                      fontSize={responsiveLabel}
-                      height="15em"
-                      ref={register({ required: 'Isi esai!' })}
-                    />
-                    <FormErrorMessage fontSize={responsiveLabel}>
-                      {errors.soal3 && errors.soal3.message}
-                    </FormErrorMessage>
-                  </FormControl>
-                </Stack>
-              </FormContainer>
-            </Center>
+        <Center>
+          <Box w="100%" p="1.5em 0.75em 1.5em 0.75em">
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <Center>
+                <FormContainer>
+                  <Stack spacing={4}>
+                    <FormControl isInvalid={errors.soal1}>
+                      <FormLabel style={formLabelStyle}>
+                        Bagaimana kamu mendefinisikan Dreamland
+                        sebagai tema MAXIMA 2021?
+                      </FormLabel>
+                      <Textarea
+                        name="soal1"
+                        fontSize={responsiveLabel}
+                        height="15em"
+                        ref={register({ required: 'Isi esai!' })}
+                      />
+                      <FormErrorMessage fontSize={responsiveLabel}>
+                        {errors.soal1 && errors.soal1.message}
+                      </FormErrorMessage>
+                    </FormControl>
+                    <FormControl isInvalid={errors.soal2}>
+                      <FormLabel style={formLabelStyle}>
+                        Apa yang akan kamu tingkatkan di MAXIMA 2021?
+                      </FormLabel>
+                      <Textarea
+                        name="soal2"
+                        fontSize={responsiveLabel}
+                        height="15em"
+                        ref={register({ required: 'Isi esai!' })}
+                      />
+                      <FormErrorMessage fontSize={responsiveLabel}>
+                        {errors.soal2 && errors.soal2.message}
+                      </FormErrorMessage>
+                    </FormControl>
+                    <FormControl isInvalid={errors.soal3}>
+                      <FormLabel style={formLabelStyle}>
+                        {
+                          pertanyaanDivisi.find(
+                            (d) => d.divisi === dataDiri.divisiID,
+                          )?.q
+                        }
+                      </FormLabel>
+                      <Textarea
+                        name="soal3"
+                        fontSize={responsiveLabel}
+                        height="15em"
+                        ref={register({ required: 'Isi esai!' })}
+                      />
+                      <FormErrorMessage fontSize={responsiveLabel}>
+                        {errors.soal3 && errors.soal3.message}
+                      </FormErrorMessage>
+                    </FormControl>
+                  </Stack>
+                </FormContainer>
+              </Center>
 
-            <Center pt="2em">
-              <Box pr={{ base: '5em', sm: '10em', md: '20em' }}>
-                <Link to="data-diri">
-                  <ButtonBackForm>BACK</ButtonBackForm>
-                </Link>
-              </Box>
-              <Box>
-                <ButtonNextForm type="submit">NEXT</ButtonNextForm>
-              </Box>
-            </Center>
-          </form>
-        </Box>
-      </Center>
-    </FormComponent>
+              <Center pt="2em">
+                <Box pr={{ base: '5em', sm: '10em', md: '20em' }}>
+                  <Link to="data-diri">
+                    <ButtonBackForm>
+                      <ArrowLeftIcon h={3} mr={2} mb={1} />
+                      BACK
+                    </ButtonBackForm>
+                  </Link>
+                </Box>
+                <Box>
+                  <ButtonNextForm type="submit">
+                    <ArrowRightIcon h={3} mr={2} mb={1} />
+                    NEXT
+                  </ButtonNextForm>
+                </Box>
+              </Center>
+            </form>
+          </Box>
+        </Center>
+      </FormComponent>
+    </motion.div>
   );
 };
 
