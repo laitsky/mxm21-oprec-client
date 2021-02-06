@@ -60,7 +60,7 @@ export const DivisionCard = styled.div`
   justify-content: center;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   transition: 0.3s;
-  padding: 0.5em 2em 1em 2em;
+  padding: 0.5em 1em 1em 2em;
   border-radius: 15px;
   line-height: 1.85;
 
@@ -124,6 +124,8 @@ export const DivisionCardContent = styled.div`
   flex-grow: 3;
   font-family: Varela;
   font-size: 0.95em;
+  text-align: justify;
+  text-justify: inter-word;
   letter-spacing: -0.35px;
   color: ${Palette.MxmNavy};
 `;

@@ -13,8 +13,11 @@ import {
   responsiveTitle,
   responsiveLabel,
 } from './constants';
+import { ButtonMaxima } from '../../../shared/styles/buttons';
 import { getPDF } from '../../../services/oprec.service';
 import './final-oprec.css';
+import { Palette } from '../../../types';
+import { motion } from 'framer-motion';
 
 type LocationState = {
   nim_mhs: string;
@@ -69,56 +72,63 @@ const FinalOprec: React.FC = () => {
   }, []);
 
   return (
-    <FormComponent2>
-      <Image src={LastLogo} width={220} />
+    <motion.div
+      initial={{ x: 400, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{
+        type: 'spring',
+        stiffness: 70,
+        damping: 20,
+      }}
+      style={{ minHeight: '100vh' }}
+    >
+      <FormComponent2>
+        <Image src={LastLogo} width={220} />
 
-      <Text
-        color="#ffd008"
-        fontSize={responsiveTitle}
-        mt="0.5em"
-        fontFamily="Kanit"
-        fontWeight="700"
-      >
-        TERIMA KASIH!
-      </Text>
-      <Text
-        color="white"
-        fontSize={responsiveLabel}
-        mt="1em"
-        fontFamily="Kanit"
-        textAlign="center"
-        lineHeight="1.8em"
-      >
-        Hasil seleksi formulir akan diumumkan pada tanggal
-      </Text>
-
-      <BadgeContainer>14 Februari 2021</BadgeContainer>
-
-      <Box
-        bg="cyan.500"
-        p={3}
-        mb={6}
-        rounded={4}
-        _hover={{ bg: 'cyan.600', cursor: 'pointer' }}
-        onClick={() => window.open(docLink)}
-      >
-        <Text fontSize="sm" color="white" letterSpacing="-0.5px">
-          <DownloadIcon ml={2} /> Unduh formulir pendaftaran
+        <Text
+          color={Palette.MxmYellow}
+          fontSize={responsiveTitle}
+          mt="0.5em"
+          fontFamily="Kanit"
+          fontWeight="700"
+        >
+          TERIMA KASIH!
         </Text>
-      </Box>
+        <Text
+          color="white"
+          fontSize={responsiveLabel}
+          mt="1em"
+          fontFamily="Kanit"
+          textAlign="center"
+          lineHeight="1.8em"
+        >
+          Hasil seleksi formulir akan diumumkan pada tanggal
+        </Text>
 
-      <Divider />
-      <Box width={responsiveLogo} _hover={{ cursor: 'pointer' }}>
-        <Image
-          onClick={() => history.push('/')}
-          src={MxmWhiteLogo}
-          mt="3em"
-        />
-      </Box>
-      <Text fontSize="sm" color="white" mt={6}>
-        ketuk logo untuk kembali ke halaman utama.
-      </Text>
-    </FormComponent2>
+        <BadgeContainer>14 Februari 2021</BadgeContainer>
+
+        <ButtonMaxima
+          bgColor={Palette.MxmPink}
+          onClick={() => window.open(docLink)}
+        >
+          <Text fontSize={responsiveLabel} letterSpacing="-0.5px">
+            <DownloadIcon ml={2} /> Unduh formulir pendaftaran
+          </Text>
+        </ButtonMaxima>
+
+        <Divider mt={responsiveLabel} />
+        <Box width={responsiveLogo} _hover={{ cursor: 'pointer' }}>
+          <Image
+            onClick={() => history.push('/')}
+            src={MxmWhiteLogo}
+            mt="3em"
+          />
+        </Box>
+        <Text fontSize="sm" color="white" mt={6}>
+          ketuk logo untuk kembali ke halaman utama.
+        </Text>
+      </FormComponent2>
+    </motion.div>
   );
 };
 

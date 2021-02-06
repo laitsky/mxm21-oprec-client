@@ -8,7 +8,7 @@ export const divisionDataList: DivisionDataList[] = [
     desc: `Merangkai dan menyusun konsep
     acara MAXIMA 2021 secara
     menyeluruh, serta memastikan
-    seluruh rangkaian acara blangsung
+    seluruh rangkaian acara berlangsung
     sesuai dengan rencana.`,
   },
   {

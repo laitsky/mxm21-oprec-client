@@ -1,6 +1,8 @@
 export const formLabelStyle: React.CSSProperties = {
   fontFamily: 'Kanit',
   textTransform: 'uppercase',
+  textAlign: 'justify',
+  textJustify: 'inter-word',
   fontSize: '0.85em',
   color: '#616161',
   letterSpacing: '1.5px',

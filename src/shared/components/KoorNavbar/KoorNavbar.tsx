@@ -27,7 +27,8 @@ const NavLink = ({ children }: { children: React.ReactNode }) => (
     py={1}
     rounded={'md'}
     _hover={{ textDecoration: 'none', bg: 'gray.200' }}
-    href={'#'}>
+    href={'#'}
+  >
     {children}
   </Link>
 );
@@ -38,7 +39,11 @@ const KoorNavbar: React.FC = () => {
   return (
     <>
       <Box bg={'gray.100'} px={4}>
-        <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
+        <Flex
+          h={16}
+          alignItems={'center'}
+          justifyContent={'space-between'}
+        >
           <IconButton
             size={'md'}
             icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
@@ -47,11 +52,14 @@ const KoorNavbar: React.FC = () => {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={'center'}>
-            <Box><Image src={MxmLogo} w={10} /></Box>
+            <Box>
+              <Image src={MxmLogo} w={10} />
+            </Box>
             <HStack
               as={'nav'}
               spacing={4}
-              display={{ base: 'none', md: 'flex' }}>
+              display={{ base: 'none', md: 'flex' }}
+            >
               {Links.map((link) => (
                 <NavLink key={link}>{link}</NavLink>
               ))}
@@ -63,7 +71,8 @@ const KoorNavbar: React.FC = () => {
               colorScheme={'teal'}
               size={'sm'}
               mr={4}
-              leftIcon={<AddIcon />}>
+              leftIcon={<AddIcon />}
+            >
               Action
             </Button>
             <Menu>
@@ -71,7 +80,8 @@ const KoorNavbar: React.FC = () => {
                 as={Button}
                 rounded={'full'}
                 variant={'link'}
-                cursor={'pointer'}>
+                cursor={'pointer'}
+              >
                 <Avatar
                   size={'sm'}
                   src={
@@ -99,9 +109,8 @@ const KoorNavbar: React.FC = () => {
           </Box>
         ) : null}
       </Box>
-
     </>
   );
-}
+};
 
 export default KoorNavbar;
