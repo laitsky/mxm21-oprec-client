@@ -44,7 +44,7 @@ const EsaiSingkat: React.FC = () => {
   const dataDiri = JSON.parse(
     window.sessionStorage.getItem('dataDiri')!,
   );
-  const { handleSubmit, errors, register } = useForm();
+  const { handleSubmit, errors, register, setValue } = useForm();
   const onSubmit: SubmitHandler<EsaiSingkatInput> = (data) => {
     const studentData = {
       ...dataDiri,
@@ -60,6 +60,12 @@ const EsaiSingkat: React.FC = () => {
   };
   React.useEffect(() => {
     document.title = 'MAXIMA 2021: Esai Singkat';
+    if (window.sessionStorage?.getItem('studentData')) {
+      const data = JSON.parse(window.sessionStorage.getItem('studentData')!);
+      setValue('soal1', data.soal1);
+      setValue('soal2', data.soal2);
+      setValue('soal3', data.soal3);
+    }
   }, []);
   return (
     <FormComponent yellow>

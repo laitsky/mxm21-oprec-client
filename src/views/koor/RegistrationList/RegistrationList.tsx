@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {
+  useToast,
   Box,
   Button,
   Text,
@@ -32,7 +33,7 @@ import { KoorNavbar } from '../../../shared/components';
 
 const RegistrationList: React.FC = () => {
   const [data, setData] = React.useState<Pendaftar[]>([]);
-
+  const toast = useToast();
   const accessToken: AccessTokenProps = jwtDecode(
     window.sessionStorage.getItem('accessToken')!,
   );
@@ -60,16 +61,28 @@ const RegistrationList: React.FC = () => {
       nim_mhs,
       lulusSeleksiForm: +(e.target.value === 'true'),
     };
+
     try {
       await updateLulusForm(seleksiForm);
+      toast({
+        position: 'bottom-right',
+        title: 'Perubahan berhasil.',
+        description: `Berhasil mengganti status kelulusan seleksi form milik ${nim_mhs}`,
+        status: 'success',
+        duration: 2000,
+        isClosable: true,
+      });
     } catch (error) {
-      Swal.fire({
-        title: 'Perhatian!',
-        text: error.response.data.message,
-        icon: 'error',
-        confirmButtonText: 'Coba lagi',
+      toast({
+        position: 'bottom-right',
+        title: 'Ada masalah!',
+        description: `${error.response.data.message} (NIM: ${nim_mhs})`,
+        status: 'error',
+        duration: 2000,
+        isClosable: true,
       });
     }
+
     const newData = [...data];
     newData[i] = {
       ...newData[i],
@@ -86,25 +99,41 @@ const RegistrationList: React.FC = () => {
       nim_mhs,
       tanggal_wawancara: e.target.value,
     };
+
     console.log(nim_koor.toString(), nim_mhs, e.target.value);
+
     try {
       const result = await updateInterviewDate(interviewDate);
       console.log(result);
+      toast({
+        position: 'bottom-right',
+        title: 'Perubahan berhasil.',
+        description: `Berhasil mengganti tanggal interview milik ${nim_mhs}`,
+        status: 'success',
+        duration: 2000,
+        isClosable: true,
+      });
     } catch (error) {
-      Swal.fire({
-        title: 'Perhatian!',
-        text: error.response.data.message,
-        icon: 'error',
-        confirmButtonText: 'Coba lagi',
+      toast({
+        position: 'bottom-right',
+        title: 'Ada masalah!',
+        description: `${error.response.data.message} (NIM: ${nim_mhs})`,
+        status: 'error',
+        duration: 2000,
+        isClosable: true,
       });
     }
   };
 
   return (
-    <Box>
+    <Box mb={6}>
       <KoorNavbar />
       <Container maxW="6xl" mt={12}>
-        <Table variant="simple">
+        <Table
+          variant="simple"
+          fontFamily="DM Sans"
+          letterSpacing={-0.4}
+        >
           <Thead>
             <Tr>
               <Th>nama</Th>
@@ -119,7 +148,9 @@ const RegistrationList: React.FC = () => {
               data.map((d, i) => (
                 <Tr key={d.nim_mhs}>
                   <Td>
-                    {d.name} ({d.nim_mhs})
+                    <strong>
+                      {d.name} ({d.nim_mhs})
+                    </strong>
                   </Td>
                   <Td>{d.divisi.name}</Td>
                   <Td>

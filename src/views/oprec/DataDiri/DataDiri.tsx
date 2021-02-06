@@ -54,7 +54,34 @@ const responsiveBox = {
 
 const DataDiri: React.FC = () => {
   const history = useHistory();
-  const { handleSubmit, errors, register } = useForm();
+  const { handleSubmit, errors, register, setValue } = useForm();
+
+  React.useEffect(() => {
+    document.title = 'MAXIMA 2021: Data Diri';
+    if (window.sessionStorage.getItem('stuNim') === null) {
+      history.push('/');
+    }
+
+    if (window.sessionStorage?.getItem('dataDiri')) {
+      const data = JSON.parse(
+        window.sessionStorage.getItem('dataDiri')!,
+      );
+      setValue('name', data.name);
+      setValue('nim_mhs', data.name_mhs);
+      setValue('tempat_lahir', data.tempat_lahir);
+      setValue('tanggal_lahir', data.tanggal_lahir);
+      setValue('jenis_kelamin', data.jenis_kelamin);
+      setValue('alamat', data.alamat);
+      setValue('prodi', data.prodi);
+      setValue('angkatan', data.angkatan);
+      setValue('ips', data.ips);
+      setValue('divisiID', data.divisiID);
+      setValue('email', data.email.replace('@student.umn.ac.id', ''));
+      setValue('no_hp', data.no_hp);
+      setValue('uLine', data.uLine);
+      setValue('uInstagram', data.uInstagram);
+    }
+  }, []);
 
   const onSubmit = (data: any) => {
     const newData = {
@@ -74,12 +101,6 @@ const DataDiri: React.FC = () => {
     });
   };
 
-  React.useEffect(() => {
-    document.title = 'MAXIMA 2021: Data Diri';
-    if (window.sessionStorage.getItem('stuNim') === null) {
-      history.push('/');
-    }
-  }, []);
   return (
     <FormComponent>
       <Center>
@@ -344,11 +365,12 @@ const DataDiri: React.FC = () => {
                       step={0.01}
                       min={0}
                       max={4}
-                      name="ips"
                       mt={{ base: '0em', md: '0.55em', lg: '0em' }}
+                      name="ips"
                     >
                       <NumberInputField
                         height="2.5em"
+                        name="ips"
                         ref={register({ required: 'Isi IPS kamu!' })}
                       />
                       <NumberInputStepper>

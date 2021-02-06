@@ -81,12 +81,16 @@ const KoorNavbar: React.FC = () => {
                 <SettingsIcon />
               </MenuButton>
               <MenuList>
-                <MenuItem>Link 1</MenuItem>
-                <MenuDivider />
-                <MenuItem onClick={() => {
-                  window.sessionStorage.clear();
-                  window.location.replace('/')
-                }}>Keluar</MenuItem>
+                {/* <MenuItem>Link 1</MenuItem>
+                <MenuDivider /> */}
+                <MenuItem
+                  onClick={() => {
+                    window.sessionStorage.clear();
+                    window.location.replace('/');
+                  }}
+                >
+                  Keluar
+                </MenuItem>
               </MenuList>
             </Menu>
           </Flex>
