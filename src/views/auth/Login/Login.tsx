@@ -86,6 +86,7 @@ const Login: React.FC = () => {
                 <InputGroup>
                   <InputLeftAddon children="000000" />
                   <Input
+                    autoFocus
                     type="number"
                     name="nim_koor"
                     ref={register({

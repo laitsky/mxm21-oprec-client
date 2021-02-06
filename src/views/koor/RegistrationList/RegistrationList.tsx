@@ -12,20 +12,20 @@ import {
   Tr,
   Th,
   Td,
+  Input,
 } from '@chakra-ui/react';
 import { DownloadIcon } from '@chakra-ui/icons';
 import jwtDecode from 'jwt-decode';
-import Swal from 'sweetalert2';
 import {
   AccessTokenProps,
   Divisi,
   InterviewDateProps,
-  LulusInterviewProps,
   Pendaftar,
   SeleksiFormProps,
 } from '../../../types';
 import { getStudentData } from '../../../utils/getStudentData';
 import {
+  downloadStudentPDF,
   updateInterviewDate,
   updateLulusForm,
 } from '../../../services/koor.service';
@@ -33,6 +33,7 @@ import { KoorNavbar } from '../../../shared/components';
 
 const RegistrationList: React.FC = () => {
   const [data, setData] = React.useState<Pendaftar[]>([]);
+  const [keyword, setKeyword] = React.useState('');
   const toast = useToast();
   const accessToken: AccessTokenProps = jwtDecode(
     window.sessionStorage.getItem('accessToken')!,
@@ -47,10 +48,6 @@ const RegistrationList: React.FC = () => {
     };
     fetchData();
   }, []);
-
-  React.useEffect(() => {
-    console.log('test', data);
-  }, [data]);
 
   const handleSelectLulusChange = (
     nim_mhs: string,
@@ -100,11 +97,8 @@ const RegistrationList: React.FC = () => {
       tanggal_wawancara: e.target.value,
     };
 
-    console.log(nim_koor.toString(), nim_mhs, e.target.value);
-
     try {
-      const result = await updateInterviewDate(interviewDate);
-      console.log(result);
+      await updateInterviewDate(interviewDate);
       toast({
         position: 'bottom-right',
         title: 'Perubahan berhasil.',
@@ -125,10 +119,34 @@ const RegistrationList: React.FC = () => {
     }
   };
 
+  const divisionsFilter = keyword
+    ? data.filter((d) =>
+        d.divisi.name
+          .toLowerCase()
+          .includes(keyword.trim().toLowerCase()),
+      )
+    : data;
+
+  const showDivisionSearch = () => {
+    if (divisiID === Divisi.SuperAdmin || divisiID === Divisi.BPH) {
+      return (
+        <Input
+          mb={4}
+          placeholder="Cari divisi"
+          value={keyword}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setKeyword(e.target.value)
+          }
+        />
+      );
+    }
+  };
+
   return (
     <Box mb={6}>
       <KoorNavbar />
       <Container maxW="6xl" mt={12}>
+        {showDivisionSearch()}
         <Table
           variant="simple"
           fontFamily="DM Sans"
@@ -145,7 +163,7 @@ const RegistrationList: React.FC = () => {
           </Thead>
           <Tbody>
             {data &&
-              data.map((d, i) => (
+              divisionsFilter.map((d, i) => (
                 <Tr key={d.nim_mhs}>
                   <Td>
                     <strong>
@@ -157,6 +175,12 @@ const RegistrationList: React.FC = () => {
                     <Button
                       leftIcon={<DownloadIcon />}
                       colorScheme="teal"
+                      onClick={async () => {
+                        const result = await downloadStudentPDF(
+                          d.nim_mhs,
+                        );
+                        window.open(result.message);
+                      }}
                     >
                       <Text fontSize="xs">Lihat Formulir</Text>
                     </Button>
@@ -175,7 +199,7 @@ const RegistrationList: React.FC = () => {
                   </Td>
                   <Td>
                     <Select
-                      defaultValue="option1"
+                      defaultValue={d.tanggal_wawancara || 'option1'}
                       onChange={handleInterviewDateChange(
                         d.nim_mhs.toString(),
                       )}

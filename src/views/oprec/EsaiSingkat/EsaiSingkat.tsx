@@ -61,7 +61,9 @@ const EsaiSingkat: React.FC = () => {
   React.useEffect(() => {
     document.title = 'MAXIMA 2021: Esai Singkat';
     if (window.sessionStorage?.getItem('studentData')) {
-      const data = JSON.parse(window.sessionStorage.getItem('studentData')!);
+      const data = JSON.parse(
+        window.sessionStorage.getItem('studentData')!,
+      );
       setValue('soal1', data.soal1);
       setValue('soal2', data.soal2);
       setValue('soal3', data.soal3);

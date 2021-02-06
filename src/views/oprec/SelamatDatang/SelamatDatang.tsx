@@ -108,6 +108,7 @@ const SelamatDatang: React.FC = () => {
                       fontSize="sm"
                     />
                     <Input
+                      autoFocus
                       fontFamily="Kanit"
                       type="number"
                       name="nim"

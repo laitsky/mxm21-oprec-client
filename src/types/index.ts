@@ -4,7 +4,7 @@ export interface Pendaftar {
   lulusSeleksiForm: boolean | number;
   name: string;
   nim_mhs: number;
-  tanggal_wawancara: Date | string | null;
+  tanggal_wawancara: string;
 }
 
 export interface Divisions {
