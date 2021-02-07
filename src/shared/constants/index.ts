@@ -32,14 +32,6 @@ export const divisionLists: DivisionLists[] = [
     name: 'Fresh Money',
   },
   {
-    divisiID: Divisi.Website,
-    name: 'Website',
-  },
-  {
-    divisiID: Divisi.Seccom,
-    name: 'Security & Accommodation',
-  },
-  {
     divisiID: Divisi.Medrel,
     name: 'Media Relations',
   },
@@ -60,7 +52,15 @@ export const divisionLists: DivisionLists[] = [
     name: 'Public Relations - Visual',
   },
   {
+    divisiID: Divisi.Seccom,
+    name: 'Security & Accommodation',
+  },
+  {
     divisiID: Divisi.Sponsor,
     name: 'Sponsor',
+  },
+  {
+    divisiID: Divisi.Website,
+    name: 'Website',
   },
 ];
