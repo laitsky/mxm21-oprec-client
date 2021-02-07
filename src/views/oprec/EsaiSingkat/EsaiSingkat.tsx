@@ -130,7 +130,20 @@ const EsaiSingkat: React.FC = () => {
                           )?.q
                         }
                       </FormLabel>
+                      <Box>
+                        <p>
+                          {' '}
+                          Unggah screenshot IPS terakhir kamu ke:{' '}
+                          <a
+                            href="http://bit.ly/UploadIPSMAXIMA"
+                            target="_blank"
+                          >
+                            http://bit.ly/UploadIPSMAXIMA
+                          </a>
+                        </p>
+                      </Box>
                       <Textarea
+                        mt={2}
                         name="soal3"
                         fontSize={responsiveLabel}
                         height="15em"

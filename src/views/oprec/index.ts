@@ -6,3 +6,5 @@ export { FinalisasiData } from './FinalisasiData';
 export { FinalOprec } from './FinalOprec';
 export { AbsenSeleksi } from './AbsenSeleksi';
 export { CheckNIM } from './CheckNIM';
+export { Sorry } from './Sorry';
+export { Congrats } from './Congrats';

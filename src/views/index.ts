@@ -7,6 +7,8 @@ export {
   FinalOprec,
   AbsenSeleksi,
   CheckNIM,
+  Congrats,
+  Sorry
 } from './oprec';
 
 export { Login, Register, NewPassword } from './auth';

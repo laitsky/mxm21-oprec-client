@@ -46,7 +46,7 @@ const FinalOprec: React.FC = () => {
         <h2 class="token-title">Token kamu:</h2>
         <h3 class="token-text">${token}</h3>
         <br />
-        <h3 class="reminder">Disimpan ya, tokennya! Karena nantinya akan berguna untuk tahapan selanjutnya.</h3>
+        <h3 class="reminder">Simpan tokennya untuk keperluan tahapan seleksi selanjutnya ya!</h3>
         <hr />
         <h4 class="small-text">Kamu juga bisa melihat token kamu pada formulir pendaftaran yang dapat kamu unduh di halaman ini.</h4>
         </div>
