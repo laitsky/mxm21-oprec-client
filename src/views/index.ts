@@ -6,6 +6,7 @@ export {
   FinalisasiData,
   FinalOprec,
   AbsenSeleksi,
+  CheckNIM,
 } from './oprec';
 
 export { Login, Register, NewPassword } from './auth';

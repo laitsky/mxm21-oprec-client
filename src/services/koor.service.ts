@@ -38,7 +38,6 @@ export const signUp = async (signUpData: SignUpData) => {
 
 export const koorLogin = async (koorLogin: KoorLogin) => {
   const request = await axios.post(`${BASE_URL}/signin`, koorLogin);
-
   return request.data;
 };
 
@@ -99,6 +98,24 @@ export const downloadStudentPDF = async (nim_mhs: number) => {
   const request = await axios.post(
     `${BASE_URL}/download_pdf_mhs`,
     { nim_mhs },
+    config,
+  );
+  return request.data;
+};
+
+export const getAllQueue = async (nim_koor: number | string) => {
+  const request = await axios.post(
+    `${BASE_URL}/antrian_all`,
+    { nim_koor },
+    config,
+  );
+  return request.data;
+};
+
+export const getDivisionQueue = async (divisiID: Divisi) => {
+  const request = await axios.post(
+    `${BASE_URL}/antrian_divisi`,
+    { divisiID },
     config,
   );
   return request.data;

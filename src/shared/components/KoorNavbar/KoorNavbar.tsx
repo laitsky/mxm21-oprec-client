@@ -32,11 +32,11 @@ const Links = [
   },
   {
     name: 'Seleksi Terbuka',
-    route: '/seleksi-terbuka',
+    route: '/koor-seleksiterbuka',
   },
   {
     name: 'Lulus Interview',
-    route: '/lulus-interview',
+    route: '/koor-lulusinterview',
   },
 ];
 
@@ -111,7 +111,7 @@ const KoorNavbar: React.FC = () => {
                 <MenuItem
                   onClick={() => {
                     window.sessionStorage.clear();
-                    window.location.replace('/');
+                    window.location.replace('/login');
                   }}
                 >
                   Keluar

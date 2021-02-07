@@ -152,3 +152,12 @@ export const OprecHomepageContainer = styled.div`
   background-blend-mode: multiply;
   min-height: 100vh;
 `;
+
+export const ColoredContainer = styled.div<{ color?: Palette }>`
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+
+  background-color: ${(props) => props.color || 'black'};
+  min-height: 100vh;
+`;

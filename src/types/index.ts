@@ -88,3 +88,16 @@ export interface AccessTokenProps {
   iat: Date;
   exp: Date;
 }
+
+export interface AbsenProps {
+  nim_mhs: string | number;
+  token: string;
+}
+
+export interface SeleksiTerbukaProps {
+  divisi: { name: string };
+  divisiID: Divisi;
+  mahasiswa: { name: string };
+  nim_mhs: number;
+  no_urut: number;
+}

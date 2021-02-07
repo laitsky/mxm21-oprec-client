@@ -20,6 +20,7 @@ import {
   AccessTokenProps,
   Divisi,
   InterviewDateProps,
+  LulusInterviewProps,
   Pendaftar,
   SeleksiFormProps,
 } from '../../../types';
@@ -28,6 +29,7 @@ import {
   downloadStudentPDF,
   updateInterviewDate,
   updateLulusForm,
+  updateLulusInterview,
 } from '../../../services/koor.service';
 import { KoorNavbar } from '../../../shared/components';
 
@@ -41,7 +43,8 @@ const LulusInterview: React.FC = () => {
   const { divisiID, nim_koor } = accessToken;
 
   React.useEffect(() => {
-    document.title = 'MAXIMA 2021: Laman BPH / Koor - Seleksi Form';
+    document.title =
+      'MAXIMA 2021: Laman BPH / Koor - Kelulusan Interview';
 
     const fetchData = async () => {
       let result: Pendaftar[] = await getStudentData(
@@ -54,6 +57,41 @@ const LulusInterview: React.FC = () => {
     fetchData();
   }, []);
 
+  const handleLulusInterviewChange = (nim_mhs: string, i: number) => async (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const lulusInterview: LulusInterviewProps = {
+      nim_koor: nim_koor.toString(),
+      nim_mhs,
+      lulusInterview: +(e.target.value === 'true')
+    };
+
+    try {
+      await updateLulusInterview(lulusInterview);
+      toast({
+        position: 'bottom-right',
+        title: 'Perubahan berhasil.',
+        description: `Berhasil mengganti status kelulusan interview form milik ${nim_mhs}`,
+        status: 'success',
+        duration: 2000,
+        isClosable: true,
+      });
+    } catch (error) {
+      toast({
+        position: 'bottom-right',
+        title: 'Ada masalah!',
+        description: `${error.response.data.message} (NIM: ${nim_mhs})`,
+        status: 'error',
+        duration: 2000,
+        isClosable: true,
+      });
+    }
+
+    const newData = [...data];
+    newData[i] = {
+      ...newData[i],
+      lulusInterview: +(e.target.value === 'true')
+    };
+    setData([...newData]);
+  }
   const divisionsFilter = keyword
     ? data.filter((d) =>
         d.divisi.name
@@ -118,6 +156,15 @@ const LulusInterview: React.FC = () => {
                     >
                       <Text fontSize="xs">Lihat Formulir</Text>
                     </Button>
+                  </Td>
+                  <Td>
+                    <Select
+                      defaultValue={d.lulusInterview.toString()}
+                      onChange={handleLulusInterviewChange(d.nim_mhs.toString(), i)}
+                    >
+                      <option value="false">Tidak</option>
+                      <option value="true">Ya</option>
+                    </Select>
                   </Td>
                 </Tr>
               ))}

@@ -34,7 +34,7 @@ const AppRouter: React.FC = () => {
         exact
         component={Oprec.AbsenSeleksi}
       />
-
+      <Route path="/check-nim" exact component={Oprec.CheckNIM} />
       <Route path="/login" exact component={Auth.Login} />
       <Route path="/request-token" exact component={Auth.Register} />
       <Route path="/register" exact component={Auth.NewPassword} />
@@ -45,9 +45,14 @@ const AppRouter: React.FC = () => {
       />
       <Route path="/god-mode" exact component={Koor.GodMode} />
       <Route
-        path="/lulus-interview"
+        path="/koor-lulusinterview"
         exact
         component={Koor.LulusInterview}
+      />
+      <Route
+        path="/koor-seleksiterbuka"
+        exact
+        component={Koor.SeleksiTerbuka}
       />
       {/* <Route
         path="/logout"

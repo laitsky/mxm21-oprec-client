@@ -34,6 +34,7 @@ import { KoorNavbar } from '../../../shared/components';
 const RegistrationList: React.FC = () => {
   const [data, setData] = React.useState<Pendaftar[]>([]);
   const [keyword, setKeyword] = React.useState('');
+
   const toast = useToast();
   const accessToken: AccessTokenProps = jwtDecode(
     window.sessionStorage.getItem('accessToken')!,

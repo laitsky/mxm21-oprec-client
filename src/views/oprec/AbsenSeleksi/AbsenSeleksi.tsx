@@ -26,7 +26,10 @@ import { useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { motion } from 'framer-motion';
 import { MxmLogoText } from '../../../assets';
-import { studentVerify } from '../../../services/oprec.service';
+import {
+  absenSeleksi,
+  studentVerify,
+} from '../../../services/oprec.service';
 import { OprecHomepageHeader } from '../../../shared/styles/header';
 import { OprecHomepageContainer } from '../../../shared/styles/containers';
 import { HomepageCheckCard } from '../../../shared/styles/cards';
@@ -34,12 +37,14 @@ import { MxmLoading } from '../../../shared/motions/MxmLoading';
 import './absen-seleksi.css';
 import { formLabelStyle } from '../../../shared/constants';
 import { OprecButton } from '../../../shared/styles/buttons';
+import { AbsenProps } from '../../../types';
 
 interface Data {
   nim: string;
 }
 
 const AbsenSeleksi: React.FC = () => {
+  const [link, setLink] = React.useState('');
   const { isOpen, onOpen, onClose } = useDisclosure();
   const history = useHistory();
   const {
@@ -48,27 +53,23 @@ const AbsenSeleksi: React.FC = () => {
     errors,
     formState,
     reset,
-  } = useForm({
-    mode: 'onChange',
-  });
+  } = useForm();
 
-  const onSubmit = async (data: Data) => {
+  const onSubmit = async (data: AbsenProps) => {
     window.sessionStorage.clear();
-    onOpen();
-    // try {
-    //   await studentVerify(data.nim);
-    //   window.sessionStorage.setItem('stuNim', data.nim);
-    //   history.push('/daftar-divisi');
-    // } catch (error) {
-    //   Swal.fire({
-    //     title: 'Perhatian!',
-    //     text: error.response.data.message,
-    //     icon: 'error',
-    //     confirmButtonText: 'Coba lagi',
-    //   });
-    // } finally {
-    //   reset();
-    // }
+    try {
+      const result = await absenSeleksi(data);
+      console.log(result.message);
+      setLink(result.message);
+      onOpen();
+    } catch (error) {
+      Swal.fire({
+        title: 'Perhatian!',
+        text: error.response.data.message,
+        icon: 'error',
+        confirmButtonText: 'Coba lagi',
+      });
+    }
   };
 
   React.useEffect(() => {
@@ -109,7 +110,7 @@ const AbsenSeleksi: React.FC = () => {
             <Box h="5vh" />
             <form id="nim-form" onSubmit={handleSubmit(onSubmit)}>
               <Box>
-                <FormControl isInvalid={errors.nim}>
+                <FormControl isInvalid={errors.nim_mhs}>
                   <FormLabel style={formLabelStyle}>
                     Masukkan NIM kamu:
                   </FormLabel>
@@ -123,7 +124,7 @@ const AbsenSeleksi: React.FC = () => {
                       autoFocus
                       fontFamily="Kanit"
                       type="number"
-                      name="nim"
+                      name="nim_mhs"
                       ref={register({
                         required: 'Masukkan NIM kamu!',
                         minLength: {
@@ -138,18 +139,40 @@ const AbsenSeleksi: React.FC = () => {
                     />
                   </InputGroup>
                   <Center mt={-6}>
-                    {errors.nim && (
+                    {errors.nim_mhs && (
                       <Alert status="warning" variant="left-accent">
                         <AlertIcon />
                         <AlertDescription>
-                          {errors.nim.message}
+                          {errors.nim_mhs.message}
+                        </AlertDescription>
+                      </Alert>
+                    )}
+                  </Center>
+                </FormControl>
+                <FormControl isInvalid={errors.token}>
+                  <FormLabel style={formLabelStyle}>
+                    Masukkan token kamu:
+                  </FormLabel>
+                  <Input
+                    fontFamily="Kanit"
+                    name="token"
+                    ref={register({
+                      required: 'Masukkan token kamu!',
+                    })}
+                  />
+                  <Center mt={3}>
+                    {errors.token && (
+                      <Alert status="warning" variant="left-accent">
+                        <AlertIcon />
+                        <AlertDescription>
+                          {errors.token.message}
                         </AlertDescription>
                       </Alert>
                     )}
                   </Center>
                 </FormControl>
               </Box>
-              <Center mt={6}>
+              <Center mt={8}>
                 {formState.isSubmitting ? (
                   <MxmLoading />
                 ) : (
@@ -168,17 +191,37 @@ const AbsenSeleksi: React.FC = () => {
       >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Seleksi Terbuka MAXIMA 2021</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            <p>ok</p>
+          <ModalHeader fontFamily="DM Sans">
+            Seleksi Terbuka MAXIMA 2021
+          </ModalHeader>
+          <ModalBody
+            textAlign="justify"
+            fontFamily="Kanit"
+            letterSpacing={-0.2}
+          >
+            <strong>Welcome dreamers</strong>, <br /> Selamat
+            mengikuti seleksi terbuka (interview / briefing / FGD)
+            MAXIMA 2021. Untuk masuk ke dalam pertemuan ZOOM, silakan
+            klik tombol "Masuk ke ruang ZOOM" di bawah kanan.
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
-              Close
+            <Button
+              colorScheme="red"
+              variant="ghost"
+              mr={3}
+              onClick={onClose}
+            >
+              Tutup
             </Button>
-            <Button variant="ghost">Secondary Action</Button>
+            <Button
+              colorScheme="blue"
+              onClick={() => {
+                window.open(link);
+              }}
+            >
+              Masuk ke ruang ZOOM
+            </Button>
           </ModalFooter>
         </ModalContent>
       </Modal>

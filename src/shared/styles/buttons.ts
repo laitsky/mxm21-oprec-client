@@ -89,7 +89,7 @@ export const ButtonBackForm = styled.button`
   }
 
   @media (max-width: 340px) {
-    font-size: 0.8em;
+    font-size: 1em;
   })
 `;
 
@@ -116,7 +116,7 @@ export const DivisiNextButton = styled.button`
   }
 
   @media (max-width: 340px) {
-    font-size: 0.8em;
+    font-size: 1em;
   })
 `;
 
@@ -143,7 +143,7 @@ export const ButtonNextForm = styled.button`
   }
 
   @media (max-width: 340px) {
-    font-size: 0.8em;
+    font-size: 1em;
   })
 `;
 
@@ -170,7 +170,7 @@ border-radius: 1em;
 }
 
 @media (max-width: 340px) {
-  font-size: 0.8em;
+  font-size: 1em;
 })
 `;
 
@@ -197,7 +197,7 @@ export const ButtonBackFinal = styled.button`
   }
 
   @media (max-width: 340px) {
-    font-size: 0.8em;
+    font-size: 1em;
   })
 `;
 
@@ -229,6 +229,6 @@ export const ButtonNextFinal = styled.button`
   }
 
   @media (max-width: 340px) {
-    font-size: 0.8em;
-  })0.8
+    font-size: 1em;
+  })
 `;

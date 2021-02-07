@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { AbsenProps } from '../types';
 
 const BASE_URL = 'https://secure.lumiere.my.id';
 
@@ -30,6 +31,21 @@ export const generateTempPDF = async (studentData: unknown) => {
 export const getPDF = async (data: unknown) => {
   const request = await axios.post(
     `${BASE_URL}/api/mhs/pdf_download`,
+    data,
+  );
+  return request.data;
+};
+
+export const checkStudentStats = async (nim_mhs: number) => {
+  const request = await axios.post(`${BASE_URL}/api/mhs/status`, {
+    nim_mhs,
+  });
+  return request.data;
+};
+
+export const absenSeleksi = async (data: AbsenProps) => {
+  const request = await axios.post(
+    `${BASE_URL}/api/mhs/zoom_link`,
     data,
   );
   return request.data;
