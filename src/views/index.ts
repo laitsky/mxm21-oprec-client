@@ -8,7 +8,7 @@ export {
   AbsenSeleksi,
   CheckNIM,
   Congrats,
-  Sorry
+  Sorry,
 } from './oprec';
 
 export { Login, Register, NewPassword } from './auth';

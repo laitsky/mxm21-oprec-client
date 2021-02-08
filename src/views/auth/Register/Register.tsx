@@ -14,6 +14,7 @@ import {
   Text,
   FormErrorMessage,
   Center,
+  useToast,
 } from '@chakra-ui/react';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
@@ -40,6 +41,7 @@ const bgStyle: React.CSSProperties = {
 };
 
 const Register: React.FC = () => {
+  const toast = useToast();
   const {
     register,
     handleSubmit,
@@ -54,8 +56,15 @@ const Register: React.FC = () => {
 
   const onSubmit = async (data: RequestTokenData) => {
     try {
-      const result = await requestToken(data);
-      console.log(result);
+      await requestToken(data);
+      toast({
+        position: 'bottom-right',
+        title: 'Berhasil mendaftar.',
+        description: `Kamu berhasil melakukan request token. Silakan tunggu pembagian token.`,
+        status: 'success',
+        duration: 2000,
+        isClosable: true,
+      });
     } catch (error) {
       Swal.fire({
         title: 'Perhatian!',

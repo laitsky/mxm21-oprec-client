@@ -153,11 +153,14 @@ export const OprecHomepageContainer = styled.div`
   min-height: 100vh;
 `;
 
-export const ColoredContainer = styled.div<{ color?: Palette }>`
+export const ColoredContainer = styled.div<{
+  color?: Palette;
+  center?: boolean;
+}>`
   display: flex;
   flex-direction: column;
   place-items: center;
-
+  justify-content: ${(props) => (props.center ? 'center' : '')};
   background-color: ${(props) => props.color || 'black'};
   min-height: 100vh;
 `;

@@ -21,6 +21,7 @@ import { checkStudentStats } from '../../../services/oprec.service';
 
 const CheckNIM: React.FC = () => {
   const [status, setStatus] = React.useState<MahasiswaStatusProps>();
+  const [checked, setChecked] = React.useState(false);
   const { register, handleSubmit, errors, reset } = useForm();
   const [isLargerThan490] = useMediaQuery('(min-width: 490px)');
   const [isLargerThan400] = useMediaQuery('(min-width: 400px)');
@@ -42,7 +43,9 @@ const CheckNIM: React.FC = () => {
     }
   };
 
-
+  React.useEffect(() => {
+    console.log(status)
+  }, [status])
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <ColoredContainer color={Palette.MxmYellow}>
@@ -51,7 +54,7 @@ const CheckNIM: React.FC = () => {
           alt="Logo MAXIMA 2021"
           className="img-responsive"
           mt={16}
-          mb={16}
+          mb={12}
         />
         <Heading
           size={
@@ -61,6 +64,7 @@ const CheckNIM: React.FC = () => {
           style={{
             color: Palette.MxmPink,
           }}
+          mt={3}
           mb={3}
         >
           Selamat Datang!
