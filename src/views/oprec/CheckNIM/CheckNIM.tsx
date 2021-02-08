@@ -21,7 +21,6 @@ import { checkStudentStats } from '../../../services/oprec.service';
 
 const CheckNIM: React.FC = () => {
   const [status, setStatus] = React.useState<MahasiswaStatusProps>();
-  const [checked, setChecked] = React.useState(false);
   const { register, handleSubmit, errors, reset } = useForm();
   const [isLargerThan490] = useMediaQuery('(min-width: 490px)');
   const [isLargerThan400] = useMediaQuery('(min-width: 400px)');
@@ -30,7 +29,7 @@ const CheckNIM: React.FC = () => {
     const { nim_mhs } = data;
     try {
       const result = await checkStudentStats(nim_mhs);
-      setStatus(result.message);
+      console.log(result.message);
     } catch (error) {
       Swal.fire({
         title: 'Perhatian!',
@@ -43,9 +42,6 @@ const CheckNIM: React.FC = () => {
     }
   };
 
-  React.useEffect(() => {
-    console.log(status)
-  }, [status])
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <ColoredContainer color={Palette.MxmYellow}>
