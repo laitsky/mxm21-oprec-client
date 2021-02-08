@@ -14,6 +14,7 @@ import {
   Text,
   FormErrorMessage,
   Center,
+  useToast,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { useForm } from 'react-hook-form';
@@ -35,6 +36,7 @@ const bgStyle: React.CSSProperties = {
   backgroundImage: `repeating-radial-gradient( circle at 0 0, transparent 0, #e6e6f3 20px ), repeating-linear-gradient( #acaed855, #acaed8 )`,
 };
 const NewPassword: React.FC = () => {
+  const toast = useToast();
   const {
     register,
     handleSubmit,
@@ -51,8 +53,15 @@ const NewPassword: React.FC = () => {
 
   const onSubmit = async (data: SignUpData) => {
     try {
-      const result = await signUp(data);
-      console.log(result);
+      await signUp(data);
+      toast({
+        position: 'bottom-right',
+        title: 'Berhasil mendaftar.',
+        description: `Kamu berhasil melakukan request token. Silakan tunggu pembagian token.`,
+        status: 'success',
+        duration: 2000,
+        isClosable: true,
+      });
     } catch (error) {
       Swal.fire({
         title: 'Perhatian!',

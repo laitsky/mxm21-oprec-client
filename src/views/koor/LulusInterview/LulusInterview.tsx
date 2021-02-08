@@ -57,11 +57,14 @@ const LulusInterview: React.FC = () => {
     fetchData();
   }, []);
 
-  const handleLulusInterviewChange = (nim_mhs: string, i: number) => async (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleLulusInterviewChange = (
+    nim_mhs: string,
+    i: number,
+  ) => async (e: React.ChangeEvent<HTMLSelectElement>) => {
     const lulusInterview: LulusInterviewProps = {
       nim_koor: nim_koor.toString(),
       nim_mhs,
-      lulusInterview: +(e.target.value === 'true')
+      lulusInterview: +(e.target.value === 'true'),
     };
 
     try {
@@ -88,10 +91,10 @@ const LulusInterview: React.FC = () => {
     const newData = [...data];
     newData[i] = {
       ...newData[i],
-      lulusInterview: +(e.target.value === 'true')
+      lulusInterview: +(e.target.value === 'true'),
     };
     setData([...newData]);
-  }
+  };
   const divisionsFilter = keyword
     ? data.filter((d) =>
         d.divisi.name
@@ -160,7 +163,10 @@ const LulusInterview: React.FC = () => {
                   <Td>
                     <Select
                       defaultValue={d.lulusInterview.toString()}
-                      onChange={handleLulusInterviewChange(d.nim_mhs.toString(), i)}
+                      onChange={handleLulusInterviewChange(
+                        d.nim_mhs.toString(),
+                        i,
+                      )}
                     >
                       <option value="false">Tidak</option>
                       <option value="true">Ya</option>

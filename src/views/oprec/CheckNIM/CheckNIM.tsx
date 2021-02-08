@@ -14,19 +14,14 @@ import Swal from 'sweetalert2';
 import { OprecButton } from '../../../shared/styles/buttons';
 import { ColoredContainer } from '../../../shared/styles/containers';
 import { MxmInput } from '../../../shared/styles/input';
-import { Palette } from '../../../types';
+import { MahasiswaStatusProps, Palette } from '../../../types';
 import { MxmWhiteLogo } from '../../../assets';
 import './check-nim.css';
 import { checkStudentStats } from '../../../services/oprec.service';
 
 const CheckNIM: React.FC = () => {
-  const {
-    register,
-    handleSubmit,
-    errors,
-    formState,
-    reset,
-  } = useForm();
+  const [status, setStatus] = React.useState<MahasiswaStatusProps>();
+  const { register, handleSubmit, errors, reset } = useForm();
   const [isLargerThan490] = useMediaQuery('(min-width: 490px)');
   const [isLargerThan400] = useMediaQuery('(min-width: 400px)');
 
@@ -55,7 +50,7 @@ const CheckNIM: React.FC = () => {
           alt="Logo MAXIMA 2021"
           className="img-responsive"
           mt={16}
-          mb={16}
+          mb={12}
         />
         <Heading
           size={
@@ -65,6 +60,7 @@ const CheckNIM: React.FC = () => {
           style={{
             color: Palette.MxmPink,
           }}
+          mt={3}
           mb={3}
         >
           Selamat Datang!

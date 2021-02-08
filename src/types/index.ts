@@ -42,6 +42,7 @@ export enum Palette {
   MxmCyan = '#41CEBA',
   MxmYellow = '#FFD008',
   MxmPink = '#F4224B',
+  MxmWhite = '#FFFFFF',
 }
 
 export interface DivisionLists {
@@ -100,4 +101,10 @@ export interface SeleksiTerbukaProps {
   mahasiswa: { name: string };
   nim_mhs: number;
   no_urut: number;
+}
+
+export interface MahasiswaStatusProps {
+  lulusInterview: boolean;
+  lulusSeleksiForm: boolean;
+  tanggal_wawancara: string;
 }

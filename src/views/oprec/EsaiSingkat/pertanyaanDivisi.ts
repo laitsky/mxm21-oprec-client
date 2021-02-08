@@ -23,7 +23,7 @@ export const pertanyaanDivisi = [
     - 1 Foto Human interest
     - 1 Foto event / stage
     - 2 Foto bebas terbaikmu
-    - 1 Foto paling kreatif atau konseptual fotografi (Boleh photoshop/ virtual photography/ conceptual photography / creative photography / etc)
+    - 2 foto dari after movie maxima (Buka after movie maxima, ambil 2 foto virtual terbaik dan terkreatif) 
     
     Kirim foto-foto tersebut ke maxima@umn.ac.id dengan subject: FOTO_NAMA_ANGKATAN
     Isi kolom di bawah ini dengan '-'
@@ -51,9 +51,8 @@ export const pertanyaanDivisi = [
   },
   {
     divisi: Divisi.Merchandise,
-    q: `Lampirkan portofolio terbaik kalian (dalam bentuk pdf atau link google drive kumpulan karya) terkait produksi design merchandise, jika ada! 
-    Kumpulkan lampiran tersebut ke email maxima@umn.ac.id dengan subject MERCH_NAMALENGKAP_ANGKATAN. Ubah aksesibilitas folder Google drive menjadi publik jika melalui Google drive!
-    Isi kolom di bawah ini dengan '-'
+    q: `Wajib melampirkan portofolio terbaik kalian dalam bentuk link Google Drive dengan format nama folder: Nama_NIM_MERCH. 
+    Ubah aksesibilitas folder Google Drive menjadi publik dan masukkan link Google Drive di kolom bawah ini!
     `,
   },
   {
