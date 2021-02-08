@@ -36,7 +36,7 @@ const AppRouter: React.FC = () => {
       />
       <Route path="/check-nim" exact component={Oprec.CheckNIM} />
       <Route path="/congrats" exact component={Oprec.Congrats} />
-      <Route path="/sorry" exact component={Oprec.Congrats} />
+      <Route path="/sorry" exact component={Oprec.Sorry} />
       <Route path="/login" exact component={Auth.Login} />
       <Route path="/request-token" exact component={Auth.Register} />
       <Route path="/register" exact component={Auth.NewPassword} />
