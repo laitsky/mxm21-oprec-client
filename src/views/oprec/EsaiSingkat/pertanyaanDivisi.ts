@@ -3,7 +3,7 @@ import { Divisi } from '../../../types';
 export const pertanyaanDivisi = [
   {
     divisi: Divisi.Acara,
-    q: `Bagaimana pengalamanmu selama mengikuti rangkaian kegiatan MAXIMA 2020 (HoME/STATE/Malam Puncak) kemarin? Jika kamu terpilih nanti, apa yang ingin kamu tingkatkan dari MAXIMA 2021 kemarin?`,
+    q: `Bagaimana pengalamanmu selama mengikuti rangkaian kegiatan MAXIMA 2020 (HoME/STATE/Malam Puncak) kemarin? Jika kamu terpilih nanti, apa yang ingin kamu tingkatkan dari MAXIMA 2020 kemarin?`,
   },
   {
     divisi: Divisi.Bazaar,
