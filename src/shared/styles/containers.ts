@@ -9,13 +9,13 @@ export const FormComponent = styled.div<{ yellow?: boolean }>`
   font-family: Varela;
 `;
 
-export const FormComponent2 = styled.div`
+export const FormComponent2 = styled.div<{ color?: string }>`
   min-width: 100vw;
   display: flex;
   flex-direction: column;
   place-items: center;
   min-height: 100vh;
-  background-color: ${Palette.MxmNavy};
+  background-color:  ${(props) => props.color || Palette.MxmNavy};
   padding-top: 3em;
   padding-left: 0.5em;
   padding-right: 0.5em;
@@ -164,3 +164,22 @@ export const ColoredContainer = styled.div<{
   background-color: ${(props) => props.color || 'black'};
   min-height: 100vh;
 `;
+
+export const DescContainer = styled.div<{ color?: String }>`
+  font-size: 2em;
+  font-family: Varela;
+  text-align: center;
+  color: ${(props) => props.color || Palette.MxmNavy};
+
+  @media (max-width: 992px) {
+    font-size: 1.8em;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.6em;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.3em;
+  }
+`
