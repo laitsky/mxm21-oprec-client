@@ -15,7 +15,7 @@ export const FormComponent2 = styled.div<{ color?: string }>`
   flex-direction: column;
   place-items: center;
   min-height: 100vh;
-  background-color:  ${(props) => props.color || Palette.MxmNavy};
+  background-color: ${(props) => props.color || Palette.MxmNavy};
   padding-top: 3em;
   padding-left: 0.5em;
   padding-right: 0.5em;
@@ -165,7 +165,7 @@ export const ColoredContainer = styled.div<{
   min-height: 100vh;
 `;
 
-export const DescContainer = styled.div<{ color?: String }>`
+export const DescContainer = styled.div<{ color?: string }>`
   font-size: 2em;
   font-family: Varela;
   text-align: center;
@@ -182,4 +182,4 @@ export const DescContainer = styled.div<{ color?: String }>`
   @media (max-width: 480px) {
     font-size: 1.3em;
   }
-`
+`;

@@ -2,7 +2,6 @@ import * as React from 'react';
 import {
   Box,
   Flex,
-  Avatar,
   HStack,
   Link,
   IconButton,
@@ -11,7 +10,6 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
-  MenuDivider,
   useDisclosure,
   Stack,
   Image,
@@ -19,7 +17,6 @@ import {
 import {
   HamburgerIcon,
   CloseIcon,
-  AddIcon,
   SettingsIcon,
 } from '@chakra-ui/icons';
 import { Link as RouterLink } from 'react-router-dom';
@@ -125,7 +122,7 @@ const KoorNavbar: React.FC = () => {
           <Box pb={4}>
             <Stack as="nav" spacing={4}>
               {Links.map((link) => (
-                <NavLink key={link.route}>{link.name}</NavLink>
+                <NavLink key={link.route} route={link.route}>{link.name}</NavLink>
               ))}
             </Stack>
           </Box>

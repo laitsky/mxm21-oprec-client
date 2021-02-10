@@ -19,16 +19,12 @@ import jwtDecode from 'jwt-decode';
 import {
   AccessTokenProps,
   Divisi,
-  InterviewDateProps,
   LulusInterviewProps,
   Pendaftar,
-  SeleksiFormProps,
 } from '../../../types';
 import { getStudentData } from '../../../utils/getStudentData';
 import {
   downloadStudentPDF,
-  updateInterviewDate,
-  updateLulusForm,
   updateLulusInterview,
 } from '../../../services/koor.service';
 import { KoorNavbar } from '../../../shared/components';
