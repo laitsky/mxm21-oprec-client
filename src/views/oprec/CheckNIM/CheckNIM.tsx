@@ -18,18 +18,29 @@ import { MahasiswaStatusProps, Palette } from '../../../types';
 import { MxmWhiteLogo } from '../../../assets';
 import './check-nim.css';
 import { checkStudentStats } from '../../../services/oprec.service';
+import { useHistory, useLocation } from 'react-router-dom';
 
 const CheckNIM: React.FC = () => {
   const [status, setStatus] = React.useState<MahasiswaStatusProps>();
   const { register, handleSubmit, errors, reset } = useForm();
   const [isLargerThan490] = useMediaQuery('(min-width: 490px)');
   const [isLargerThan400] = useMediaQuery('(min-width: 400px)');
+  const history = useHistory();  
 
   const onSubmit = async (data: any) => {
     const { nim_mhs } = data;
     try {
       const result = await checkStudentStats(nim_mhs);
-      console.log(result.message);
+      if( result.message.lulusSeleksiForm ) {
+        history.push({
+          pathname: '/congrats',
+          state: {
+            tanggal_wawancara: result.message.tanggal_wawancara
+          },
+        });
+      } else {
+        history.push('/sorry');
+      }
     } catch (error) {
       Swal.fire({
         title: 'Perhatian!',
