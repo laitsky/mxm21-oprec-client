@@ -21,11 +21,15 @@ import './check-nim.css';
 import { checkStudentStats } from '../../../services/oprec.service';
 
 const CheckNIM: React.FC = () => {
-  const { register, handleSubmit, errors, reset } = useForm();
+  const { register, handleSubmit, errors, reset } = useForm({mode: 'onChange'});
   const [isLargerThan490] = useMediaQuery('(min-width: 490px)');
   const [isLargerThan400] = useMediaQuery('(min-width: 400px)');
   const history = useHistory();
 
+  React.useEffect(() => {
+    document.title = 'MAXIMA 2020: Seleksi Terbuka';
+  }, []);
+  
   const onSubmit = async (data: any) => {
     const { nim_mhs } = data;
     try {
