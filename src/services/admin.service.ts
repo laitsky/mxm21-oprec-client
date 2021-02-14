@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://secure.lumiere.my.id/api/admin';
+const BASE_URL = 'http://test.lumiere.my.id/api/admin';
 
 const token = window.sessionStorage.getItem('accessToken');
 const config = {

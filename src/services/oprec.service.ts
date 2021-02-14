@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { AbsenProps } from '../types';
 
-const BASE_URL = 'https://secure.lumiere.my.id';
+const BASE_URL = 'http://test.lumiere.my.id';
 
 export const studentVerify = async (
   nim_mhs: unknown | number | string,

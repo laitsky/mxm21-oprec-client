@@ -16,7 +16,7 @@ const config = {
   },
 };
 
-const BASE_URL = 'https://secure.lumiere.my.id/api/koor';
+const BASE_URL = 'http://test.lumiere.my.id/api/koor';
 
 export const requestToken = async (
   requestTokenData: RequestTokenData,

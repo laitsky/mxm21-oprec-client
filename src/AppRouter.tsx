@@ -29,11 +29,6 @@ const AppRouter: React.FC = () => {
         component={Oprec.FinalisasiData}
       />
       <Route path="/final-oprec" exact component={Oprec.FinalOprec} />
-      <Route
-        path="/absen-seleksi"
-        exact
-        component={Oprec.AbsenSeleksi}
-      />
       <Route path="/check-nim" exact component={Oprec.CheckNIM} />
       <Route path="/congrats" exact component={Oprec.Congrats} />
       <Route path="/sorry" exact component={Oprec.Sorry} />
@@ -56,16 +51,7 @@ const AppRouter: React.FC = () => {
         exact
         component={Koor.SeleksiTerbuka}
       />
-      {/* <Route
-        path="/logout"
-        exact
-        strict
-        render={() => {
-          window.sessionStorage.clear();
-          window.location.replace('/');
-        }}
-      /> */}
-      <Route path="/" exact component={Oprec.SelamatDatang} />
+      <Route path="/" exact component={Oprec.AbsenSeleksi} />
     </Switch>
   );
 };
