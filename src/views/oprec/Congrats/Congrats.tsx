@@ -1,12 +1,6 @@
-import {
-  Heading,
-  Box,
-  Image,
-  Divider,
-  Text,
-} from '@chakra-ui/react';
+import { Heading, Box, Image, Divider, Text } from '@chakra-ui/react';
 import * as React from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { MxmLogo } from '../../../assets';
 import {
@@ -37,7 +31,6 @@ export const responsiveTitle = {
   xl: '3.5em',
 };
 
-
 const Congrats: React.FC = () => {
   const location = useLocation();
   const history = useHistory();
@@ -56,13 +49,15 @@ const Congrats: React.FC = () => {
     >
       <FormComponent2 color="white">
         <ColoredContainer color={Palette.MxmWhite}>
-          <Image
-            src={MxmLogo}
-            alt="Logo MAXIMA 2021"
-            className="img-responsive"
-            mt={16}
-            mb={12}
-          />
+          <Link to="/">
+            <Image
+              src={MxmLogo}
+              alt="Logo MAXIMA 2021"
+              className="img-responsive"
+              mt={16}
+              mb={12}
+            />
+          </Link>
           <Heading
             fontSize={responsiveTitle}
             fontFamily="Kanit"

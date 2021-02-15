@@ -122,7 +122,9 @@ const KoorNavbar: React.FC = () => {
           <Box pb={4}>
             <Stack as="nav" spacing={4}>
               {Links.map((link) => (
-                <NavLink key={link.route} route={link.route}>{link.name}</NavLink>
+                <NavLink key={link.route} route={link.route}>
+                  {link.name}
+                </NavLink>
               ))}
             </Stack>
           </Box>

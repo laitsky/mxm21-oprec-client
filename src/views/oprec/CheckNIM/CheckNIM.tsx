@@ -11,7 +11,7 @@ import {
 import * as React from 'react';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { OprecButton } from '../../../shared/styles/buttons';
 import { ColoredContainer } from '../../../shared/styles/containers';
 import { MxmInput } from '../../../shared/styles/input';
@@ -21,7 +21,9 @@ import './check-nim.css';
 import { checkStudentStats } from '../../../services/oprec.service';
 
 const CheckNIM: React.FC = () => {
-  const { register, handleSubmit, errors, reset } = useForm({mode: 'onChange'});
+  const { register, handleSubmit, errors, reset } = useForm({
+    mode: 'onChange',
+  });
   const [isLargerThan490] = useMediaQuery('(min-width: 490px)');
   const [isLargerThan400] = useMediaQuery('(min-width: 400px)');
   const history = useHistory();
@@ -29,7 +31,7 @@ const CheckNIM: React.FC = () => {
   React.useEffect(() => {
     document.title = 'MAXIMA 2020: Seleksi Terbuka';
   }, []);
-  
+
   const onSubmit = async (data: any) => {
     const { nim_mhs } = data;
     try {
@@ -59,13 +61,15 @@ const CheckNIM: React.FC = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <ColoredContainer color={Palette.MxmYellow}>
-        <Image
-          src={MxmWhiteLogo}
-          alt="Logo MAXIMA 2021"
-          className="img-responsive"
-          mt={16}
-          mb={12}
-        />
+        <Link to="/">
+          <Image
+            src={MxmWhiteLogo}
+            alt="Logo MAXIMA 2021"
+            className="img-responsive"
+            mt={16}
+            mb={12}
+          />
+        </Link>
         <Heading
           size={
             isLargerThan490 ? '2xl' : isLargerThan400 ? 'xl' : 'md'

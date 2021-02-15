@@ -29,12 +29,12 @@ const AppRouter: React.FC = () => {
         component={Oprec.FinalisasiData}
       />
       <Route path="/final-oprec" exact component={Oprec.FinalOprec} />
-      <Route
+      {/* <Route
         path="/absen-seleksi"
         exact
         component={Oprec.AbsenSeleksi}
-      />
-      {/* <Route path="/check-nim" exact component={Oprec.CheckNIM} /> */}
+      /> */}
+      <Route path="/check-nim" exact component={Oprec.CheckNIM} />
       <Route path="/congrats" exact component={Oprec.Congrats} />
       <Route path="/sorry" exact component={Oprec.Sorry} />
       <Route path="/login" exact component={Auth.Login} />
@@ -65,7 +65,7 @@ const AppRouter: React.FC = () => {
           window.location.replace('/');
         }}
       /> */}
-      <Route path="/" exact component={Oprec.CheckNIM} />
+      <Route path="/" exact component={Oprec.AbsenSeleksi} />
     </Switch>
   );
 };

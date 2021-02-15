@@ -22,14 +22,11 @@ import {
   ModalOverlay,
 } from '@chakra-ui/react';
 import { useForm } from 'react-hook-form';
-import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { motion } from 'framer-motion';
 import { MxmLogoText } from '../../../assets';
-import {
-  absenSeleksi,
-  studentVerify,
-} from '../../../services/oprec.service';
+import { absenSeleksi } from '../../../services/oprec.service';
 import { OprecHomepageHeader } from '../../../shared/styles/header';
 import { OprecHomepageContainer } from '../../../shared/styles/containers';
 import { HomepageCheckCard } from '../../../shared/styles/cards';
@@ -39,27 +36,15 @@ import { formLabelStyle } from '../../../shared/constants';
 import { OprecButton } from '../../../shared/styles/buttons';
 import { AbsenProps } from '../../../types';
 
-interface Data {
-  nim: string;
-}
-
 const AbsenSeleksi: React.FC = () => {
   const [link, setLink] = React.useState('');
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const history = useHistory();
-  const {
-    register,
-    handleSubmit,
-    errors,
-    formState,
-    reset,
-  } = useForm();
+  const { register, handleSubmit, errors, formState } = useForm();
 
   const onSubmit = async (data: AbsenProps) => {
     window.sessionStorage.clear();
     try {
       const result = await absenSeleksi(data);
-      console.log(result.message);
       setLink(result.message);
       onOpen();
     } catch (error) {
@@ -88,6 +73,12 @@ const AbsenSeleksi: React.FC = () => {
       style={{ minHeight: '100vh' }}
     >
       <OprecHomepageContainer>
+        <div id="banner">
+          <Link to="/check-nim">
+            Klik di sini untuk melihat status kelulusan Seleksi
+            Formulir kamu.
+          </Link>
+        </div>
         <OprecHomepageHeader>
           SELEKSI <br /> TERBUKA <br /> MAXIMA 2021
         </OprecHomepageHeader>

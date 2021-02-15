@@ -15,3 +15,13 @@
   }
 
 }
+
+#banner {
+  background-color: #F4224B;
+  color: white;
+  font-family: 'DM Sans';
+  width: 100%;
+  font-size: 0.9rem;
+  padding: 0.35em;
+  text-align: center;
+}
