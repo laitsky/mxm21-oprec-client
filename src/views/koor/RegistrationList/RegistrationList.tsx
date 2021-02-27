@@ -209,20 +209,20 @@ const RegistrationList: React.FC = () => {
                       <option value="option1" disabled>
                         Pilih
                       </option>
-                      <option value="15 Februari 2021">
-                        15 Februari 2021
+                      <option value="1 Maret 2021">
+                        1 Maret 2021
                       </option>
-                      <option value="16 Februari 2021">
-                        16 Februari 2021
+                      <option value="2 Maret 2021">
+                        2 Maret 2021
                       </option>
-                      <option value="17 Februari 2021">
-                        17 Februari 2021
+                      <option value="3 Maret 2021">
+                        3 Maret 2021
                       </option>
-                      <option value="18 Februari 2021">
-                        18 Februari 2021
+                      <option value="4 Maret 2021">
+                        4 Maret 2021
                       </option>
-                      <option value="19 Februari 2021">
-                        19 Februari 2021
+                      <option value="5 Maret 2021">
+                        5 Maret 2021
                       </option>
                     </Select>
                   </Td>

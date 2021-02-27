@@ -30,10 +30,10 @@ const DaftarDivisi: React.FC = () => {
       icon: 'info',
       html: `
         <div style="font-family: 'Kanit'">
-        <h2 class='jadwal-header'>8-12 Februari 2021</h2>
-        <h3 class='jadwal-text'>Open Recruitment</h3>
-        <h2 class='jadwal-header'>14 Februari 2021</h2>
-        <h3 class='jadwal-text'>Pengumuman Tahap Seleksi Formulir</h3>
+        <h2 class='jadwal-header'>22-26 Februari 2021</h2>
+        <h3 class='jadwal-text'>Open Recruitment Batch 2</h3>
+        <h2 class='jadwal-header'>1-5 Maret 2021</h2>
+        <h3 class='jadwal-text'>Seleksi Terbuka Batch 2</h3>
         </div>
       `,
       confirmButtonText: 'Mengerti!',

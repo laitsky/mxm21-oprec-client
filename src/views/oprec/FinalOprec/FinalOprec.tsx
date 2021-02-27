@@ -105,7 +105,7 @@ const FinalOprec: React.FC = () => {
           Hasil seleksi formulir akan diumumkan pada tanggal
         </Text>
 
-        <BadgeContainer>14 Februari 2021</BadgeContainer>
+        <BadgeContainer>28 Februari 2021</BadgeContainer>
 
         <ButtonMaxima
           bgColor={Palette.MxmPink}

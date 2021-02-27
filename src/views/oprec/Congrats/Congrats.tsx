@@ -78,9 +78,14 @@ const Congrats: React.FC = () => {
             <Box>
               <strong>{tanggal_wawancara}</strong>
               <br />
-              jam 17.00 - selesai
+              jam 17.00 - selesai dengan cara:
             </Box>
           </DescContainer>
+          <ol style={{textAlign: "center", marginTop: "1em", padding: "1em"}}>
+            <li>Akses web MAXIMA (pada hari wawancara) untuk mendapatkan link zoom seleksi terbuka  link zoom tersedia 5 menit sebelum seleksi terbuka dimulai</li>
+            <li>Sistem seleksi terbuka FIFO (First In First Out) dengan urutan ditentukan dari waktu mengakses website</li>
+            <li>Perhatikan E-Mail Student dan sosial media MAXIMA untuk perubahan terkait seleksi terbuka</li>
+          </ol>
         </ColoredContainer>
 
         <Divider
