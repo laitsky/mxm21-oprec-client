@@ -1,4 +1,11 @@
-import { Heading, Box, Image, Divider, Text } from '@chakra-ui/react';
+import {
+  Heading,
+  Box,
+  Image,
+  Divider,
+  Text,
+  Center,
+} from '@chakra-ui/react';
 import * as React from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -9,10 +16,15 @@ import {
   FormComponent2,
 } from '../../../shared/styles/containers';
 import { Palette } from '../../../types';
-import './congrats.css';
 
 type LocationState = {
-  tanggal_wawancara: string;
+  data: {
+    name: string;
+    nim: number;
+    divisi: string;
+    lineLink: string;
+    qrLink: string;
+  };
 };
 
 export const responsiveLogo = {
@@ -34,8 +46,33 @@ export const responsiveTitle = {
 const Congrats: React.FC = () => {
   const location = useLocation();
   const history = useHistory();
-  const { tanggal_wawancara } = location.state as LocationState;
+  const { data } = location.state as LocationState;
 
+  const printQRCode = () => {
+    if (
+      data.divisi.startsWith('Koordinator') ||
+      data.divisi.startsWith('BPH')
+    ) {
+      return (
+        <Box mt={4}>
+          <DescContainer>{data.divisi}</DescContainer>
+        </Box>
+      );
+    }
+
+    return (
+      <DescContainer>
+        Selamat bergabung dalam kepanitiaan MAXIMA 2021!
+        <Box mt={4}>
+          LINE Group Divisi <strong>{data.divisi}:</strong>
+          <Center>
+            <Image src={data.qrLink} alt="QR Grup Divisi" />
+          </Center>
+          <a href={data.lineLink}>{data.lineLink}</a>
+        </Box>
+      </DescContainer>
+    );
+  };
   return (
     <motion.div
       initial={{ x: 400, opacity: 0 }}
@@ -53,7 +90,6 @@ const Congrats: React.FC = () => {
             <Image
               src={MxmLogo}
               alt="Logo MAXIMA 2021"
-              className="img-responsive"
               mt={16}
               mb={12}
             />
@@ -65,27 +101,33 @@ const Congrats: React.FC = () => {
               color: Palette.MxmPink,
             }}
             mt={3}
-            mb={16}
+            mb={2}
             textAlign="center"
           >
-            Selamat, <br /> Kamu Lolos!
+            Selamat! <br />{' '}
+            {data.name
+              .toLowerCase()
+              .split(' ')
+              .map(
+                (word) =>
+                  word.charAt(0).toUpperCase() + word.slice(1),
+              )
+              .join(' ')}{' '}
+            <br />
           </Heading>
-          <DescContainer>
-            Jangan lupa untuk mengikuti
-            <br />
-            seleksi terbuka pada:
-            <br />
-            <Box>
-              <strong>{tanggal_wawancara}</strong>
-              <br />
-              jam 17.00 - selesai dengan cara:
-            </Box>
-          </DescContainer>
-          <ol style={{textAlign: "center", marginTop: "1em", padding: "1em"}}>
-            <li>Akses web MAXIMA (pada hari wawancara) untuk mendapatkan link zoom seleksi terbuka  link zoom tersedia 5 menit sebelum seleksi terbuka dimulai</li>
-            <li>Sistem seleksi terbuka FIFO (First In First Out) dengan urutan ditentukan dari waktu mengakses website</li>
-            <li>Perhatikan E-Mail Student dan sosial media MAXIMA untuk perubahan terkait seleksi terbuka</li>
-          </ol>
+          <Heading
+            fontSize="2em"
+            fontFamily="Kanit"
+            style={{
+              color: Palette.MxmPink,
+              fontWeight: 200,
+            }}
+            textAlign="center"
+            mb={4}
+          >
+            000000{data.nim}
+          </Heading>
+          {printQRCode()}
         </ColoredContainer>
 
         <Divider

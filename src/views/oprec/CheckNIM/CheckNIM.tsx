@@ -7,6 +7,7 @@ import {
   AlertDescription,
   AlertIcon,
   Center,
+  Spinner,
 } from '@chakra-ui/react';
 import * as React from 'react';
 import { useForm } from 'react-hook-form';
@@ -24,23 +25,32 @@ const CheckNIM: React.FC = () => {
   const { register, handleSubmit, errors, reset } = useForm({
     mode: 'onChange',
   });
+  const [loading, setLoading] = React.useState<boolean>(false);
   const [isLargerThan490] = useMediaQuery('(min-width: 490px)');
   const [isLargerThan400] = useMediaQuery('(min-width: 400px)');
   const history = useHistory();
 
   React.useEffect(() => {
-    document.title = 'MAXIMA 2020: Seleksi Terbuka';
+    document.title = 'MAXIMA 2021: Cek Seleksi Panitia';
   }, []);
 
   const onSubmit = async (data: any) => {
+    setLoading(true);
     const { nim_mhs } = data;
     try {
       const result = await checkStudentStats(nim_mhs);
-      if (result.message.lulusSeleksiForm) {
+      console.log(result);
+      if (result.lulusInterview) {
         history.push({
           pathname: '/congrats',
           state: {
-            tanggal_wawancara: result.message.tanggal_wawancara,
+            data: {
+              name: result.name,
+              nim: result.nim,
+              divisi: result.divisi,
+              lineLink: result.line_group_link,
+              qrLink: result.line_qr_link,
+            },
           },
         });
       } else {
@@ -54,6 +64,7 @@ const CheckNIM: React.FC = () => {
         confirmButtonText: 'Coba lagi',
       });
     } finally {
+      setLoading(false);
       reset();
     }
   };
@@ -122,7 +133,12 @@ const CheckNIM: React.FC = () => {
           )}
         </Center>
         <Box mt={3} />
-        <OprecButton type="submit">Cari!</OprecButton>
+
+        {loading ? (
+          <Spinner color="teal.300" size="lg" />
+        ) : (
+          <OprecButton type="submit">Cari!</OprecButton>
+        )}
       </ColoredContainer>
     </form>
   );

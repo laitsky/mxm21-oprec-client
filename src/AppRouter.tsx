@@ -34,7 +34,7 @@ const AppRouter: React.FC = () => {
         exact
         component={Oprec.AbsenSeleksi}
       /> */}
-      {/* <Route path="/check-nim" exact component={Oprec.CheckNIM} /> */}
+      <Route path="/check-nim" exact component={Oprec.CheckNIM} />
       <Route path="/congrats" exact component={Oprec.Congrats} />
       <Route path="/sorry" exact component={Oprec.Sorry} />
       <Route path="/login" exact component={Auth.Login} />
